@@ -1,0 +1,1533 @@
+
+
+ Jupiter:
+Io: {
+    elems: {a: 421800.*1000, Eccen: 0.0041, nu: 84.129 *dr, 
+            MA: 342.021 *dr, i: 0.036 *dr, Omega: 43.977 *dr, N0: 203.4889583 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/1.625, fOmega: fq/7.420},
+    frame: {type: "Laplace", ra: 268.057 *dr, dec: 64.495 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Europa: {
+    elems: {a: 671100.*1000, Eccen: 0.0094, nu: 88.970 *dr, 
+            MA: 171.016 *dr, i: 0.466 *dr, Omega: 219.106 *dr, N0: 101.3747242 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/1.394, fOmega: fq/30.184},
+    frame: {type: "Laplace", ra: 268.084 *dr, dec: 64.506 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Ganymede: {
+    elems: {a: 1070400.*1000, Eccen: 0.0013, nu: 192.417 *dr, 
+            MA: 317.540 *dr, i: 0.177 *dr, Omega: 63.552 *dr, N0: 50.3176072 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/63.549, fOmega: fq/132.654},
+    frame: {type: "Laplace", ra: 268.168 *dr, dec: 64.543 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Callisto: {
+    elems: {a: 1882700.*1000, Eccen: 0.0074, nu: 52.643 *dr, 
+            MA: 181.408 *dr, i: 0.192 *dr, Omega: 298.848 *dr, N0: 21.5710728 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/205.75, fOmega: fq/338.82},
+    frame: {type: "Laplace", ra: 268.639 *dr, dec: 64.749 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Amalthea: {
+    elems: {a: 181400.*1000, Eccen: 0.0032, nu: 155.873 *dr, 
+            MA: 185.194 *dr, i: 0.380 *dr, Omega: 108.946 *dr, N0: 722.6317143 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/0.196, fOmega: fq/0.393},
+    frame: {type: "Laplace", ra: 268.057 *dr, dec: 64.495 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Thebe: {
+    elems: {a: 221900.*1000, Eccen: 0.0176, nu: 234.269 *dr, 
+            MA: 135.956 *dr, i: 1.080 *dr, Omega: 235.694 *dr, N0: 533.7002568 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/0.398, fOmega: fq/0.797},
+    frame: {type: "Laplace", ra: 268.057 *dr, dec: 64.495 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Adrastea: {
+    elems: {a: 129000.*1000, Eccen: 0.0018, nu: 328.047 *dr, 
+            MA: 135.673 *dr, i: 0.054 *dr, Omega: 228.378 *dr, N0: 1206.9988064 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/0.058, fOmega: fq/0.116},
+    frame: {type: "Laplace", ra: 268.057 *dr, dec: 64.496 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Metis: {
+    elems: {a: 128000.*1000, Eccen: 0.0012, nu: 297.177 *dr, 
+            MA: 276.047 *dr, i: 0.019 *dr, Omega: 146.912 *dr, N0: 1221.2545982 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/0.057, fOmega: fq/0.115},
+    frame: {type: "Laplace", ra: 268.057 *dr, dec: 64.496 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Himalia: {
+    elems: {a: 11460000.*1000, Eccen: 0.1586, nu: 331.234 *dr, 
+            MA: 66.874 *dr, i: 28.612 *dr, Omega: 64.798 *dr, N0: 1.4367562 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/139.38, fOmega: fq/292.57},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Elara: {
+    elems: {a: 11740000.*1000, Eccen: 0.2108, nu: 142.001 *dr, 
+            MA: 330.985 *dr, i: 27.945 *dr, Omega: 115.511 *dr, N0: 1.3865315 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/128.07, fOmega: fq/265.30},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Pasiphae: {
+    elems: {a: 23629000.*1000, Eccen: 0.4062, nu: 169.226 *dr, 
+            MA: 279.769 *dr, i: 151.413 *dr, Omega: 314.223 *dr, N0: 0.4841223 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.20, fOmega: fq/81.17},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Sinope: {
+    elems: {a: 23942000.*1000, Eccen: 0.2552, nu: 354.541 *dr, 
+            MA: 165.352 *dr, i: 158.189 *dr, Omega: 309.199 *dr, N0: 0.4743772 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/88.72, fOmega: fq/87.40},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Lysithea: {
+    elems: {a: 11717000.*1000, Eccen: 0.1161, nu: 49.670 *dr, 
+            MA: 330.475 *dr, i: 27.663 *dr, Omega: 5.326 *dr, N0: 1.3888891 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/131.19, fOmega: fq/292.04},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Carme: {
+    elems: {a: 23401000.*1000, Eccen: 0.2546, nu: 26.416 *dr, 
+            MA: 233.375 *dr, i: 164.994 *dr, Omega: 114.854 *dr, N0: 0.4903501 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.98, fOmega: fq/88.32},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Ananke: {
+    elems: {a: 21254000.*1000, Eccen: 0.2332, nu: 95.772 *dr, 
+            MA: 253.384 *dr, i: 148.693 *dr, Omega: 15.959 *dr, N0: 0.5716125 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/144.92, fOmega: fq/110.12},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Leda: {
+    elems: {a: 11164000.*1000, Eccen: 0.1624, nu: 269.393 *dr, 
+            MA: 230.352 *dr, i: 27.882 *dr, Omega: 219.181 *dr, N0: 1.4942407 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/144.79, fOmega: fq/301.94},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Callirrhoe: {
+    elems: {a: 24099000.*1000, Eccen: 0.2796, nu: 23.909 *dr, 
+            MA: 107.962 *dr, i: 147.080 *dr, Omega: 283.104 *dr, N0: 0.4744232 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/120.06, fOmega: fq/89.03},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Themisto: {
+    elems: {a: 7504000.*1000, Eccen: 0.2435, nu: 217.147 *dr, 
+            MA: 313.051 *dr, i: 42.977 *dr, Omega: 192.288 *dr, N0: 2.7688033 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/686.41, fOmega: fq/528.39},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Megaclite: {
+    elems: {a: 23814000.*1000, Eccen: 0.4156, nu: 288.882 *dr, 
+            MA: 135.272 *dr, i: 152.781 *dr, Omega: 280.575 *dr, N0: 0.4781658 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/76.90, fOmega: fq/79.23},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Taygete: {
+    elems: {a: 23363000.*1000, Eccen: 0.2523, nu: 231.540 *dr, 
+            MA: 94.756 *dr, i: 165.253 *dr, Omega: 305.114 *dr, N0: 0.4915209 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.04, fOmega: fq/88.59},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Chaldene: {
+    elems: {a: 23181000.*1000, Eccen: 0.2503, nu: 243.878 *dr, 
+            MA: 267.454 *dr, i: 165.155 *dr, Omega: 134.240 *dr, N0: 0.4974208 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.66, fOmega: fq/89.52},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Harpalyke: {
+    elems: {a: 21106000.*1000, Eccen: 0.2296, nu: 134.505 *dr, 
+            MA: 215.956 *dr, i: 148.759 *dr, Omega: 29.834 *dr, N0: 0.5775515 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/147.17, fOmega: fq/111.64},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Kalyke: {
+    elems: {a: 23565000.*1000, Eccen: 0.2466, nu: 218.934 *dr, 
+            MA: 255.702 *dr, i: 165.121 *dr, Omega: 43.864 *dr, N0: 0.4851490 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.76, fOmega: fq/87.67},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Iocaste: {
+    elems: {a: 21272000.*1000, Eccen: 0.2152, nu: 64.727 *dr, 
+            MA: 213.675 *dr, i: 149.411 *dr, Omega: 269.613 *dr, N0: 0.5699784 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/145.78, fOmega: fq/111.18},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Erinome: {
+    elems: {a: 23286000.*1000, Eccen: 0.2655, nu: 10.274 *dr, 
+            MA: 267.136 *dr, i: 164.914 *dr, Omega: 317.497 *dr, N0: 0.4941719 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.51, fOmega: fq/88.33},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Isonoe: {
+    elems: {a: 23231000.*1000, Eccen: 0.2471, nu: 116.879 *dr, 
+            MA: 124.941 *dr, i: 165.250 *dr, Omega: 130.961 *dr, N0: 0.4956884 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.80, fOmega: fq/89.52},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Praxidike: {
+    elems: {a: 21148000.*1000, Eccen: 0.2274, nu: 190.862 *dr, 
+            MA: 117.480 *dr, i: 148.885 *dr, Omega: 280.956 *dr, N0: 0.5756381 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/144.77, fOmega: fq/111.16},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Autonoe: {
+    elems: {a: 24037000.*1000, Eccen: 0.3152, nu: 54.793 *dr, 
+            MA: 142.035 *dr, i: 152.364 *dr, Omega: 272.817 *dr, N0: 0.4730563 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/92.33, fOmega: fq/85.00},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Thyone: {
+    elems: {a: 21197000.*1000, Eccen: 0.2307, nu: 97.023 *dr, 
+            MA: 238.786 *dr, i: 148.595 *dr, Omega: 233.022 *dr, N0: 0.5739872 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/147.58, fOmega: fq/110.93},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Hermippe: {
+    elems: {a: 21297000.*1000, Eccen: 0.2095, nu: 300.836 *dr, 
+            MA: 131.854 *dr, i: 150.740 *dr, Omega: 330.393 *dr, N0: 0.5679040 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/136.92, fOmega: fq/110.64},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Aitne: {
+    elems: {a: 23317000.*1000, Eccen: 0.2627, nu: 99.401 *dr, 
+            MA: 105.000 *dr, i: 165.048 *dr, Omega: 8.679 *dr, N0: 0.4930702 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.36, fOmega: fq/88.19},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Eurydome: {
+    elems: {a: 23146000.*1000, Eccen: 0.2755, nu: 223.631 *dr, 
+            MA: 287.689 *dr, i: 150.271 *dr, Omega: 302.470 *dr, N0: 0.5018735 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/111.58, fOmega: fq/93.30},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Euanthe: {
+    elems: {a: 21039000.*1000, Eccen: 0.2320, nu: 320.635 *dr, 
+            MA: 333.101 *dr, i: 148.915 *dr, Omega: 254.297 *dr, N0: 0.5802269 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/144.52, fOmega: fq/111.71},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Euporie: {
+    elems: {a: 19336000.*1000, Eccen: 0.1438, nu: 89.904 *dr, 
+            MA: 70.243 *dr, i: 145.740 *dr, Omega: 60.143 *dr, N0: 0.6537221 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/337063.88, fOmega: fq/139.45},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Orthosie: {
+    elems: {a: 21158000.*1000, Eccen: 0.2807, nu: 216.805 *dr, 
+            MA: 204.517 *dr, i: 146.004 *dr, Omega: 221.949 *dr, N0: 0.5782402 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/142.35, fOmega: fq/107.53},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Sponde: {
+    elems: {a: 23790000.*1000, Eccen: 0.3112, nu: 61.885 *dr, 
+            MA: 174.044 *dr, i: 150.997 *dr, Omega: 116.363 *dr, N0: 0.4810760 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/98.08, fOmega: fq/87.01},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Kale: {
+    elems: {a: 23306000.*1000, Eccen: 0.2597, nu: 44.233 *dr, 
+            MA: 212.853 *dr, i: 164.944 *dr, Omega: 60.170 *dr, N0: 0.4934152 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.91, fOmega: fq/88.57},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Pasithee: {
+    elems: {a: 23091000.*1000, Eccen: 0.2682, nu: 231.920 *dr, 
+            MA: 215.443 *dr, i: 165.117 *dr, Omega: 327.729 *dr, N0: 0.5003695 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.82, fOmega: fq/89.25},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Hegemone: {
+    elems: {a: 23575000.*1000, Eccen: 0.3445, nu: 197.144 *dr, 
+            MA: 236.950 *dr, i: 154.164 *dr, Omega: 318.902 *dr, N0: 0.4866038 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/85.66, fOmega: fq/84.87},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Mneme: {
+    elems: {a: 21033000.*1000, Eccen: 0.2258, nu: 40.542 *dr, 
+            MA: 256.860 *dr, i: 148.585 *dr, Omega: 13.467 *dr, N0: 0.5806001 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/148.06, fOmega: fq/112.26},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Aoede: {
+    elems: {a: 23974000.*1000, Eccen: 0.4325, nu: 59.739 *dr, 
+            MA: 197.676 *dr, i: 158.272 *dr, Omega: 173.392 *dr, N0: 0.4728089 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/69.17, fOmega: fq/76.83},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Thelxinoe: {
+    elems: {a: 21160000.*1000, Eccen: 0.2201, nu: 313.183 *dr, 
+            MA: 268.013 *dr, i: 151.390 *dr, Omega: 169.962 *dr, N0: 0.5732248 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/130.58, fOmega: fq/110.42},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Arche: {
+    elems: {a: 23352000.*1000, Eccen: 0.2495, nu: 171.632 *dr, 
+            MA: 39.713 *dr, i: 165.015 *dr, Omega: 339.210 *dr, N0: 0.4918707 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.40, fOmega: fq/88.73},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Kallichore: {
+    elems: {a: 23276000.*1000, Eccen: 0.2509, nu: 9.836 *dr, 
+            MA: 55.937 *dr, i: 165.102 *dr, Omega: 30.339 *dr, N0: 0.4943462 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.56, fOmega: fq/89.16},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Helike: {
+    elems: {a: 21065000.*1000, Eccen: 0.1498, nu: 299.482 *dr, 
+            MA: 43.659 *dr, i: 154.842 *dr, Omega: 89.749 *dr, N0: 0.5747808 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/127.40, fOmega: fq/114.52},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Carpo: {
+    elems: {a: 17056000.*1000, Eccen: 0.4317, nu: 90.372 *dr, 
+            MA: 337.062 *dr, i: 51.624 *dr, Omega: 50.597 *dr, N0: 0.7889862 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/711550.25, fOmega: fq/112.82},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Eukelade: {
+    elems: {a: 23323000.*1000, Eccen: 0.2619, nu: 309.685 *dr, 
+            MA: 204.846 *dr, i: 165.265 *dr, Omega: 193.558 *dr, N0: 0.4929260 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.24, fOmega: fq/88.16},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Cyllene: {
+    elems: {a: 23800000.*1000, Eccen: 0.4155, nu: 187.429 *dr, 
+            MA: 128.345 *dr, i: 150.336 *dr, Omega: 252.611 *dr, N0: 0.4787365 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.19, fOmega: fq/79.71},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Kore: {
+    elems: {a: 24482000.*1000, Eccen: 0.3313, nu: 138.071 *dr, 
+            MA: 33.416 *dr, i: 145.173 *dr, Omega: 313.355 *dr, N0: 0.4634134 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/108.39, fOmega: fq/84.47},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Herse: {
+    elems: {a: 23408000.*1000, Eccen: 0.2541, nu: 330.295 *dr, 
+            MA: 141.667 *dr, i: 164.964 *dr, Omega: 295.702 *dr, N0: 0.4901154 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.98, fOmega: fq/88.27},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2000 J 11": {
+    elems: {a: 12297000.*1000, Eccen: 0.2320, nu: 173.544 *dr, 
+            MA: 309.734 *dr, i: 28.631 *dr, Omega: 294.497 *dr, N0: 1.2939791 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/117.58, fOmega: fq/241.93},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 2": {
+    elems: {a: 28347000.*1000, Eccen: 0.4100, nu: 165.201 *dr, 
+            MA: 237.932 *dr, i: 157.291 *dr, Omega: 344.782 *dr, N0: 0.3671484 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/60.25, fOmega: fq/62.87},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 3": {
+    elems: {a: 20221000.*1000, Eccen: 0.1969, nu: 66.338 *dr, 
+            MA: 311.780 *dr, i: 147.547 *dr, Omega: 231.489 *dr, N0: 0.6165779 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/181.96, fOmega: fq/122.74},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 4": {
+    elems: {a: 23929000.*1000, Eccen: 0.3624, nu: 197.401 *dr, 
+            MA: 260.480 *dr, i: 149.589 *dr, Omega: 179.131 *dr, N0: 0.4766663 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/90.17, fOmega: fq/82.96},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 5": {
+    elems: {a: 23495000.*1000, Eccen: 0.2476, nu: 90.066 *dr, 
+            MA: 336.636 *dr, i: 165.248 *dr, Omega: 176.683 *dr, N0: 0.4873118 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.95, fOmega: fq/88.10},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 9": {
+    elems: {a: 23385000.*1000, Eccen: 0.2632, nu: 292.662 *dr, 
+            MA: 348.415 *dr, i: 165.047 *dr, Omega: 44.321 *dr, N0: 0.4909185 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.27, fOmega: fq/87.93},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 10": {
+    elems: {a: 23042000.*1000, Eccen: 0.4299, nu: 170.833 *dr, 
+            MA: 258.937 *dr, i: 165.073 *dr, Omega: 151.911 *dr, N0: 0.5026172 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/68.06, fOmega: fq/80.34},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 12": {
+    elems: {a: 17830000.*1000, Eccen: 0.4904, nu: 13.288 *dr, 
+            MA: 38.543 *dr, i: 151.003 *dr, Omega: 65.530 *dr, N0: 0.7351860 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/97.93, fOmega: fq/109.42},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 15": {
+    elems: {a: 22627000.*1000, Eccen: 0.1899, nu: 18.405 *dr, 
+            MA: 58.865 *dr, i: 146.492 *dr, Omega: 236.674 *dr, N0: 0.5219082 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/187.83, fOmega: fq/105.37},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 16": {
+    elems: {a: 21097000.*1000, Eccen: 0.2281, nu: 57.681 *dr, 
+            MA: 307.563 *dr, i: 148.683 *dr, Omega: 16.883 *dr, N0: 0.5779589 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/146.70, fOmega: fq/111.64},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 18": {
+    elems: {a: 20508000.*1000, Eccen: 0.0895, nu: 130.894 *dr, 
+            MA: 202.160 *dr, i: 146.077 *dr, Omega: 158.247 *dr, N0: 0.6018719 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/506.86, fOmega: fq/131.88},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 19": {
+    elems: {a: 23533000.*1000, Eccen: 0.2552, nu: 176.668 *dr, 
+            MA: 223.035 *dr, i: 165.116 *dr, Omega: 27.442 *dr, N0: 0.4862156 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.17, fOmega: fq/87.39},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2003 J 23": {
+    elems: {a: 23567000.*1000, Eccen: 0.2746, nu: 255.114 *dr, 
+            MA: 144.222 *dr, i: 146.424 *dr, Omega: 41.706 *dr, N0: 0.4914942 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/130.10, fOmega: fq/92.90},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2010 J 1": {
+    elems: {a: 23449000.*1000, Eccen: 0.2491, nu: 189.230 *dr, 
+            MA: 160.525 *dr, i: 165.100 *dr, Omega: 282.871 *dr, N0: 0.4887995 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/81.18, fOmega: fq/88.33},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2010 J 2": {
+    elems: {a: 21004000.*1000, Eccen: 0.2267, nu: 18.252 *dr, 
+            MA: 312.074 *dr, i: 148.673 *dr, Omega: 5.802 *dr, N0: 0.5817371 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/147.06, fOmega: fq/112.35},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2011 J 1": {
+    elems: {a: 23446000.*1000, Eccen: 0.2534, nu: 31.514 *dr, 
+            MA: 256.027 *dr, i: 165.318 *dr, Omega: 250.728 *dr, N0: 0.4888998 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/80.45, fOmega: fq/87.91},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2011 J 2": {
+    elems: {a: 23124000.*1000, Eccen: 0.3493, nu: 270.154 *dr, 
+            MA: 285.597 *dr, i: 153.597 *dr, Omega: 24.866 *dr, N0: 0.5011321 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/87.78, fOmega: fq/87.00},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+
+
+ Saturn:
+Mimas: {
+    elems: {a: 185539.*1000, Eccen: 0.0196, nu: 332.499 *dr, 
+            MA: 14.848 *dr, i: 1.574 *dr, Omega: 173.027 *dr, N0: 381.9944948 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.493, fOmega: fq/0.986},
+    frame: {type: "Laplace", ra: 40.589 *dr, dec: 83.536 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Enceladus: {
+    elems: {a: 238042.*1000, Eccen: 0.0000, nu: 0.076 *dr, 
+            MA: 199.686 *dr, i: 0.003 *dr, Omega: 342.507 *dr, N0: 262.7318978 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/1.184, fOmega: fq/2.360},
+    frame: {type: "Laplace", ra: 40.586 *dr, dec: 83.536 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Tethys: {
+    elems: {a: 294672.*1000, Eccen: 0.0001, nu: 45.202 *dr, 
+            MA: 243.367 *dr, i: 1.091 *dr, Omega: 259.842 *dr, N0: 190.6979109 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/2.490, fOmega: fq/4.982},
+    frame: {type: "Laplace", ra: 40.578 *dr, dec: 83.537 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Dione: {
+    elems: {a: 377415.*1000, Eccen: 0.0022, nu: 284.315 *dr, 
+            MA: 322.232 *dr, i: 0.028 *dr, Omega: 290.415 *dr, N0: 131.5349307 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/5.852, fOmega: fq/11.709},
+    frame: {type: "Laplace", ra: 40.544 *dr, dec: 83.540 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Rhea: {
+    elems: {a: 527068.*1000, Eccen: 0.0002, nu: 241.619 *dr, 
+            MA: 179.781 *dr, i: 0.333 *dr, Omega: 351.042 *dr, N0: 79.6900459 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/17.939, fOmega: fq/35.832},
+    frame: {type: "Laplace", ra: 40.328 *dr, dec: 83.559 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Titan: {
+    elems: {a: 1221865.*1000, Eccen: 0.0288, nu: 180.532 *dr, 
+            MA: 163.310 *dr, i: 0.306 *dr, Omega: 28.060 *dr, N0: 22.5769756 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/352.12, fOmega: fq/704.60},
+    frame: {type: "Laplace", ra: 36.214 *dr, dec: 83.949 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Hyperion: {
+    elems: {a: 1500933.*1000, Eccen: 0.0232, nu: 303.178 *dr, 
+            MA: 86.342 *dr, i: 0.615 *dr, Omega: 263.847 *dr, N0: 16.9199503 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/127.99, fOmega: fq/154.66},
+    frame: {type: "Laplace", ra: 36.372 *dr, dec: 83.862 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Iapetus: {
+    elems: {a: 3560854.*1000, Eccen: 0.0293, nu: 271.606 *dr, 
+            MA: 201.789 *dr, i: 8.298 *dr, Omega: 81.105 *dr, N0: 4.5379416 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/1676.69, fOmega: fq/3438.73},
+    frame: {type: "Laplace", ra: 284.715 *dr, dec: 78.749 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Phoebe: {
+    elems: {a: 12947918.*1000, Eccen: 0.1634, nu: 342.500 *dr, 
+            MA: 53.038 *dr, i: 175.243 *dr, Omega: 241.086 *dr, N0: 0.6569114 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/460.92, fOmega: fq/723.17},
+    frame: {type: "Laplace", ra: 275.954 *dr, dec: 67.455 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Janus: {
+    elems: {a: 151450.*1000, Eccen: 0.0098, nu: 16.012 *dr, 
+            MA: 17.342 *dr, i: 0.165 *dr, Omega: 154.175 *dr, N0: 518.3431513 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.240, fOmega: fq/0.482},
+    frame: {type: "Laplace", ra: 40.585 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Epimetheus: {
+    elems: {a: 151450.*1000, Eccen: 0.0161, nu: 88.975 *dr, 
+            MA: 80.377 *dr, i: 0.353 *dr, Omega: 192.762 *dr, N0: 518.0979676 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.240, fOmega: fq/0.482},
+    frame: {type: "Laplace", ra: 40.585 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Helene: {
+    elems: {a: 377444.*1000, Eccen: 0.0000, nu: 33.134 *dr, 
+            MA: 43.186 *dr, i: 0.213 *dr, Omega: 163.112 *dr, N0: 131.5349306 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/2.562, fOmega: fq/11.706},
+    frame: {type: "Laplace", ra: 40.544 *dr, dec: 83.540 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Telesto: {
+    elems: {a: 294720.*1000, Eccen: 0.0002, nu: 119.135 *dr, 
+            MA: 260.157 *dr, i: 1.180 *dr, Omega: 229.182 *dr, N0: 190.6979089 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/2.489, fOmega: fq/4.982},
+    frame: {type: "Laplace", ra: 40.578 *dr, dec: 83.537 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Calypso: {
+    elems: {a: 294721.*1000, Eccen: 0.0005, nu: 17.470 *dr, 
+            MA: 156.660 *dr, i: 1.500 *dr, Omega: 314.226 *dr, N0: 190.6979089 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/2.487, fOmega: fq/4.983},
+    frame: {type: "Laplace", ra: 40.578 *dr, dec: 83.537 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Atlas: {
+    elems: {a: 137774.*1000, Eccen: 0.0011, nu: 210.851 *dr, 
+            MA: 283.282 *dr, i: 0.003 *dr, Omega: 236.422 *dr, N0: 598.3147505 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.171, fOmega: fq/0.344},
+    frame: {type: "Laplace", ra: 40.585 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Prometheus: {
+    elems: {a: 139429.*1000, Eccen: 0.0022, nu: 37.514 *dr, 
+            MA: 96.886 *dr, i: 0.007 *dr, Omega: 319.176 *dr, N0: 587.2860142 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.179, fOmega: fq/0.359},
+    frame: {type: "Laplace", ra: 40.585 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Pandora: {
+    elems: {a: 141810.*1000, Eccen: 0.0042, nu: 66.248 *dr, 
+            MA: 125.112 *dr, i: 0.050 *dr, Omega: 147.272 *dr, N0: 572.7878754 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.190, fOmega: fq/0.381},
+    frame: {type: "Laplace", ra: 40.585 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Pan: {
+    elems: {a: 133585.*1000, Eccen: 0.0000, nu: 103.331 *dr, 
+            MA: 351.187 *dr, i: 0.000 *dr, Omega: 52.076 *dr, N0: 626.0317341 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.154, fOmega: fq/0.309},
+    frame: {type: "Laplace", ra: 40.583 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Methone: {
+    elems: {a: 194402.*1000, Eccen: 0.0000, nu: 134.636 *dr, 
+            MA: 71.189 *dr, i: 0.013 *dr, Omega: 313.562 *dr, N0: 356.5949252 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.250, fOmega: fq/1.158},
+    frame: {type: "Laplace", ra: 40.589 *dr, dec: 83.536 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Pallene: {
+    elems: {a: 212282.*1000, Eccen: 0.0040, nu: 16.074 *dr, 
+            MA: 356.229 *dr, i: 0.001 *dr, Omega: 123.180 *dr, N0: 312.0270737 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.862, fOmega: fq/1.899},
+    frame: {type: "Laplace", ra: 40.579 *dr, dec: 83.537 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Polydeuces: {
+    elems: {a: 377222.*1000, Eccen: 0.0191, nu: 311.847 *dr, 
+            MA: 89.307 *dr, i: 0.175 *dr, Omega: 67.936 *dr, N0: 131.5349306 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/5.811, fOmega: fq/11.695},
+    frame: {type: "Laplace", ra: 40.543 *dr, dec: 83.540 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Daphnis: {
+    elems: {a: 136504.*1000, Eccen: 0.0000, nu: 266.931 *dr, 
+            MA: 113.790 *dr, i: 0.003 *dr, Omega: 132.867 *dr, N0: 605.9791512 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.166, fOmega: fq/0.334},
+    frame: {type: "Laplace", ra: 40.583 *dr, dec: 83.538 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Anthe: {
+    elems: {a: 196888.*1000, Eccen: 0.0011, nu: 138.902 *dr, 
+            MA: 190.473 *dr, i: 0.015 *dr, Omega: 287.852 *dr, N0: 347.3587167 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.617, fOmega: fq/1.232},
+    frame: {type: "Laplace", ra: 40.583 *dr, dec: 83.537 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Aegaeon: {
+    elems: {a: 167425.*1000, Eccen: 0.0002, nu: 152.905 *dr, 
+            MA: 322.771 *dr, i: 0.001 *dr, Omega: 317.202 *dr, N0: 445.4934177 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.343, fOmega: fq/0.688},
+    frame: {type: "Laplace", ra: 40.584 *dr, dec: 83.537 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Ymir: {
+    elems: {a: 23128000.*1000, Eccen: 0.3338, nu: 21.352 *dr, 
+            MA: 228.673 *dr, i: 173.497 *dr, Omega: 192.937 *dr, N0: 0.2737369 /360},
+    prec:  {ep0:  0,
+            fNu: fq/217.61, fOmega: fq/277.53},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Paaliaq: {
+    elems: {a: 15204000.*1000, Eccen: 0.3325, nu: 237.522 *dr, 
+            MA: 321.654 *dr, i: 46.228 *dr, Omega: 330.022 *dr, N0: 0.5240567 /360},
+    prec:  {ep0:  0,
+            fNu: fq/576.14, fOmega: fq/535.71},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Tarvos: {
+    elems: {a: 18243000.*1000, Eccen: 0.5382, nu: 274.104 *dr, 
+            MA: 265.783 *dr, i: 33.725 *dr, Omega: 102.504 *dr, N0: 0.3886226 /360},
+    prec:  {ep0:  0,
+            fNu: fq/194.18, fOmega: fq/272.97},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Ijiraq: {
+    elems: {a: 11408000.*1000, Eccen: 0.2717, nu: 92.899 *dr, 
+            MA: 17.328 *dr, i: 47.485 *dr, Omega: 130.779 *dr, N0: 0.7974868 /360},
+    prec:  {ep0:  0,
+            fNu: fq/13807.37, fOmega: fq/935.12},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Suttungr: {
+    elems: {a: 19468000.*1000, Eccen: 0.1139, nu: 34.281 *dr, 
+            MA: 321.133 *dr, i: 175.815 *dr, Omega: 227.259 *dr, N0: 0.3540952 /360},
+    prec:  {ep0:  0,
+            fNu: fq/292.79, fOmega: fq/402.20},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Kiviuq: {
+    elems: {a: 11384000.*1000, Eccen: 0.3325, nu: 90.205 *dr, 
+            MA: 172.018 *dr, i: 46.764 *dr, Omega: 353.584 *dr, N0: 0.8013951 /360},
+    prec:  {ep0:  0,
+            fNu: fq/19973.94, fOmega: fq/840.86},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Mundilfari: {
+    elems: {a: 18653000.*1000, Eccen: 0.2097, nu: 309.694 *dr, 
+            MA: 92.821 *dr, i: 167.439 *dr, Omega: 82.856 *dr, N0: 0.3778328 /360},
+    prec:  {ep0:  0,
+            fNu: fq/312.23, fOmega: fq/417.31},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Albiorix: {
+    elems: {a: 16393000.*1000, Eccen: 0.4797, nu: 55.932 *dr, 
+            MA: 32.828 *dr, i: 34.060 *dr, Omega: 102.512 *dr, N0: 0.4595027 /360},
+    prec:  {ep0:  0,
+            fNu: fq/249.88, fOmega: fq/358.14},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Skathi: {
+    elems: {a: 15635000.*1000, Eccen: 0.2718, nu: 203.517 *dr, 
+            MA: 114.689 *dr, i: 152.633 *dr, Omega: 286.599 *dr, N0: 0.4944382 /360},
+    prec:  {ep0:  0,
+            fNu: fq/474.36, fOmega: fq/546.69},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Erriapus: {
+    elems: {a: 17602000.*1000, Eccen: 0.4722, nu: 282.522 *dr, 
+            MA: 294.829 *dr, i: 34.481 *dr, Omega: 150.985 *dr, N0: 0.4132539 /360},
+    prec:  {ep0:  0,
+            fNu: fq/219.90, fOmega: fq/323.49},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Siarnaq: {
+    elems: {a: 18182000.*1000, Eccen: 0.2802, nu: 65.929 *dr, 
+            MA: 201.288 *dr, i: 45.809 *dr, Omega: 47.826 *dr, N0: 0.4020067 /360},
+    prec:  {ep0:  0,
+            fNu: fq/457.40, fOmega: fq/454.20},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Thrymr: {
+    elems: {a: 20418000.*1000, Eccen: 0.4659, nu: 125.404 *dr, 
+            MA: 30.075 *dr, i: 177.659 *dr, Omega: 285.762 *dr, N0: 0.3296678 /360},
+    prec:  {ep0:  0,
+            fNu: fq/875.11, fOmega: fq/139002.09},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Narvi: {
+    elems: {a: 19349000.*1000, Eccen: 0.4296, nu: 169.959 *dr, 
+            MA: 114.172 *dr, i: 145.731 *dr, Omega: 174.435 *dr, N0: 0.3585873 /360},
+    prec:  {ep0:  0,
+            fNu: fq/341.38, fOmega: fq/347.42},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Aegir: {
+    elems: {a: 20751000.*1000, Eccen: 0.2524, nu: 242.651 *dr, 
+            MA: 26.017 *dr, i: 166.668 *dr, Omega: 179.064 *dr, N0: 0.3220526 /360},
+    prec:  {ep0:  0,
+            fNu: fq/273.91, fOmega: fq/350.18},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Bebhionn: {
+    elems: {a: 17116000.*1000, Eccen: 0.4682, nu: 358.141 *dr, 
+            MA: 168.045 *dr, i: 35.101 *dr, Omega: 199.128 *dr, N0: 0.4312114 /360},
+    prec:  {ep0:  0,
+            fNu: fq/236.57, fOmega: fq/342.06},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Bergelmir: {
+    elems: {a: 19336000.*1000, Eccen: 0.1420, nu: 133.400 *dr, 
+            MA: 306.494 *dr, i: 158.557 *dr, Omega: 202.164 *dr, N0: 0.3579396 /360},
+    prec:  {ep0:  0,
+            fNu: fq/359.70, fOmega: fq/424.95},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Bestla: {
+    elems: {a: 20209000.*1000, Eccen: 0.5145, nu: 81.185 *dr, 
+            MA: 239.156 *dr, i: 145.136 *dr, Omega: 288.308 *dr, N0: 0.3308757 /360},
+    prec:  {ep0:  0,
+            fNu: fq/284.99, fOmega: fq/299.08},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Farbauti: {
+    elems: {a: 20390000.*1000, Eccen: 0.2414, nu: 342.995 *dr, 
+            MA: 282.813 *dr, i: 156.520 *dr, Omega: 135.109 *dr, N0: 0.3312924 /360},
+    prec:  {ep0:  0,
+            fNu: fq/330.77, fOmega: fq/374.34},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Fenrir: {
+    elems: {a: 22454000.*1000, Eccen: 0.1347, nu: 120.982 *dr, 
+            MA: 131.678 *dr, i: 164.963 *dr, Omega: 226.595 *dr, N0: 0.2856343 /360},
+    prec:  {ep0:  0,
+            fNu: fq/276.77, fOmega: fq/332.99},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Fornjot: {
+    elems: {a: 25146000.*1000, Eccen: 0.2077, nu: 324.787 *dr, 
+            MA: 214.499 *dr, i: 170.372 *dr, Omega: 259.946 *dr, N0: 0.2409497 /360},
+    prec:  {ep0:  0,
+            fNu: fq/223.68, fOmega: fq/267.44},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Hati: {
+    elems: {a: 19868000.*1000, Eccen: 0.3710, nu: 21.286 *dr, 
+            MA: 163.640 *dr, i: 165.808 *dr, Omega: 324.380 *dr, N0: 0.3460954 /360},
+    prec:  {ep0:  0,
+            fNu: fq/262.48, fOmega: fq/339.97},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Hyrrokkin: {
+    elems: {a: 18440000.*1000, Eccen: 0.3359, nu: 273.076 *dr, 
+            MA: 291.841 *dr, i: 151.536 *dr, Omega: 45.402 *dr, N0: 0.3863203 /360},
+    prec:  {ep0:  0,
+            fNu: fq/375.76, fOmega: fq/406.45},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Kari: {
+    elems: {a: 22093000.*1000, Eccen: 0.4756, nu: 163.935 *dr, 
+            MA: 286.021 *dr, i: 156.067 *dr, Omega: 281.211 *dr, N0: 0.2924012 /360},
+    prec:  {ep0:  0,
+            fNu: fq/228.81, fOmega: fq/270.06},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Loge: {
+    elems: {a: 23059000.*1000, Eccen: 0.1862, nu: 32.821 *dr, 
+            MA: 337.237 *dr, i: 167.689 *dr, Omega: 343.811 *dr, N0: 0.2745228 /360},
+    prec:  {ep0:  0,
+            fNu: fq/251.72, fOmega: fq/307.35},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Skoll: {
+    elems: {a: 17668000.*1000, Eccen: 0.4636, nu: 193.115 *dr, 
+            MA: 44.965 *dr, i: 161.010 *dr, Omega: 296.623 *dr, N0: 0.4099120 /360},
+    prec:  {ep0:  0,
+            fNu: fq/286.68, fOmega: fq/369.06},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Surtur: {
+    elems: {a: 22941000.*1000, Eccen: 0.4459, nu: 303.662 *dr, 
+            MA: 136.191 *dr, i: 169.688 *dr, Omega: 236.537 *dr, N0: 0.2775384 /360},
+    prec:  {ep0:  0,
+            fNu: fq/202.95, fOmega: fq/259.66},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Jarnsaxa: {
+    elems: {a: 19354000.*1000, Eccen: 0.2178, nu: 237.422 *dr, 
+            MA: 198.750 *dr, i: 163.649 *dr, Omega: 22.519 *dr, N0: 0.3575194 /360},
+    prec:  {ep0:  0,
+            fNu: fq/312.48, fOmega: fq/396.92},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Greip: {
+    elems: {a: 18457000.*1000, Eccen: 0.3146, nu: 152.160 *dr, 
+            MA: 314.541 *dr, i: 174.800 *dr, Omega: 349.350 *dr, N0: 0.3841491 /360},
+    prec:  {ep0:  0,
+            fNu: fq/280.23, fOmega: fq/385.90},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Tarqeq: {
+    elems: {a: 17962000.*1000, Eccen: 0.1675, nu: 34.767 *dr, 
+            MA: 161.020 *dr, i: 46.291 *dr, Omega: 83.291 *dr, N0: 0.4067094 /360},
+    prec:  {ep0:  0,
+            fNu: fq/896.54, fOmega: fq/593.15},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2004 S 7": {
+    elems: {a: 21000000.*1000, Eccen: 0.5290, nu: 84.036 *dr, 
+            MA: 79.762 *dr, i: 165.693 *dr, Omega: 341.236 *dr, N0: 0.3157314 /360},
+    prec:  {ep0:  0,
+            fNu: fq/211.18, fOmega: fq/273.22},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2004 S 12": {
+    elems: {a: 19886000.*1000, Eccen: 0.3268, nu: 87.128 *dr, 
+            MA: 1.599 *dr, i: 165.261 *dr, Omega: 307.942 *dr, N0: 0.3441326 /360},
+    prec:  {ep0:  0,
+            fNu: fq/273.22, fOmega: fq/351.49},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2004 S 13": {
+    elems: {a: 18406000.*1000, Eccen: 0.2591, nu: 346.186 *dr, 
+            MA: 41.077 *dr, i: 168.798 *dr, Omega: 205.701 *dr, N0: 0.3856043 /360},
+    prec:  {ep0:  0,
+            fNu: fq/302.01, fOmega: fq/409.39},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2004 S 17": {
+    elems: {a: 19448000.*1000, Eccen: 0.1795, nu: 180.792 *dr, 
+            MA: 228.545 *dr, i: 168.239 *dr, Omega: 26.664 *dr, N0: 0.3548169 /360},
+    prec:  {ep0:  0,
+            fNu: fq/300.99, fOmega: fq/397.14},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2006 S 1": {
+    elems: {a: 18780000.*1000, Eccen: 0.1412, nu: 154.950 *dr, 
+            MA: 96.596 *dr, i: 156.180 *dr, Omega: 336.641 *dr, N0: 0.3741294 /360},
+    prec:  {ep0:  0,
+            fNu: fq/405.14, fOmega: fq/453.57},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2006 S 3": {
+    elems: {a: 22428000.*1000, Eccen: 0.3792, nu: 188.728 *dr, 
+            MA: 167.147 *dr, i: 158.631 *dr, Omega: 206.993 *dr, N0: 0.2868177 /360},
+    prec:  {ep0:  0,
+            fNu: fq/245.54, fOmega: fq/287.39},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2007 S 2": {
+    elems: {a: 16718000.*1000, Eccen: 0.1791, nu: 57.720 *dr, 
+            MA: 84.066 *dr, i: 174.057 *dr, Omega: 111.277 *dr, N0: 0.4454603 /360},
+    prec:  {ep0:  0,
+            fNu: fq/342.95, fOmega: fq/496.45},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2007 S 3": {
+    elems: {a: 18938000.*1000, Eccen: 0.1853, nu: 111.854 *dr, 
+            MA: 292.691 *dr, i: 177.595 *dr, Omega: 276.824 *dr, N0: 0.3681825 /360},
+    prec:  {ep0:  0,
+            fNu: fq/1079.63, fOmega: fq/161352.07},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+
+
+ Uranus:
+Ariel: {
+    elems: {a: 190900.*1000, Eccen: 0.0012, nu: 115.349 *dr, 
+            MA: 39.481 *dr, i: 0.041 *dr, Omega: 22.394 *dr, N0: 142.8356579 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/28.788, fOmega: fq/57.248},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Umbriel: {
+    elems: {a: 266000.*1000, Eccen: 0.0039, nu: 84.709 *dr, 
+            MA: 12.469 *dr, i: 0.128 *dr, Omega: 33.485 *dr, N0: 86.8688879 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/63.146, fOmega: fq/126.951},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Titania: {
+    elems: {a: 436300.*1000, Eccen: 0.0011, nu: 284.400 *dr, 
+            MA: 24.614 *dr, i: 0.079 *dr, Omega: 99.771 *dr, N0: 41.3514246 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/161.525, fOmega: fq/195.369},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Oberon: {
+    elems: {a: 583500.*1000, Eccen: 0.0014, nu: 104.400 *dr, 
+            MA: 283.088 *dr, i: 0.068 *dr, Omega: 279.771 *dr, N0: 26.7394888 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/161.52, fOmega: fq/195.37},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Miranda: {
+    elems: {a: 129900.*1000, Eccen: 0.0013, nu: 68.312 *dr, 
+            MA: 311.330 *dr, i: 4.338 *dr, Omega: 326.438 *dr, N0: 254.6906576 /360},
+    prec:  {ep0:  -20/100*Constants.CENTURY,
+            fNu: fq/8.913, fOmega: fq/17.727},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Cordelia: {
+    elems: {a: 49800.*1000, Eccen: 0.0003, nu: 136.827 *dr, 
+            MA: 254.805 *dr, i: 0.085 *dr, Omega: 38.374 *dr, N0: 1074.5183162 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.328, fOmega: fq/0.657},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Ophelia: {
+    elems: {a: 53800.*1000, Eccen: 0.0099, nu: 17.761 *dr, 
+            MA: 116.259 *dr, i: 0.104 *dr, Omega: 164.048 *dr, N0: 956.4283330 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.431, fOmega: fq/0.862},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Bianca: {
+    elems: {a: 59200.*1000, Eccen: 0.0009, nu: 8.293 *dr, 
+            MA: 138.486 *dr, i: 0.193 *dr, Omega: 93.220 *dr, N0: 828.3879607 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.603, fOmega: fq/1.206},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Cressida: {
+    elems: {a: 61800.*1000, Eccen: 0.0004, nu: 44.236 *dr, 
+            MA: 233.795 *dr, i: 0.006 *dr, Omega: 99.403 *dr, N0: 776.5824144 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.701, fOmega: fq/1.402},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Desdemona: {
+    elems: {a: 62700.*1000, Eccen: 0.0001, nu: 183.285 *dr, 
+            MA: 184.627 *dr, i: 0.113 *dr, Omega: 306.089 *dr, N0: 760.0555393 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.737, fOmega: fq/1.474},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Juliet: {
+    elems: {a: 64400.*1000, Eccen: 0.0007, nu: 223.819 *dr, 
+            MA: 244.696 *dr, i: 0.065 *dr, Omega: 200.155 *dr, N0: 730.1261349 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.809, fOmega: fq/1.619},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Portia: {
+    elems: {a: 66100.*1000, Eccen: 0.0001, nu: 222.433 *dr, 
+            MA: 218.312 *dr, i: 0.059 *dr, Omega: 260.067 *dr, N0: 701.4864814 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/0.888, fOmega: fq/1.777},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Rosalind: {
+    elems: {a: 69900.*1000, Eccen: 0.0001, nu: 140.477 *dr, 
+            MA: 136.181 *dr, i: 0.279 *dr, Omega: 12.847 *dr, N0: 644.6304183 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/1.081, fOmega: fq/2.163},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Belinda: {
+    elems: {a: 75300.*1000, Eccen: 0.0001, nu: 42.406 *dr, 
+            MA: 357.224 *dr, i: 0.031 *dr, Omega: 279.337 *dr, N0: 577.3602885 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/1.397, fOmega: fq/2.796},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Puck: {
+    elems: {a: 86000.*1000, Eccen: 0.0001, nu: 177.094 *dr, 
+            MA: 245.796 *dr, i: 0.319 *dr, Omega: 268.734 *dr, N0: 472.5445878 /360},
+    prec:  {ep0:  (-14*365-3 + 18.5) * 86400,
+            fNu: fq/2.224, fOmega: fq/4.448},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Perdita: {
+    elems: {a: 76417.*1000, Eccen: 0.0116, nu: 253.925 *dr, 
+            MA: 192.405 *dr, i: 0.470 *dr, Omega: 309.376 *dr, N0: 564.2469590 /360},
+    prec:  {ep0:  (3*365 + 237.5)*86400,
+            fNu: fq/1.479, fOmega: fq/2.958},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Mab: {
+    elems: {a: 97736.*1000, Eccen: 0.0025, nu: 249.565 *dr, 
+            MA: 273.769 *dr, i: 0.134 *dr, Omega: 350.737 *dr, N0: 390.0501070 /360},
+    prec:  {ep0:  (3*365 + 237.5)*86400,
+            fNu: fq/3.502, fOmega: fq/7.004},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Cupid: {
+    elems: {a: 74392.*1000, Eccen: 0.0013, nu: 247.608 *dr, 
+            MA: 163.830 *dr, i: 0.099 *dr, Omega: 182.793 *dr, N0: 587.4436490 /360},
+    prec:  {ep0:  (3*365 + 237.5)*86400,
+            fNu: fq/1.346, fOmega: fq/2.693},
+    frame: {type: "Equatorial"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Caliban: {
+    elems: {a: 7231100.*1000, Eccen: 0.1812, nu: 354.339 *dr, 
+            MA: 7.271 *dr, i: 141.529 *dr, Omega: 171.189 *dr, N0: 0.6209758 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/8936.31, fOmega: fq/6445.52},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Sycorax: {
+    elems: {a: 12179400.*1000, Eccen: 0.5219, nu: 20.103 *dr, 
+            MA: 266.583 *dr, i: 159.420 *dr, Omega: 263.034 *dr, N0: 0.2794217 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/1393.43, fOmega: fq/1863.29},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Prospero: {
+    elems: {a: 16276800.*1000, Eccen: 0.4445, nu: 174.152 *dr, 
+            MA: 233.586 *dr, i: 151.830 *dr, Omega: 319.003 *dr, N0: 0.1819679 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/1155.47, fOmega: fq/1370.39},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Setebos: {
+    elems: {a: 17420400.*1000, Eccen: 0.5908, nu: 359.953 *dr, 
+            MA: 179.449 *dr, i: 158.235 *dr, Omega: 250.235 *dr, N0: 0.1617921 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/823.91, fOmega: fq/1044.20},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Stephano: {
+    elems: {a: 8007400.*1000, Eccen: 0.2248, nu: 14.956 *dr, 
+            MA: 270.163 *dr, i: 143.819 *dr, Omega: 191.411 *dr, N0: 0.5313866 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/5484.23, fOmega: fq/5182.20},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Trinculo: {
+    elems: {a: 8505200.*1000, Eccen: 0.2194, nu: 158.688 *dr, 
+            MA: 180.374 *dr, i: 166.971 *dr, Omega: 193.755 *dr, N0: 0.4803847 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/2592.77, fOmega: fq/4273.04},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Francisco: {
+    elems: {a: 4282900.*1000, Eccen: 0.1324, nu: 140.644 *dr, 
+            MA: 3.202 *dr, i: 147.250 *dr, Omega: 100.738 *dr, N0: 1.3478663 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/12574.36, fOmega: fq/14080.40},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Margaret: {
+    elems: {a: 14146700.*1000, Eccen: 0.6772, nu: 90.017 *dr, 
+            MA: 322.187 *dr, i: 57.367 *dr, Omega: 7.067 *dr, N0: 0.2167366 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/12057739.22, fOmega: fq/987.08},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Ferdinand: {
+    elems: {a: 20430000.*1000, Eccen: 0.3993, nu: 156.298 *dr, 
+            MA: 26.163 *dr, i: 169.793 *dr, Omega: 217.350 *dr, N0: 0.1290311 /360},
+    prec:  {ep0:  (12*3600),
+            fNu: fq/747.30, fOmega: fq/1001.70},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+
+
+ Neptune:
+Triton: {
+    elems: {a: 354759.*1000, Eccen: 0.0000, nu: 66.142 *dr, 
+            MA: 352.257 *dr, i: 156.865 *dr, Omega: 177.608 *dr, N0: 61.2572638 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/386.371, fOmega: fq/687.446},
+    frame: {type: "Laplace", ra: 299.456 *dr, dec: 43.414 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Nereid: {
+    elems: {a: 5513818.*1000, Eccen: 0.7507, nu: 281.117 *dr, 
+            MA: 216.692 *dr, i: 7.090 *dr, Omega: 335.570 *dr, N0: 0.9996276 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/8091.45, fOmega: fq/9455.73},
+    frame: {type: "Laplace", ra: 269.302 *dr, dec: 69.117 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Naiad: {
+    elems: {a: 48227.*1000, Eccen: 0.0003, nu: 2.045 *dr, 
+            MA: 30.035 *dr, i: 4.691 *dr, Omega: 42.279 *dr, N0: 1222.8435847 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.289, fOmega: fq/0.575},
+    frame: {type: "Laplace", ra: 299.431 *dr, dec: 42.940 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Thalassa: {
+    elems: {a: 50074.*1000, Eccen: 0.0002, nu: 237.065 *dr, 
+            MA: 262.923 *dr, i: 0.135 *dr, Omega: 145.980 *dr, N0: 1155.7559749 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.327, fOmega: fq/0.654},
+    frame: {type: "Laplace", ra: 299.431 *dr, dec: 42.939 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Despina: {
+    elems: {a: 52526.*1000, Eccen: 0.0002, nu: 176.857 *dr, 
+            MA: 230.812 *dr, i: 0.068 *dr, Omega: 77.060 *dr, N0: 1075.7330674 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.387, fOmega: fq/0.774},
+    frame: {type: "Laplace", ra: 299.431 *dr, dec: 42.937 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Galatea: {
+    elems: {a: 61953.*1000, Eccen: 0.0001, nu: 343.011 *dr, 
+            MA: 65.999 *dr, i: 0.034 *dr, Omega: 37.247 *dr, N0: 839.6613030 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.690, fOmega: fq/1.380},
+    frame: {type: "Laplace", ra: 299.430 *dr, dec: 42.925 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Larissa: {
+    elems: {a: 73548.*1000, Eccen: 0.0014, nu: 249.891 *dr, 
+            MA: 166.246 *dr, i: 0.205 *dr, Omega: 308.127 *dr, N0: 649.0540770 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/1.257, fOmega: fq/2.516},
+    frame: {type: "Laplace", ra: 299.429 *dr, dec: 42.897 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Proteus: {
+    elems: {a: 117646.*1000, Eccen: 0.0005, nu: 67.968 *dr, 
+            MA: 250.938 *dr, i: 0.075 *dr, Omega: 315.131 *dr, N0: 320.7656245 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/6.380, fOmega: fq/12.727},
+    frame: {type: "Laplace", ra: 299.406 *dr, dec: 42.432 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+"S/2004 N 1": {
+    elems: {a: 105284.*1000, Eccen: 0.0000, nu: 0.000 *dr, 
+            MA: 302.652 *dr, i: 0.000 *dr, Omega: 0.000 *dr, N0: 378.9061402 /360},
+    prec:  {ep0:  12*3600,
+            fNu: fq/0.000, fOmega: fq/0.000},
+    frame: {type: "Laplace", ra: 299.373 *dr, dec: 42.944 *dr},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Halimede: {
+    elems: {a: 16681000.*1000, Eccen: 0.2909, nu: 162.119 *dr, 
+            MA: 105.258 *dr, i: 112.898 *dr, Omega: 217.288 *dr, N0: 0.1915578 /360},
+    prec:  {ep0:  (366+365+160)*86400,
+            fNu: fq/5673.19, fOmega: fq/18501.48},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Psamathe: {
+    elems: {a: 46705000.*1000, Eccen: 0.4617, nu: 144.158 *dr, 
+            MA: 190.027 *dr, i: 137.679 *dr, Omega: 298.074 *dr, N0: 0.0394359 /360},
+    prec:  {ep0:  (366+365+160)*86400,
+            fNu: fq/1477.62, fOmega: fq/1304.72},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Sao: {
+    elems: {a: 22619000.*1000, Eccen: 0.2827, nu: 65.047 *dr, 
+            MA: 168.139 *dr, i: 49.907 *dr, Omega: 60.354 *dr, N0: 0.1233230 /360},
+    prec:  {ep0:  (366+365+160)*86400,
+            fNu: fq/436880.78, fOmega: fq/5382.39},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Laomedeia: {
+    elems: {a: 23613000.*1000, Eccen: 0.4339, nu: 140.107 *dr, 
+            MA: 285.863 *dr, i: 34.049 *dr, Omega: 59.124 *dr, N0: 0.1133637 /360},
+    prec:  {ep0:  (366+365+160)*86400,
+            fNu: fq/2245.08, fOmega: fq/3325.44},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},
+Neso: {
+    elems: {a: 50258000.*1000, Eccen: 0.4243, nu: 86.441 *dr, 
+            MA: 260.648 *dr, i: 131.265 *dr, Omega: 49.151 *dr, N0: 0.0364349 /360},
+    prec:  {ep0:  (366+365+160)*86400,
+            fNu: fq/23936.86, fOmega: fq/1094.07},
+    frame: {type: "Ecliptic"},
+    render: {frac: 0.15, color: 0xFFFF00},
+    size:   100000
+},

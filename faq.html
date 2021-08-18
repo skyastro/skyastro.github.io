@@ -1,0 +1,125 @@
+<html>
+<head>
+<title> Orrery FAQ </title>
+</head>
+<body>
+<h2>Frequently asked questions </h2>
+<ol>
+    <li><strong>Why doesn't Pluto's orbit look like it comes inside Neptune's?</strong>
+This is a perspective issue.  The orrery shows what you might see if you were looking from a very specific position in the solar
+system (initially 6 AU directly above the Sun perpendicular to the ecliptic plane).  The portion of Pluto's
+orbit where it is nearer to the Sun than Neptune is also well above the ecliptic plane, so  in perspective it can show as outside Neptune's orbit from some perspectives.
+You can rotate the view around and get other perspectives where you can see the orbits crossing.
+    <li><strong>What do the colors mean?</strong>
+The colors of the planets and Sun were set to help identify them, e.g., Mars and its orbit are red.  The Sun is yellow.
+<p>
+Asteroids and comets are classified by the Minor Planet Center into a variety of categories.  The single
+character fields are for comets and prefix the name (e.g, 1P/Halley) and the longer named categories are used in their asteroid list.
+The Jupiter Trojans and Hilda asteroids can be seen near Jupiter's orbit. (The Hilda's just inside the Trojan
+locations or opposite Jupiter).  The MBA (main belt asteroids) are the overwhelming majority of detected objects
+but only about 30,000 are shown here of the more than 1 million known.  The other categories generally reflect the
+orbit of the object. We chose to emphasize rarer categories, so the density of discovered objects in the main belt
+is dramatically understated.    
+
+These categories were given essentially arbitrary but distinguishable colors as noted.  The brightness is adjusted based
+upon the absolute brightness of the object according the MPC ephemerides.
+</p>
+<pre>
+
+"A":              0xbfef45,  Used for a few (~10) objects in comet-like orbits which do not show cometary activity.
+"Amor":           0x1f8231,  NEO's non-Earth-orbit crossing, period > 1 year, perihelion < 1.3 au 
+"Apollo":         0xfabed4,  NEO's, with perhelion < 1.017 AU and, a>1 AU.
+"Aten":           0xdcbeff,  NEO's, Earth-orbit-corssing, a<1 AU, perihelion >0.983 AU
+"Atira":          0x469990,  Orbit always interior to Earth
+"C":              0xf032e6,  Long term comets
+"Distant Object": 0x3cb44b,  As name implies (i.e., non comet with orbit beyond Jupiter)
+"Hilda":          0xffd8b1,  3:2 resonance with Jupiter
+"Hungaria":       0xaaffc3,  1.78 AU < a < 2 AU
+"I":              0x9a6324,  Interstellar object (significantly hyperbolic orbit) (very rare)
+"Jupiter Trojan": 0x42d4f4,  as name implies
+"MBA":            0xffe119,  main belt asteroid
+"Object with perihelion distance < 1.665 AU": 0x4363d8, (Presumably not falling into other NEO categories)
+"P":              0xe6194b,  Periodic comets
+"Phocaea":        0xfffac8,  a ~2.3 AU, 18d < i < 32d, e>0.1
+</pre>
+<p>
+    In the Local Galactic Neighborhood the color of the stars mostly reflects the spectral type:
+<pre>
+    Red:          M
+    Orange:       K
+    Yellow:       G
+    Yellow/White: F
+    White:        A
+    Blue/White:   B
+    Blue:         O
+    Green:        White dwarfs and a few oddballs
+</pre>
+Some stars have colored rings.  A violet ring indicates a single planet, a blue ring 2 planets and
+a green ring, 3 or more planets.
+</p>
+
+In the Earth animation, the color of the satellites is coded such that debris is shown
+as red, Starlink satellites are green and others are currently left white.
+</li>
+<li> <strong>There seems to be an awful lot of stuff in the solar system.  Why
+        doesn't it cause more trouble?</strong>  Well it might and searching for objects
+        that may collide with the Earth is an ongoing project for many people, but the actual size
+        of the objects in the solar system is much, much, much smaller than depicted here.
+        The smallest we can draw an object is 1 pixel, and each such pixel represents a
+        cone which is typically about 1 million kilometers on a side and hundreds of
+        millions of kilometers long -- a total volume of perhaps a sextillion cubic kilometers.
+        That's many times the total volume of the Sun itself.
+        Since the typical asteroid is likely just a few cubic kilometers that leaves a lot of
+        empty space!
+</li>
+<li> <strong>Why is there a small gap in each orbit line?</strong>  This shows the position of perihelion in the orbit.  The gap is the last degree just before the perihelion passage.
+</li>
+<li> <strong>Why does Halley's comet seem to have an orbit in the main asteroid belt?</strong>
+"Halley" is also the name of an asteroid named after the eminent astronomer,  The famous comet is officially named "1P/Halley".
+In general comet names are prefixed by a string giving the number and type of the comet.  I.e., Halley was the first discovered [P]eriodic comet.
+</li>
+<li><Strong>Where is Alpha Centauri B?</strong> 
+    Alpha Centauri is a visual binary and the two components (along with the more distant companion
+    Proxima Centauri) have different Hipparcos identifiers.  However to the precision of the XYZ positions that
+    are used in the Galactic Neighborhood, they have the same position: there are separated by only a few thousandth's of
+    a parsec and the neighborhood is 200 parsecs in diameter.  So when the two stars are rendered they are rendered at
+    the same spot.  We render G stars, like Alpha Centauri A, as slightly larger spheres than K stars, like Alpha Centauri B.
+    So B is entirely closed in A.  When we click or mouse over, the library that finds objects under the mouse, looks only
+    for the first object, and that's always A.  But see the next question...    
+<li><strong>Why do the components of Alpha Centauri come apart as we animate the Local Galactic Neighborhood?</strong>
+    While Hipparcos (and SIMBAD) gives the same position for Alpha Centauri A and B, it gives them different velocities, the difference 
+    presumably reflecting the orbital velocities of the two stars around one another.  There are no dynamics
+    in the animation, so the gravitational forces that would keep the stars together in reality are not simulated.
+</li>
+<li><strong>Why are some element lines in the orbit calculator shaded?</strong>
+    When a parameter is computed based upon a default value or some formula using known
+    parameters, the corresponding row is shaded until the field is cleared.
+</li>
+<li><strong>I'm using the star connecter feature to show the line between two stars in the Galactic Neighborhood, but the line
+        disappears as soon as I release the mouse button.  How can I make the line persistent?</strong>
+    The line is created when we detect a mouse-down event on the <tt>Show</tt> button and goes away
+when a mouse-up event is seen.  So just move the mouse out of the button while it is depressed.
+
+<li> <strong>How accurate is are the orbits/sizes/etc...?</strong>
+Generally these animations try to comprehensively model the qualitative features of the
+orbits and bodies, but should definitely not be considered authoritative.
+Often they used data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
+satellite orbits are taken from JPL ephemerides which model the evolution of these orbits
+but have nothing like the accuracy needed for actual navigation.  
+The star data is taken primarily from the Gaia DR3 catalog which
+is the best data we currently have, but the precision is not high for distances near 100 pc nor for
+the proper motions of many stars.  Orbits for artificial bodies 
+orbiting the Earth are taken from NORAD supplied orbits.  However while we model the orbital
+precession of satellites (natural and artificial), atmospheric drag and active orbit control of
+artificial satellites is not addressed.  The rotation periods of and axes of planets are derived
+from public sources (notably Wikipedia) but we have not been able to determine the rotation phase for
+most bodies where it is clearly defined (e.g., the inner planets or the Galilean satellites of Jupiter).
+
+The texture maps used for the planets and some satellites are derived from a variety of sources.
+When rendering texture maps the solar lighting places the sun appropriately
+but lighting by the primary is not included.  Shadows are not currently modelled.
+
+</ol>
+        <a href="help_top.html">Top</a>
+</body>
+</html>

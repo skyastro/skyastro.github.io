@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Orrery Help</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2> Orrery Help </h2>
+             This web site provides a number of distinct but often interacting capabilities enabling
+             users to visualize elements of the universe in 3D.
+	   <ul> 
+               <li> The <strong>Solar System Orrery</strong> shows major and minor components of the solar system.  
+               Positions of the planets, asteroids and comets are shown.
+               The orbits and positions of the planets are shown, but currently no moons are displayed.
+               The positions of 50,000 minor planets and comets are also given.  
+               Data are taken from the Minor Planet Center of the Center for Astrophysics.  
+               Positions for these minor bodies for times more than a few years from the present are
+               not accurate since we are using a current epoch orbit.
+               Future upgrades may use update orbits appropriately for the time shown in the orrery.
+               The MPC divides Solar System bodies into a variety of categories, the orrery view shows 
+               the firest 5,000 of each of these (where there are more than 5,000 in the category). 
+               Thus rarer classes are preferentially shown, since all known objects in those
+               categories may be displayed.  A few spacecraft missions may also be  presented. 	  
+               <p>
+               You can zoom, pan and rotate the view at any time.
+               You can start and stop the orbits, set the time, speed up or slow the passage of time.
+               You can also highlight a particular orbit, show the orbit specified in the Orbit Calculator, 
+               or interact with trajectory set up in the Trajectory Controller.
+           </li>
+           <li> <strong>The Earth and environs </strong> shows the Earth, Moon and ~22,000 objects orbiting
+               the Earth that are being tracked by NORAD.  The orbits of all of the satellites
+               are shown and users can click to find particular objects as in the solar system.
+               However since orbits of the satellites are strongly affected by the atmosphere,
+               controlled burns and non-two body gravitational interactions, these orbits should
+               not be extrapolated very far, and the simulation will normally start at the time of
+               the downloaded satellite ephemerides.  The lighting of the Earth and Moon by the Sun
+               is modeled and spheres show the features of both of these bodies.  Although artificial
+               satellite orbits are shown at the proper distances relative to the Earth, the orbit
+               of the Moon is shown very much closer its actual distance.  This scaling can
+               be modified.
+               
+           <li> The <strong>Local Galactic Neighborhood</strong> renders the stars in the local Galactic neighborhood, within 40 parsecs, using Hipparcos 
+           positions and parallaxes.  A parsec is 3.2 light years, and is comparable to the distance to the nearer stars.
+           Hipparcos will ultimately be replaced by GAIA.  Stars where the NASA Exoplanet Archive shows one or more
+           planets are surrounded by colored rings.
+           As with the solar system you can zoom, pan and rotate the image around the Sun.  
+           You can also highlight the path between any two stars and get the distance between them.
+           If the vector origin is not updated, you will get the distance from the Sun.
+           For this feature you can show a path to stars that are beyond 40 pc so long as 
+           SIMBAD has a measured parallax for the star.  
+           An animation showing the space motions of the stars is also available.  You can 
+           show a vector while the simulation is running.  E.g., you can see how the distance to
+           Proxima Centauri is decreasing for the next few centuries.
+	   <li> 
+           The <strong>Orbit Calculator</strong> enables a user who can give some elements of an orbit to calculate others. 
+           Fill in whatever information you have on the orbit and see if the full orbit can be determined.
+           Note the distinction between elements that are constant along the orbit,
+	   and those that vary with time.  If an orbit is fully defined in the orbit calculator
+           the orbit can be shown in the Earth or Solar System simulations if the mass of the
+           central body matches that of the Earth or Sun.
+           </li>
+	   <li> 
+               The <strong>Trajectory Controller</strong> allows a user to transform one orbit into another using
+	   a set of specified accelerations. The status of this page is currently in flux.
+           </li>
+           </ul>
+	   <p>
+	   <a href="./faq.html"> FAQ </a>
+           <br>
+           <a href="./ack.html"> Sources and Acknowledgements </a>
+	   </p>
+
+    </body>
+</html>

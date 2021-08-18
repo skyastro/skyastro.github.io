@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <title>Orrery Acknowledgements</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2> Sources and Acknowledgements </h2>
+        This site uses many scientific data sets and software tools that have been made available
+        to the public at no cost.  These contributions are greatly appreciated.  They include:
+        <ul>
+            <li>
+                The asteroid and cometary orbits used are derived from the data published
+                by the <a href="https://minorplanetcenter.net">IAU Minor Planet Center</a> at the Center for Astrophysics.
+                The current release uses the data in the 
+                <a href="https://minorplanetcenter.net/Extended_Files/mpcorb_extended.json.gz">mpcorb_extended.json.gz</a>
+                and 
+                <a  href="https://www.minorplanetcenter.net/Extended_Files/cometels.json.gz">cometels.json.gz</a> files
+                that were available in early February 2021.
+                Over 1 million asteroids are available, but we extract 50,000 entries from these data.
+                The first 5,000 objects in each of the classes defined by the MPC are included.  For many classes
+                this means that all objects in that class are included.  E.g., all comets and all of many asteroid classes
+                are included.  Thus the rendered asteroids drastically underemphasize the dominance of main-belt asteroids
+                in currently detected objects.    
+                
+            </li>
+            <li>
+                The planetary ephemerides are derived from 
+                <a href="https://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf">E.M. Standish, Keplerian Elements
+                    for Approximate Positions of the Major Planets </a>.  Currently the elements for the
+                    starting time of the simulation are used for full span of the orrery calculation.  Ultimately
+                    we anticipate transitioning smoothly as the elements evolve.
+            </li>
+            <li>
+                Data for the stars within 100 pc are taken from the Gaia DR3 Nearby Stars catalog supplemented
+                by SIMBAD information.
+                <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=V/137D/XHIP">The Extended Hipparcos Catalogue</a>.
+                All data with a measured parallax of &gt; 25 milliarcseconds from this source were included in the sample.                
+            </li>
+            <li>
+                The <a href="https://simbad.u-strasbg.fr/simbad/sim-fid"> SIMBAD </a> name resolver is used to support
+                searches for stars not within 40 parsecs and for stars using names other than the those which are included
+                in data we have downloaded.  Note that in addition to the Hipparcos sequence number we also include the SIMBAD
+                principal identifier for an object.  These are 'expanded' from the form used in SIMBAD.  E.g.,  SIMBAD
+                uses the name "alf Cen A" rather than "Alpha Centauri A".  When an object is identified in SIMBAD
+                but we can use the identifiers returned by SIMBAD to match to an object in the local copy of elements ofthe XHIP catalog,
+                the local information will be used to ensure that users get the same result regardless of the name used.
+            </li>
+            <li>
+                Information on the extrasolar planets was extracted from the NASA Exoplanet Archive using
+                their <a href='https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS'> query interface</a>.<!-- comment -->
+                All exoplanets which had a Hipparcos ID were extracted, but only the number of planets in the
+                system is currently used.
+            <li>
+                 Data on satellites orbiting the Earth collected by NORAD is retrieved using the facilities
+                 of <a href="https://space-track.org"> Space-Track.org</a>.
+            </li>
+            <li> The Earth imagery and the code for displaying it was taken from <a href='http://thematicmapping.org/playground/webgl/earth/'>this site</a> which
+                illustrates using three.js to display an Earth sphere.
+            </li>
+            <li>
+                Images (textures) of the planets and many satellites were found in public sources
+                on the moon.  The source for each image is visible by clicking on the image.
+                The is a small industry in creating these images and we anticipate adding more
+                as we go forth.
+            </li>
+            <li>The image of the moon is from the <a href='https://solarviews.com/cap/moon/moonmap.htm'>
+                    SolarViews web site.</a></li>
+                
+            <li>
+                Much of the mathematics of the orbital element translations is succinctly described in documents describing the transformations from
+                <a href="https://web.archive.org/web/20160418175843/https://ccar.colorado.edu/asen5070/handouts/cart2kep2002.pdf">coordinates to elements</a> 
+                and 
+                <a href="https://web.archive.org/web/20170810015111/http://ccar.colorado.edu/asen5070/handouts/kep2cart_2002.doc">elements to coordinates</a>.
+                Thanks to the <a href="https://archive.org/web/">Wayback Machine</a> for keeping links to these documents alive!
+            </li>
+            <li> 
+                The three dimensional visualizations are provided using the capabilities of the
+                <a href="https://threejs.org/">three.js</a> library.  The amazing simplicity of that
+                library (given the power it provides) was the driver for providing this tool directly in JavaScript.
+                The documentation for this library is somewhat cryptic, so many thanks to the myriad people who
+                have asked and answered questions and put up amazing demonstrations of what is possible.  
+            </li>
+            <li>
+                This web page was built within the <a href="https://reactjs.org/">React</a> framework.
+                This was primarily to enable us to use the abilities of the compilation framework to 
+                combine and compress component JavaScript files rather than a need for compliance to the React conventions.
+                In particular very little of the state of the canvas is maintained within the state of React
+                components so that animations have few direct dependencies on React.  However
+                many of the controls, and the forms used in the Orbit and Trajectory calculators
+                use React extensively.
+            </li>
+            <li>
+                Earlier versions of this toolkit used <a href="https://material-ui.com/">Material-UI</a> components, 
+                but more recent versions no longer do so.                
+            </li>
+                
+        </ul>
+        <a href="help_top.html">Top</a>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "short_name": "Space Explorer",
+  "name": "Solar System and Galaxy Explorer",
+  "icons": [
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
