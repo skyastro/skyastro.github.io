@@ -1,7 +1,7 @@
 # Everything ... and in between.
 
 This project is about building a three dimensional visualization of the local universe at all scales
-from the neighborhood or the Earth, through the Solar System, and looking at more than 300,000
+from the neighborhood of the Earth, through the Solar System, and looking at more than 300,000
 stars within 100 parsecs of the Sun.  Ultimately we hope to also include visualization of the
 the entire Galaxy (though not every star!), and nearby galaxies, groups and clusters.
 
