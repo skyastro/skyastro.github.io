@@ -5,6 +5,18 @@
 <body>
 <h2>Frequently asked questions </h2>
 <ol>
+    <li><strong>How do I get from one animation to another?</strong>  There are a number of ways
+        to change the current animation.  Within the solar system, double clicking on a planet or its orbit
+        will get you to the animation for that planet.  If you double-click very close to the corners of the
+        image, you can get to the base animation for the current animation, usually the animation in which the
+        current animation is embedded, so you can go from a Ganymede->Jupiter->Solar System->Local Galactic Neighborhood.
+        The base for the LGN is currently the Solar System though.  If you search for objects, those which
+        have their own animation have an icon to click to go to the animation.
+    </li>
+    <li><strong>Why isn't Venus shown as a cloudy white ball? </strong> We used a topographic map of Venus rather than
+                the rather boring optical image.  Similarly the image for Titan is taken in a band
+                which shows many more features than our eye might pick out.
+    </li>
     <li><strong>Why doesn't Pluto's orbit look like it comes inside Neptune's?</strong>
 This is a perspective issue.  The orrery shows what you might see if you were looking from a very specific position in the solar
 system (initially 6 AU directly above the Sun perpendicular to the ecliptic plane).  The portion of Pluto's
@@ -91,6 +103,11 @@ In general comet names are prefixed by a string giving the number and type of th
     presumably reflecting the orbital velocities of the two stars around one another.  There are no dynamics
     in the animation, so the gravitational forces that would keep the stars together in reality are not simulated.
 </li>
+<li><strong>Why is the Local Galactic Neighborhood simulation not working?</strong> The
+    default simulation needs very substantial graphics capabilities to render effectively.
+    If it's not working for you you can use a simulation of only about 3,000 stars, instead of the
+    300,000 stars, by adding the string ?galaxy=small to the regular base URL.
+</li>
 <li><strong>Why are some element lines in the orbit calculator shaded?</strong>
     When a parameter is computed based upon a default value or some formula using known
     parameters, the corresponding row is shaded until the field is cleared.
@@ -118,8 +135,29 @@ most bodies where it is clearly defined (e.g., the inner planets or the Galilean
 The texture maps used for the planets and some satellites are derived from a variety of sources.
 When rendering texture maps the solar lighting places the sun appropriately
 but lighting by the primary is not included.  Shadows are not currently modelled.
-
+<li><strong>Why don't satellite's actual movements match the orbits drawn for them?</strong>
+    Satellite orbits (both artificial and natural moons) cannot normally be modelled for any significant
+    lenght of time as a two-body orbit since they are subject to the influences of the non-spehrical
+    central bodies and the gravity of the Sun.  To first order this causes the orbits to precess with the
+    precess in certain well-defined ways which the program does model.  However when we draw
+    the orbit for a satellite, we draw the instantaneously correct elliptical orbit not including
+    precession.  Since the actual orbit of the satellite is not closed, there is no obvious curve
+    that 'should' be plotted and by drawing the instantaneous elliptical orbit, we allow users to
+    see how the orbit is affected by precession. 
+</li>
+<li><strong>How do I find a satellite given the complex names that the program uses for them </strong>
+    You can use wildcards in the satellite name to look for specific satellites.  E.g., to look for HST you can enter *HST*. 
+    You may still need to guess a bit.  E.g., *Chandra* won't work, but *CXO* (for Chandra X-ray Observatory) will.
+</li>
+<li> <strong>Why do some missions disappear?</strong>Generally we don't follow missions after they reach a stable orbit
+    around some other Solar System body (usually but not always a planet).  However we if a mission is in a solar orbit when it ends we use
+    the last available orbit for the mission indefinitely even decades after the final manuevers.
+</li>
+<li><strong>How do you know the orbit of missions in the future?</strong>  We use the Horizons predicted
+    orbits for the mission until either the mission is supposed to reach its destination (e.g.,
+    Mercury for BepiColombo) or no further manuevers are expected. 
+</li>
 </ol>
-        <a href="help_top.html">Top</a>
+<a href="help_top.html">Top</a>
 </body>
 </html>

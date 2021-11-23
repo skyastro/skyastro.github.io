@@ -8,51 +8,56 @@
     </head>
     <body>
         <h2> Orrery Help </h2>
-             This web site provides a number of distinct but often interacting capabilities enabling
-             users to visualize elements of the universe in 3D.
+             This web site provides a number of distinct, interacting capabilities enabling
+             users to visualize elements of the universe in 3D.  The current version is specified in <a href="./version.html">the version page</a> and changes are
+             noted in the <a href="./release.html">release notes</a>.
 	   <ul> 
                <li> The <strong>Solar System Orrery</strong> shows major and minor components of the solar system.  
-               Positions of the planets, asteroids and comets are shown.
-               The orbits and positions of the planets are shown, but currently no moons are displayed.
-               The positions of 50,000 minor planets and comets are also given.  
+               Positions of the the Sun, planets, asteroids and comets are displayed.
+               Both the orbits and positions of the planets are shown.  Moons are displayed in subanimations
+               of each planetary system (double click on the planet or its orbit).
+               The positions of 50,000 minor planets and comets are shown as dots.  
                Data are taken from the Minor Planet Center of the Center for Astrophysics.  
                Positions for these minor bodies for times more than a few years from the present are
-               not accurate since we are using a current epoch orbit.
+               less accurate since we are using a current epoch orbit.
                Future upgrades may use update orbits appropriately for the time shown in the orrery.
                The MPC divides Solar System bodies into a variety of categories, the orrery view shows 
-               the firest 5,000 of each of these (where there are more than 5,000 in the category). 
+               the first 5,000 of each of these (where there are more than 5,000 in the category). 
                Thus rarer classes are preferentially shown, since all known objects in those
-               categories may be displayed.  A few spacecraft missions may also be  presented. 	  
+               categories may be displayed. A few dozen spacecraft missions are also animated, but are generally
+               only shown while the spacecraft are in interplanetary travel (e.g., between Earth and Mars but not
+               during a Mars mission).
                <p>
                You can zoom, pan and rotate the view at any time.
                You can start and stop the orbits, set the time, speed up or slow the passage of time.
                You can also highlight a particular orbit, show the orbit specified in the Orbit Calculator, 
-               or interact with trajectory set up in the Trajectory Controller.
+               or interact with a trajectory set up in the Trajectory Controller (TBD).
            </li>
            <li> <strong>The Earth and environs </strong> shows the Earth, Moon and ~22,000 objects orbiting
-               the Earth that are being tracked by NORAD.  The orbits of all of the satellites
-               are shown and users can click to find particular objects as in the solar system.
+               the Earth that are being tracked by NORAD.  The satellites are shown as dots
+               and users can click to find particular objects as in the solar system.
                However since orbits of the satellites are strongly affected by the atmosphere,
-               controlled burns and non-two body gravitational interactions, these orbits should
+               orbit manuevers and non-two body gravitational interactions, these orbits should
                not be extrapolated very far, and the simulation will normally start at the time of
                the downloaded satellite ephemerides.  The lighting of the Earth and Moon by the Sun
-               is modeled and spheres show the features of both of these bodies.  Although artificial
-               satellite orbits are shown at the proper distances relative to the Earth, the orbit
-               of the Moon is shown very much closer its actual distance.  This scaling can
-               be modified.
+               is modeled and spheres show the features of both of these bodies.  Double-clicking on the moon
+               will change to a Lunar animation.
                
-           <li> The <strong>Local Galactic Neighborhood</strong> renders the stars in the local Galactic neighborhood, within 40 parsecs, using Hipparcos 
-           positions and parallaxes.  A parsec is 3.2 light years, and is comparable to the distance to the nearer stars.
-           Hipparcos will ultimately be replaced by GAIA.  Stars where the NASA Exoplanet Archive shows one or more
+           <li> The <strong>Local Galactic Neighborhood</strong> renders the stars in the local Galactic neighborhood, within 100 parsecs, using the GAIA DR3 Nearby Stars
+               Catalog to get 
+           positions and parallaxes. A parsec is 3.2 light years, and is comparable to the distance to the nearer stars.
+           Stars where the NASA Exoplanet Archive shows one or more
            planets are surrounded by colored rings.
            As with the solar system you can zoom, pan and rotate the image around the Sun.  
            You can also highlight the path between any two stars and get the distance between them.
            If the vector origin is not updated, you will get the distance from the Sun.
-           For this feature you can show a path to stars that are beyond 40 pc so long as 
+           For this feature you can show a path to stars that are beyond the 100 pc so long as 
            SIMBAD has a measured parallax for the star.  
            An animation showing the space motions of the stars is also available.  You can 
            show a vector while the simulation is running.  E.g., you can see how the distance to
-           Proxima Centauri is decreasing for the next few centuries.
+           Proxima Centauri is decreasing for the next few centuries.  Since the 300,000 stars in this
+           animation can tax graphics processors a smaller simulation based upon the Extended Hipparcos Catalog
+           can also be used by appending <code>?galaxy=small</code> to the URL when starting this web site.
 	   <li> 
            The <strong>Orbit Calculator</strong> enables a user who can give some elements of an orbit to calculate others. 
            Fill in whatever information you have on the orbit and see if the full orbit can be determined.
@@ -62,14 +67,55 @@
            central body matches that of the Earth or Sun.
            </li>
 	   <li> 
-               The <strong>Trajectory Controller</strong> allows a user to transform one orbit into another using
-	   a set of specified accelerations. The status of this page is currently in flux.
+               The [TBD] <strong>Trajectory Controller</strong> allows a user to transform one orbit into another using
+	   a set of specified accelerations. This page is under development.
+           <li> The [TBD] <strong>Nearby Galaxies </strong> animation will show the positions of galaxies within
+               a few megaparsecs of the Milky Way.  It is not expected that any time dependent animation will be available here,
+               but users will be able to zoom and pan.
            </li>
            </ul>
-	   <p>
+           To switch among animations use the three-dot menu, or double click on an object which has a sub-animation
+           (e.g., planets with the Solar System, and some moon with the planetary system).  You can also use
+           the three-dot menu to find objects within the current simulation and if they have an associated animation
+           you can click on the appropriate button.
+           <p>The animation controls on the top left allow you to stop/start, reverse and change the speed of the
+           animation.  A specific time can be entered in the three-button menu.</p>
+           <p>The three-button menu allows you to set a specific time, look for objects by name, select among the primary animations, and view
+           help and other capabilites.  Just click on the three-buttons to show or clear the menu.  You can set
+           the time of the current animation by entering a date as year number (possibly including a fraction), a Julian
+           Day number, or an ISO formatted time (YYYY-MM-DD) to set the time of the simulation.</p>
+           <p> When entering text in boxes simply hit return to indicate that the text is complete.</p
+           <p>Within any animation you can normally click on any corner of the animation to go to its base animation which is usually the
+               animation in which the current Animation is embedded.  E.g., if looking at the Titan animation, a double click in the
+               corner will bring you to the Saturn animation.  Another double click in the corner brings you to the Solar System animation, and one
+               more gets to the Local Galactic Neighborhood.  However a double click there will bring you back to the Solar System.
+           <p>
+               You can display lists of objects in the current simulation either by clicking or by doing a
+               search using the name search in the three-dot menu.  Clicking shows under the mouse (or near it in the case
+               of Earth satellites, or comets and asteroids in the Solar System).  You can include * wildcards to find multiple
+               objects in a name search, e.g., *Halley*, will return both the comet 1P/Halley and the asteroid Halley.
+               Objects are show directly below the three-dot menu.
+               For each object in an object list you may have several options to click:
+           <ul>
+               <li>i: information about that object is displayed</li>
+               <li>A: start the animation associated with this object (planets and some moons)</li>
+               <li>C: center the animation on this object.  It will be displayed in the center of the
+               display and you can now pan around it.  Note however that this uses the current position of
+               the object: it does not follow an object on an orbit, but repeatedly click on the button to do so.
+               To restore the center you can
+               set the center to be the Sun (or the planet if you are in a planet system animation)</li>
+               <li> O: Display the instantaneous orbit of the object.  This does not include subsequent
+                   precession for moons or satellites. The orbit will persist in the simulation.</li>
+               <li> D: show a form to display a line showiung the delta between two objects.  The line will
+                   be drawn whenever the Connect button is pressed down.  You can press it
+                   repeatedly as either the source or destination object moves (or both).  Only one
+                   delta is shown in the simulation at any given time.</li>
+           </ul>
+           </p><p>
 	   <a href="./faq.html"> FAQ </a>
-           <br>
-           <a href="./ack.html"> Sources and Acknowledgements </a>
+           <br/>
+           <a href="./ack.html"> Sources and Acknowledgements </a><br/>
+           <a href='./Orbits.pdf'>Detailed background on mathematics of orbits</a>
 	   </p>
 
     </body>

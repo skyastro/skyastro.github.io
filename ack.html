@@ -33,13 +33,16 @@
             </li>
             <li>
                 Data for the stars within 100 pc are taken from the Gaia DR3 Nearby Stars catalog supplemented
-                by SIMBAD information.
-                <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=V/137D/XHIP">The Extended Hipparcos Catalogue</a>.
-                All data with a measured parallax of &gt; 25 milliarcseconds from this source were included in the sample.                
+                by SIMBAD information
+                <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=V/137D/XHIP">The Extended Hipparcos Catalogue</a> is used
+                when the galaxy=small flag is used in the URL.
+                Here all data with a measured parallax of &gt; 25 milliarcseconds from this source are included in the sample.  This gives
+                just 3000 nearby stars rather than the 300,000 in the GAIA sample.  The larger sample taxes
+                graphics hardware.                
             </li>
             <li>
                 The <a href="https://simbad.u-strasbg.fr/simbad/sim-fid"> SIMBAD </a> name resolver is used to support
-                searches for stars not within 40 parsecs and for stars using names other than the those which are included
+                searches for stars not within the sample used parsecs and for stars using names other than the those which are included
                 in data we have downloaded.  Note that in addition to the Hipparcos sequence number we also include the SIMBAD
                 principal identifier for an object.  These are 'expanded' from the form used in SIMBAD.  E.g.,  SIMBAD
                 uses the name "alf Cen A" rather than "Alpha Centauri A".  When an object is identified in SIMBAD
@@ -53,14 +56,16 @@
                 system is currently used.
             <li>
                  Data on satellites orbiting the Earth collected by NORAD is retrieved using the facilities
-                 of <a href="https://space-track.org"> Space-Track.org</a>.
+                 of <a href="https://space-track.org"> Space-Track.org</a>.  The current release uses the satellite
+                 data as of late August 2021.  Note that while we include precession terms for the orbits
+                 no other changes are currently in place so that orbits more than a few weeks from the collection time
+                 are more illustrative than accurate.
             </li>
             <li> The Earth imagery and the code for displaying it was taken from <a href='http://thematicmapping.org/playground/webgl/earth/'>this site</a> which
                 illustrates using three.js to display an Earth sphere.
             </li>
             <li>
-                Images (textures) of the planets and many satellites were found in public sources
-                on the moon.  The source for each image is visible by clicking on the image.
+                Images (textures) of the planets and many satellites were found in public sources.   The source for each image is visible by clicking on the image.
                 The is a small industry in creating these images and we anticipate adding more
                 as we go forth.
             </li>
