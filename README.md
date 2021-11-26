@@ -1,9 +1,9 @@
 # Everything ... and in between.
 
-This project is about building a three dimensional visualization of the local universe at all scales
+This project is about building a four dimensional visualization of the local universe at all scales
 from the neighborhood of the Earth, through the Solar System, and looking at more than 300,000
-stars within 100 parsecs of the Sun.  Ultimately we hope to also include visualization of the
-the entire Galaxy (though not every star!), and nearby galaxies, groups and clusters.
+stars within 100 parsecs of the Sun.  Ultimately we hope to also include visualization of nearby galaxies, 
+groups and clusters.
 
 The visualization of the Earth includes all objects orbiting the Earth that are tracked by NORAD.
 These satellites use a simple precession model but the effects of orbital drag are ignored.
@@ -21,10 +21,9 @@ from the Earth to be interesting.  The radii of most moons are exaggerated with 
 since otherwise they would be too small to see.  Jupiter and Saturn have vast systems of satellites
 which extend to great distances.
 
-The paths of a few major missions (currently Pioneer 10 & 11, Voyager 1 & 2, and New Horizons) can
+The paths of a few dozen missions can
 be seen during the animation of the Solar System with each launching from Earth and traipsing through the
 planets.  The orbits during the short planetary encounters simply merge the incoming and outgoing trajectories.
-More missions will be added.
 
 
 The full orbits of the planets are shown.  By default each of the 50,000 small bodies is depicted as just a small dot,
@@ -33,10 +32,10 @@ but the orbit of any of them can be also be shown along with a larger dot depict
 In the Local Galactic Neighborhood users can click on any star to get its name, spectral type and the
 number of known planets.  Stars with planets are shown with rings.
 
-Users can also draw lines between any two named stars, which will show the distance between them.
+Users can also draw lines between any two named object in the same animation.  This will show the distance and direction between them.
 
 The Local Galactic Neighborhood  can be animated to show the space motions of nearby stars relative to the
-Sun. So our Sun remains fixed during the simulation.  
+Sun. Our Sun remains fixed during the simulation.  
 
 In all of the animations, the rate of the animation can be sped or slowed or stopped and the direction of time can be reversed.
 The animations can be zoomed, panned and rotated using the OrbitControls of the Three.js framework.
