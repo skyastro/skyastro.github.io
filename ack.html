@@ -12,60 +12,101 @@
             <li>
                 The asteroid and cometary orbits used are derived from the data published
                 by the <a href="https://minorplanetcenter.net">IAU Minor Planet Center</a> at the Center for Astrophysics.
-                The current release uses the data in the 
+                The site uses the data in the 
                 <a href="https://minorplanetcenter.net/Extended_Files/mpcorb_extended.json.gz">mpcorb_extended.json.gz</a>
                 and 
                 <a  href="https://www.minorplanetcenter.net/Extended_Files/cometels.json.gz">cometels.json.gz</a> files
-                that were available in early February 2021.
-                Over 1 million asteroids are available, but we extract 50,000 entries from these data.
-                The first 5,000 objects in each of the classes defined by the MPC are included.  For many classes
-                this means that all objects in that class are included.  E.g., all comets and all of many asteroid classes
-                are included.  Thus the rendered asteroids drastically underemphasize the dominance of main-belt asteroids
-                in currently detected objects.    
+                that were current as of December 15, 2021.
+                Over 1 million asteroids are available in the original dataset, but we extract about 57,000 entries 
+                from these data.
+                The first 3,000 objects in each of the classes defined by the MPC are included.
+                For many classes
+                this means that all objects in that class are included.  E.g., all comets
+                are included.  The rendered asteroids drastically underemphasize the dominance of main-belt asteroids
+                in currently detected objects.  The nominal goal of the selection was to extract 50,000
+                objects from the sample, however all named objects were included and this pushed the number
+                up a bit.  Updates to the small body data are made using the OrbSupport GetSMB program.
                 
+            </li>
+            <li> Mission data for the interplanetary missions was retrieved from the
+                <a href=https://ssd.jpl.nasa.gov/horizons> JPL Horizons service</a> using its
+                Batch API.
+                For each included mission a set of ephemerides was extracted and processed
+                using the missionfinder main.js program.  This invokes the HorizonsQuery jar.
+                This program creates an orbit chain of orbits which approximate the mission
+                orbit for a sequence of periods.  Normally the mission is followed only during the time
+                it is interplanetary.  Missions that go on to orbit (or land on) other planets
+                are not followed after they reach their destination.  If the mission is in an
+                interplanetary orbit at the end of the JPL orbit coverage, the last valid orbit
+                is used subsequently.  Missions are included only when they actually launch, but
+                once launched the Horizons predicted trajectories are used.
             </li>
             <li>
                 The planetary ephemerides are derived from 
                 <a href="https://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf">E.M. Standish, Keplerian Elements
-                    for Approximate Positions of the Major Planets </a>.  Currently the elements for the
+                    for Approximate Positions of the Major Planets </a>.  The elements for the
                     starting time of the simulation are used for full span of the orrery calculation.  Ultimately
-                    we anticipate transitioning smoothly as the elements evolve.
+                    we anticipate transitioning to elements evolving.
+            </li>
+            <li>
+                The galaxy background used in the Solar System animation was generated from the
+                Mellinger catalog using the <a href='https://skyview.gsfc.nasa.gov'><i>SkyView</i></a>
+                virtual telescope.
+            </li>
+            <li>
+                Natural satellite orbit information was taken from mean ephemerides provided by JPL.  These are currently available
+                on <a href="https://ssd.jpl.nasa.gov/sats/elem/">their web site</a> in a queryable table but the version used in the Orrery
+                used a PDF which no longer seems to be accessible.  This had slightly older information.  Information on
+                the rotation orientation of the satellites (which is used for satellite animations) was generally
+                extracted from Wikipedia articles on each satellite.   For the satellites where we have image
+                information, the orbital and rotation periods are generally the same.  The rotation phase is generally not
+                easily accessible so that the orientations of the satellite sphere's is essentially random.
             </li>
             <li>
                 Data for the stars within 100 pc are taken from the Gaia DR3 Nearby Stars catalog supplemented
-                by SIMBAD information
+                by SIMBAD information and planetary information from the NASA Eoxplanet Archive.
                 <a href="http://vizier.u-strasbg.fr/viz-bin/VizieR?-source=V/137D/XHIP">The Extended Hipparcos Catalogue</a> is used
-                when the galaxy=small flag is used in the URL.
-                Here all data with a measured parallax of &gt; 25 milliarcseconds from this source are included in the sample.  This gives
+                when the galaxy=small flag is specified in the URL.
+                Here all data with a measured parallax of &gt; 25 milliarcseconds from Hipparcos are included in the sample.  This gives
                 just 3000 nearby stars rather than the 300,000 in the GAIA sample.  The larger sample taxes
-                graphics hardware.                
+                typical graphics hardware.  Names for the objects were generated by matching with SIMBAD and 'expanded' 
+                from the form used in SIMBAD.  E.g.,  SIMBAD
+                uses the name "alf Cen A" rather than "Alpha Centauri A".                  
             </li>
             <li>
                 The <a href="https://simbad.u-strasbg.fr/simbad/sim-fid"> SIMBAD </a> name resolver is used to support
-                searches for stars not within the sample used parsecs and for stars using names other than the those which are included
-                in data we have downloaded.  Note that in addition to the Hipparcos sequence number we also include the SIMBAD
-                principal identifier for an object.  These are 'expanded' from the form used in SIMBAD.  E.g.,  SIMBAD
-                uses the name "alf Cen A" rather than "Alpha Centauri A".  When an object is identified in SIMBAD
-                but we can use the identifiers returned by SIMBAD to match to an object in the local copy of elements ofthe XHIP catalog,
-                the local information will be used to ensure that users get the same result regardless of the name used.
+                searches for stars not within the sample used and for aliases other than the those which are included
+                in data we have downloaded.  
             </li>
             <li>
-                Information on the extrasolar planets was extracted from the NASA Exoplanet Archive using
-                their <a href='https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS'> query interface</a>.<!-- comment -->
+                Information on the extrasolar planets provided in the local galactic neighborhood was extracted from the NASA Exoplanet Archive using
+                their <a href='https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS'> query interface</a>.
                 All exoplanets which had a Hipparcos ID were extracted, but only the number of planets in the
                 system is currently used.
             <li>
-                 Data on satellites orbiting the Earth collected by NORAD is retrieved using the facilities
+                 Data on artificial satellites orbiting the Earth was collected by NORAD and is retrieved using the facilities
                  of <a href="https://space-track.org"> Space-Track.org</a>.  The current release uses the satellite
-                 data as of late August 2021.  Note that while we include precession terms for the orbits
+                 data as December 16, 2021.  Note that while we include precession terms for the orbits
                  no other changes are currently in place so that orbits more than a few weeks from the collection time
-                 are more illustrative than accurate.
+                 are more illustrative than accurate.  Updates to the satellites file 
+                 are retrieved using the OrbSupport GetNORAD clas.
             </li>
-            <li> The Earth imagery and the code for displaying it was taken from <a href='http://thematicmapping.org/playground/webgl/earth/'>this site</a> which
+            <li> Data on nearby galaxies uses the Karachensev, et al., Catalog of Nearby Galaxies,
+                extracted using the HEASARC's <a href='https://heasarc.gsfc.nasa.gov/xamin'>Xamin service</a>.
+                There this catalog is designated neargalcat.  The orientation of the galaxies in
+                space uses a cross-correlation with the RC3 de Vaucouleurs catalog to get the position angle.
+                Where not found the position angle is taken as 0 degrees.  In this animation
+                galaxies of numerical galaxy class 0-7 are shown with disks whose orientation and inclination
+                are determined by the position angle and inclination of the galaxy. The size of the galaxy is
+                taken from the linear diameter field.  The JSON file used is generated by
+                the OrbSupport GalaxyParser class.
+            </li>
+            <li> The Earth imagery and the code for displaying it were taken from <a href='http://thematicmapping.org/playground/webgl/earth/'>this site</a> which
                 illustrates using three.js to display an Earth sphere.
             </li>
             <li>
-                Images (textures) of the planets and many satellites were found in public sources.   The source for each image is visible by clicking on the image.
+                Images (textures) of the planets and many satellites were found in public sources.   The source for each image is visible by 
+                double clicking on the image.
                 The is a small industry in creating these images and we anticipate adding more
                 as we go forth.
             </li>
@@ -78,21 +119,23 @@
                 and 
                 <a href="https://web.archive.org/web/20170810015111/http://ccar.colorado.edu/asen5070/handouts/kep2cart_2002.doc">elements to coordinates</a>.
                 Thanks to the <a href="https://archive.org/web/">Wayback Machine</a> for keeping links to these documents alive!
+                A more leisurely and comprehensive discussion of these topics is <a href='Orbits.pdf'>included</a> in the Orrery documentation which is
+                in part based upon these documents.
             </li>
             <li> 
                 The three dimensional visualizations are provided using the capabilities of the
                 <a href="https://threejs.org/">three.js</a> library.  The amazing simplicity of that
                 library (given the power it provides) was the driver for providing this tool directly in JavaScript.
                 The documentation for this library is somewhat cryptic, so many thanks to the myriad people who
-                have asked and answered questions and put up amazing demonstrations of what is possible.  
+                have asked and answered questions and put up powerful demonstrations of what is possible.  
             </li>
             <li>
                 This web page was built within the <a href="https://reactjs.org/">React</a> framework.
                 This was primarily to enable us to use the abilities of the compilation framework to 
                 combine and compress component JavaScript files rather than a need for compliance to the React conventions.
                 In particular very little of the state of the canvas is maintained within the state of React
-                components so that animations have few direct dependencies on React.  However
-                many of the controls, and the forms used in the Orbit and Trajectory calculators
+                components so that animations themselves have few direct dependencies on React.  However
+                the animation controls, and the forms used in the Orbit and Trajectory calculators
                 use React extensively.
             </li>
         </ul>

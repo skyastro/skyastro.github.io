@@ -7,11 +7,20 @@
 <ol>
     <li><strong>How do I get from one animation to another?</strong>  There are a number of ways
         to change the current animation.  Within the solar system, double clicking on a planet or its orbit
-        will get you to the animation for that planet.  If you double-click very close to the corners of the
+        will get you to the animation for that planet.  
+        
+        If you double-click very close to the corners of the
         image, you can get to the base animation for the current animation, usually the animation in which the
-        current animation is embedded, so you can go from a Ganymede->Jupiter->Solar System->Local Galactic Neighborhood.
-        The base for the LGN is currently the Solar System though.  If you search for objects, those which
-        have their own animation have an icon to click to go to the animation.
+        current animation is embedded, so you can go from a Ganymede->Jupiter->Solar System->Local Galactic Neighborhood->Nearby Galaxies.
+        The base for the Nearby Galaxies is currently the Local Galactic Neighborhood though.  
+        
+        If you search for objects, those which
+        have their own animation often have an icon to click to go to the animation.  Double-clicking on the Milky Way in the Nearby Galaxies,
+        will take you to the Local Galactic Neighborhood, and double-clicking on the Sun in the Local Galactic Neighborhood will
+        take you to the Solar System.
+        
+        The Earth, Solar System, Local Galactic Neighborhood and Nearby Galaxies animations are 
+        availabe in one of the options in the three-dots.
     </li>
     <li><strong>Why isn't Venus shown as a cloudy white ball? </strong> We used a topographic map of Venus rather than
                 the rather boring optical image.  Similarly the image for Titan is taken in a band
@@ -72,6 +81,11 @@ a green ring, 3 or more planets.
 
 In the Earth animation, the color of the satellites is coded such that debris is shown
 as red, Starlink satellites are green and others are currently left white.
+<p>
+    In the Nearby Galaxies animation, the color of each galaxy is related to its
+    morphological class going from redder to bluer as we go from Elliptical to 
+    Spiral to Irregular (not that the underlying catalog uses the numerical
+    De Vaucouleurs galaxy classification not these names).
 </li>
 <li> <strong>There seems to be an awful lot of stuff in the solar system.  Why
         doesn't it cause more trouble?</strong>  Well it might and searching for objects
@@ -91,7 +105,7 @@ as red, Starlink satellites are green and others are currently left white.
 In general comet names are prefixed by a string giving the number and type of the comet.  I.e., Halley was the first discovered [P]eriodic comet.
 </li>
 <li><Strong>Where is Alpha Centauri B?</strong> 
-    Alpha Centauri is a visual binary and the two components (along with the more distant companion
+    Alpha Centauri is a visual binary and the two components (along with their more distant companion
     Proxima Centauri) have different Hipparcos identifiers.  However to the precision of the XYZ positions that
     are used in the Galactic Neighborhood, they have the same position: there are separated by only a few thousandth's of
     a parsec and the neighborhood is 200 parsecs in diameter.  So when the two stars are rendered they are rendered at
@@ -121,7 +135,7 @@ when a mouse-up event is seen.  So just move the mouse out of the button while i
 Generally these animations try to comprehensively model the qualitative features of the
 orbits and bodies, but should definitely not be considered authoritative.
 Often they used data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
-satellite orbits are taken from JPL ephemerides which model the evolution of these orbits
+satellite orbits are taken from mean JPL ephemerides which model the evolution of these orbits
 but have nothing like the accuracy needed for actual navigation.  
 The star data is taken primarily from the Gaia DR3 catalog which
 is the best data we currently have, but the precision is not high for distances near 100 pc nor for
@@ -133,13 +147,13 @@ from public sources (notably Wikipedia) but we have not been able to determine t
 most bodies where it is clearly defined (e.g., the inner planets or the Galilean satellites of Jupiter).
 
 The texture maps used for the planets and some satellites are derived from a variety of sources.
-When rendering texture maps the solar lighting places the sun appropriately
+When rendering texture maps the solar lighting places the Sun appropriately
 but lighting by the primary is not included.  Shadows are not currently modelled.
 <li><strong>Why don't satellite's actual movements match the orbits drawn for them?</strong>
     Satellite orbits (both artificial and natural moons) cannot normally be modelled for any significant
-    lenght of time as a two-body orbit since they are subject to the influences of the non-spehrical
-    central bodies and the gravity of the Sun.  To first order this causes the orbits to precess with the
-    precess in certain well-defined ways which the program does model.  However when we draw
+    length of time as a two-body orbit since they are subject to the influences of the non-spehrical
+    central bodies and the gravity of the Sun.  To first order this causes the orbits to change/precess 
+    in certain well-defined ways which the program does model.  However when we draw
     the orbit for a satellite, we draw the instantaneously correct elliptical orbit not including
     precession.  Since the actual orbit of the satellite is not closed, there is no obvious curve
     that 'should' be plotted and by drawing the instantaneous elliptical orbit, we allow users to
@@ -150,13 +164,17 @@ but lighting by the primary is not included.  Shadows are not currently modelled
     You may still need to guess a bit.  E.g., *Chandra* won't work, but *CXO* (for Chandra X-ray Observatory) will.
 </li>
 <li> <strong>Why do some missions disappear?</strong>Generally we don't follow missions after they reach a stable orbit
-    around some other Solar System body (usually but not always a planet).  However we if a mission is in a solar orbit when it ends we use
+    around some other Solar System body (usually but not always a planet).  However if a mission 
+    is in a solar orbit when it ends we use
     the last available orbit for the mission indefinitely even decades after the final manuevers.
 </li>
 <li><strong>How do you know the orbit of missions in the future?</strong>  We use the Horizons predicted
     orbits for the mission until either the mission is supposed to reach its destination (e.g.,
     Mercury for BepiColombo) or no further manuevers are expected. 
 </li>
+<li><strong>Why do the time controls disappear in the Nearby Galaxies animation?</strong>Since we do not know the proper
+    motions of galaxies (with a few exceptions), it's not possible to model their space motions. So the time display and
+    controls are hidden in this animation.
 </ol>
 <a href="help_top.html">Top</a>
 </body>
