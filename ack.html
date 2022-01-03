@@ -24,7 +24,7 @@
                 this means that all objects in that class are included.  E.g., all comets
                 are included.  The rendered asteroids drastically underemphasize the dominance of main-belt asteroids
                 in currently detected objects.  The nominal goal of the selection was to extract 50,000
-                objects from the sample, however all named objects were included and this pushed the number
+                objects from the sample. All named objects are included and this pushes the number
                 up a bit.  Updates to the small body data are made using the OrbSupport GetSMB program.
                 
             </li>
@@ -33,7 +33,7 @@
                 Batch API.
                 For each included mission a set of ephemerides was extracted and processed
                 using the missionfinder main.js program.  This invokes the HorizonsQuery jar.
-                This program creates an orbit chain of orbits which approximate the mission
+                This program creates an orbit chain which approximates the mission
                 orbit for a sequence of periods.  Normally the mission is followed only during the time
                 it is interplanetary.  Missions that go on to orbit (or land on) other planets
                 are not followed after they reach their destination.  If the mission is in an
@@ -45,13 +45,7 @@
                 The planetary ephemerides are derived from 
                 <a href="https://ssd.jpl.nasa.gov/txt/aprx_pos_planets.pdf">E.M. Standish, Keplerian Elements
                     for Approximate Positions of the Major Planets </a>.  The elements for the
-                    starting time of the simulation are used for full span of the orrery calculation.  Ultimately
-                    we anticipate transitioning to elements evolving.
-            </li>
-            <li>
-                The galaxy background used in the Solar System animation was generated from the
-                Mellinger catalog using the <a href='https://skyview.gsfc.nasa.gov'><i>SkyView</i></a>
-                virtual telescope.
+                    starting time of the simulation are used for full span of the orrery calculation.
             </li>
             <li>
                 Natural satellite orbit information was taken from mean ephemerides provided by JPL.  These are currently available
@@ -75,8 +69,10 @@
             </li>
             <li>
                 The <a href="https://simbad.u-strasbg.fr/simbad/sim-fid"> SIMBAD </a> name resolver is used to support
-                searches for stars not within the sample used and for aliases other than the those which are included
-                in data we have downloaded.  
+                searches for objects not within the sample used and for aliases other than the those which are included
+                in data we have downloaded.  Note that users can search for galaxies or clusters of galaxies
+                when in nearby animations, and for stars while looking on cosmic scales, to get a sense of the relative
+                directions of various astronomical objects.
             </li>
             <li>
                 Information on the extrasolar planets provided in the local galactic neighborhood was extracted from the NASA Exoplanet Archive using
@@ -94,7 +90,8 @@
             <li> Data on nearby galaxies uses the Karachensev, et al., Catalog of Nearby Galaxies,
                 extracted using the HEASARC's <a href='https://heasarc.gsfc.nasa.gov/xamin'>Xamin service</a>.
                 There this catalog is designated neargalcat.  The orientation of the galaxies in
-                space uses a cross-correlation with the RC3 de Vaucouleurs catalog to get the position angle.
+                space uses a cross-correlation with the  de Vaucouleurs RC3 catalog to get an estimate of the
+                position angle for galaxies.
                 Where not found the position angle is taken as 0 degrees.  In this animation
                 galaxies of numerical galaxy class 0-7 are shown with disks whose orientation and inclination
                 are determined by the position angle and inclination of the galaxy. The size of the galaxy is

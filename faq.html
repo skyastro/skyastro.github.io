@@ -5,33 +5,37 @@
 <body>
 <h2>Frequently asked questions </h2>
 <ol>
-    <li><strong>How do I get from one animation to another?</strong>  There are a number of ways
+    <li><strong>[General] How do I get from one animation to another?</strong>  There are a number of ways
         to change the current animation.  Within the solar system, double clicking on a planet or its orbit
         will get you to the animation for that planet.  
         
+        <p>
         If you double-click very close to the corners of the
         image, you can get to the base animation for the current animation, usually the animation in which the
-        current animation is embedded, so you can go from a Ganymede->Jupiter->Solar System->Local Galactic Neighborhood->Nearby Galaxies.
-        The base for the Nearby Galaxies is currently the Local Galactic Neighborhood though.  
-        
+        current animation is embedded, so you can go from a Ganymede->Jupiter->Solar System->Local Galactic Neighborhood->Nearby Galaxies->Clusters.
+        Since the clusters animation is cannot be embedded in anything larger, its base animation is the nearby galaxies.  
+        </p>
+        <p>
         If you search for objects, those which
         have their own animation often have an icon to click to go to the animation.  Double-clicking on the Milky Way in the Nearby Galaxies,
         will take you to the Local Galactic Neighborhood, and double-clicking on the Sun in the Local Galactic Neighborhood will
         take you to the Solar System.
-        
-        The Earth, Solar System, Local Galactic Neighborhood and Nearby Galaxies animations are 
-        availabe in one of the options in the three-dots.
+        </p>
+        <p>
+        Direct links to the Earth, Solar System, Local Galactic Neighborhood and Nearby Galaxies animations are 
+        available in one of the options in the three-dots menu.
+        </p>
     </li>
-    <li><strong>Why isn't Venus shown as a cloudy white ball? </strong> We used a topographic map of Venus rather than
+    <li><strong>[Solar System] Why isn't Venus shown as a cloudy white ball? </strong> We used a topographic map of Venus rather than
                 the rather boring optical image.  Similarly the image for Titan is taken in a band
                 which shows many more features than our eye might pick out.
     </li>
-    <li><strong>Why doesn't Pluto's orbit look like it comes inside Neptune's?</strong>
-This is a perspective issue.  The orrery shows what you might see if you were looking from a very specific position in the solar
+    <li><strong>[Solar System] Why doesn't Pluto's orbit look like it comes inside Neptune's?</strong>
+This is a perspective issue.  The Solar System orrery shows what you might see if you were looking from a very specific position in the solar
 system (initially 6 AU directly above the Sun perpendicular to the ecliptic plane).  The portion of Pluto's
 orbit where it is nearer to the Sun than Neptune is also well above the ecliptic plane, so  in perspective it can show as outside Neptune's orbit from some perspectives.
 You can rotate the view around and get other perspectives where you can see the orbits crossing.
-    <li><strong>What do the colors mean?</strong>
+    <li><strong>[General] What do the colors mean?</strong>
 The colors of the planets and Sun were set to help identify them, e.g., Mars and its orbit are red.  The Sun is yellow.
 <p>
 Asteroids and comets are classified by the Minor Planet Center into a variety of categories.  The single
@@ -46,21 +50,23 @@ These categories were given essentially arbitrary but distinguishable colors as 
 upon the absolute brightness of the object according the MPC ephemerides.
 </p>
 <pre>
-
+Comets:
 "A":              0xbfef45,  Used for a few (~10) objects in comet-like orbits which do not show cometary activity.
+"C":              0xf032e6,  Long term comets
+"I":              0x9a6324,  Interstellar object (significantly hyperbolic orbit) (just two examples so far)
+"P":              0xe6194b,  Periodic comets
+
+Asteroids:
 "Amor":           0x1f8231,  NEO's non-Earth-orbit crossing, period > 1 year, perihelion < 1.3 au 
 "Apollo":         0xfabed4,  NEO's, with perhelion < 1.017 AU and, a>1 AU.
 "Aten":           0xdcbeff,  NEO's, Earth-orbit-corssing, a<1 AU, perihelion >0.983 AU
 "Atira":          0x469990,  Orbit always interior to Earth
-"C":              0xf032e6,  Long term comets
 "Distant Object": 0x3cb44b,  As name implies (i.e., non comet with orbit beyond Jupiter)
 "Hilda":          0xffd8b1,  3:2 resonance with Jupiter
 "Hungaria":       0xaaffc3,  1.78 AU < a < 2 AU
-"I":              0x9a6324,  Interstellar object (significantly hyperbolic orbit) (very rare)
 "Jupiter Trojan": 0x42d4f4,  as name implies
 "MBA":            0xffe119,  main belt asteroid
 "Object with perihelion distance < 1.665 AU": 0x4363d8, (Presumably not falling into other NEO categories)
-"P":              0xe6194b,  Periodic comets
 "Phocaea":        0xfffac8,  a ~2.3 AU, 18d < i < 32d, e>0.1
 </pre>
 <p>
@@ -86,8 +92,13 @@ as red, Starlink satellites are green and others are currently left white.
     morphological class going from redder to bluer as we go from Elliptical to 
     Spiral to Irregular (not that the underlying catalog uses the numerical
     De Vaucouleurs galaxy classification not these names).
+</p>
+<p>In the Abell clusters simulation, the Local Group is the only yellow object.  All
+of the other clusters are colored based upon the Bautz-Morgan type, the predominance
+of the central galaxy in the cluster.  Bautz-Morgan I clusters are colored red while
+bluer colors are used for later types.</p>
 </li>
-<li> <strong>There seems to be an awful lot of stuff in the solar system.  Why
+<li> <strong>[Solar System] There seems to be an awful lot of stuff in the solar system.  Why
         doesn't it cause more trouble?</strong>  Well it might and searching for objects
         that may collide with the Earth is an ongoing project for many people, but the actual size
         of the objects in the solar system is much, much, much smaller than depicted here.
@@ -98,40 +109,41 @@ as red, Starlink satellites are green and others are currently left white.
         Since the typical asteroid is likely just a few cubic kilometers that leaves a lot of
         empty space!
 </li>
-<li> <strong>Why is there a small gap in each orbit line?</strong>  This shows the position of perihelion in the orbit.  The gap is the last degree just before the perihelion passage.
+<li> <strong>[Solar System/Planetary systems] Why is there a small gap in each orbit line?</strong>  This shows the position of perihelion in the orbit.  The gap is the last degree just before the perihelion passage.
 </li>
-<li> <strong>Why does Halley's comet seem to have an orbit in the main asteroid belt?</strong>
+<li> <strong>[Solar System] Why does Halley's comet seem to have an orbit in the main asteroid belt?</strong>
 "Halley" is also the name of an asteroid named after the eminent astronomer,  The famous comet is officially named "1P/Halley".
-In general comet names are prefixed by a string giving the number and type of the comet.  I.e., Halley was the first discovered [P]eriodic comet.
+In general comet names are prefixed by a string giving the number and type of the comet.  I.e., 1P/Halley was the first discovered [P]eriodic comet.
 </li>
-<li><Strong>Where is Alpha Centauri B?</strong> 
+<li><Strong>[Local Galactic Neighborhood] Where is Alpha Centauri B?</strong> 
     Alpha Centauri is a visual binary and the two components (along with their more distant companion
     Proxima Centauri) have different Hipparcos identifiers.  However to the precision of the XYZ positions that
-    are used in the Galactic Neighborhood, they have the same position: there are separated by only a few thousandth's of
+    are used in the Galactic Neighborhood, they have the same position: there are separated by only a few hundred thousandth's of
     a parsec and the neighborhood is 200 parsecs in diameter.  So when the two stars are rendered they are rendered at
     the same spot.  We render G stars, like Alpha Centauri A, as slightly larger spheres than K stars, like Alpha Centauri B.
     So B is entirely closed in A.  When we click or mouse over, the library that finds objects under the mouse, looks only
     for the first object, and that's always A.  But see the next question...    
-<li><strong>Why do the components of Alpha Centauri come apart as we animate the Local Galactic Neighborhood?</strong>
+<li><strong>[Local Galactic Neightborhood] Why do the components of Alpha Centauri come apart as we animate the Local Galactic Neighborhood?</strong>
     While Hipparcos (and SIMBAD) gives the same position for Alpha Centauri A and B, it gives them different velocities, the difference 
     presumably reflecting the orbital velocities of the two stars around one another.  There are no dynamics
     in the animation, so the gravitational forces that would keep the stars together in reality are not simulated.
 </li>
-<li><strong>Why is the Local Galactic Neighborhood simulation not working?</strong> The
+<li><strong>[Local Galactic Neighborhood] Why is the Local Galactic Neighborhood simulation not working?</strong> The
     default simulation needs very substantial graphics capabilities to render effectively.
     If it's not working for you you can use a simulation of only about 3,000 stars, instead of the
     300,000 stars, by adding the string ?galaxy=small to the regular base URL.
 </li>
-<li><strong>Why are some element lines in the orbit calculator shaded?</strong>
+<li><strong>[Orbit Calculator] Why are some element lines in the orbit calculator shaded?</strong>
     When a parameter is computed based upon a default value or some formula using known
     parameters, the corresponding row is shaded until the field is cleared.
 </li>
-<li><strong>I'm using the star connecter feature to show the line between two stars in the Galactic Neighborhood, but the line
+<li><strong>[General] I'm using the star connecter feature to show the line between two stars in the Galactic Neighborhood, but the line
         disappears as soon as I release the mouse button.  How can I make the line persistent?</strong>
     The line is created when we detect a mouse-down event on the <tt>Show</tt> button and goes away
 when a mouse-up event is seen.  So just move the mouse out of the button while it is depressed.
 
-<li> <strong>How accurate is are the orbits/sizes/etc...?</strong>
+<li> <strong>[General] How accurate is are the orbits/sizes/etc...?</strong>
+    <p>
 Generally these animations try to comprehensively model the qualitative features of the
 orbits and bodies, but should definitely not be considered authoritative.
 Often they used data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
@@ -145,11 +157,21 @@ precession of satellites (natural and artificial), atmospheric drag and active o
 artificial satellites is not addressed.  The rotation periods of and axes of planets are derived
 from public sources (notably Wikipedia) but we have not been able to determine the rotation phase for
 most bodies where it is clearly defined (e.g., the inner planets or the Galilean satellites of Jupiter).
-
+    </p><p>
 The texture maps used for the planets and some satellites are derived from a variety of sources.
 When rendering texture maps the solar lighting places the Sun appropriately
 but lighting by the primary is not included.  Shadows are not currently modelled.
-<li><strong>Why don't satellite's actual movements match the orbits drawn for them?</strong>
+    </p>
+    <p>
+        The angular positions measured by GAIA are quite precise, but the errors in distances and in
+        proper motions are much larger.  The shapes of galaxies in the Nearby Galaxies survey are only
+        indicated in the crudest way.  Ellipticals and Irregulars are shown as sphere's while SO and Spiral
+        galaxies are shown as a combination of sphere and disk with the relative size of size of the sphere
+        decreasing from SO -> Sd.  Clusters are indicated as spheres with colors indicating Bautz-Morgan type 
+        (predominance of a central galaxy) with the richer clusters shown somewhat larger.  The complexity
+        of cluster shapes is not addressed at all.
+    </p>
+<li><strong>[Earth/Planetary Systems]Why don't satellite's actual movements match the orbits drawn for them?</strong>
     Satellite orbits (both artificial and natural moons) cannot normally be modelled for any significant
     length of time as a two-body orbit since they are subject to the influences of the non-spehrical
     central bodies and the gravity of the Sun.  To first order this causes the orbits to change/precess 
@@ -159,22 +181,28 @@ but lighting by the primary is not included.  Shadows are not currently modelled
     that 'should' be plotted and by drawing the instantaneous elliptical orbit, we allow users to
     see how the orbit is affected by precession. 
 </li>
-<li><strong>How do I find a satellite given the complex names that the program uses for them </strong>
+<li><strong>[Earth] How do I find a satellite given the complex names that the program uses for them </strong>
     You can use wildcards in the satellite name to look for specific satellites.  E.g., to look for HST you can enter *HST*. 
     You may still need to guess a bit.  E.g., *Chandra* won't work, but *CXO* (for Chandra X-ray Observatory) will.
 </li>
-<li> <strong>Why do some missions disappear?</strong>Generally we don't follow missions after they reach a stable orbit
-    around some other Solar System body (usually but not always a planet).  However if a mission 
+<li> <strong>[Solar System] Why do some missions disappear?</strong>Generally we don't follow missions after they reach a stable orbit
+    around, or land on, some other Solar System body (usually but not always a planet).  However if a mission 
     is in a solar orbit when it ends we use
     the last available orbit for the mission indefinitely even decades after the final manuevers.
 </li>
-<li><strong>How do you know the orbit of missions in the future?</strong>  We use the Horizons predicted
+<li><strong>[Solar System] How do you know the orbit of missions in the future?</strong>  We use the Horizons predicted
     orbits for the mission until either the mission is supposed to reach its destination (e.g.,
     Mercury for BepiColombo) or no further manuevers are expected. 
 </li>
-<li><strong>Why do the time controls disappear in the Nearby Galaxies animation?</strong>Since we do not know the proper
-    motions of galaxies (with a few exceptions), it's not possible to model their space motions. So the time display and
-    controls are hidden in this animation.
+<li><strong>[Clusters/Nearby Galaxies] Why do the time controls disappear in some animation?</strong>Since we do not know the proper
+    motions of galaxies (with a few exceptions) or clusters, it's not possible to model their space motions. So the time display and
+    controls are hidden in these animations.
+</li>
+<li>
+    <strong>[Clusters] Why does there seem to be an empty wedge in the clusters animation?</strong>  Clusters at low
+    Galactic latitude are difficult to see through the bright Galaxy foreground and so the Abell cluster
+    catalog on which this animation is based did not look for clusters there.
+</li>
 </ol>
 <a href="help_top.html">Top</a>
 </body>

@@ -2312,8 +2312,8 @@
     "bmag": -19.1,
     "morph_type": 4,
     "dwarf_morph_type": "null",
-    "axial_ratio": null,
-    "inclination": null
+    "axial_ratio": 1,
+    "inclination": 0
   },
   {
     "name": "IC4316",

@@ -57,6 +57,7 @@
            animation can tax graphics processors a smaller simulation based upon the Extended Hipparcos Catalog
            can also be used by appending <code>?galaxy=small</code> to the URL when starting this web site.
 	   <li> 
+              
            The <strong>Orbit Calculator</strong> enables a user who can give some elements of an orbit to calculate others. 
            Fill in whatever information you have on the orbit and see if the full orbit can be determined.
            Note the distinction between elements that are constant along the orbit,
@@ -64,15 +65,19 @@
            the orbit can be shown in the Earth or Solar System simulations if the mass of the
            central body matches that of the Earth or Sun.
            </li>
-	   <li> 
-               The [TBD] <strong>Trajectory Controller</strong> allows a user to transform one orbit into another using
-	   a set of specified accelerations. This page is under development.
-           <li> The <strong>Nearby Galaxies </strong> animation showd the positions of galaxies within
-               a few megaparsecs of the Milky Way. This color codes the types of galaxies and shows the orientations
+           <li> The <strong>Nearby Galaxies </strong> animation shows the positions of galaxies within
+               a few megaparsecs of the Milky Way. This color codes the types of galaxies.  Where known disks show the orientations
                of disk galaxies.  No time-dependent view is available -- while we have radial velocities for many of these galaxies
                we have only very rough ideas of the motion perpendicular to the line of sight.  Users can still zoom and pan and
                use the same buttons as in the other animation
            </li>
+           <li> The <strong>Abell Clusters</strong> animation shows Abell clusters with known redshifts (as of a few years ago).
+               The Local Group and Virgo cluster are added for reference (with somewhat made up parameters).  Note that
+               clusters with low Galactic latitudes are obscured by our Galaxy which excludes a wedge ring around the Local Group.
+           </li>
+	   <li> 
+               The [TBD] <strong>Trajectory Controller</strong> allows a user to transform one orbit into another using
+	   a set of specified accelerations. This page is under development.
            </ul>
              <p>
                  Within each animation users can zoom and pan using gestures appropriate for the 
@@ -81,7 +86,7 @@
                  single and two finger drags, and finger expands may be used.
              </p>
            To switch among animations use the three-dot menu, or double click on an object which has a sub-animation
-           (e.g., planets with the Solar System, and some moon with the planetary system).  You can also use
+           (e.g., planets with the Solar System, and some moons within their planetary system).  You can also use
            the three-dot menu to find objects within the current simulation and if they have an associated animation
            you can click on the appropriate button.
            <p>The animation controls on the top left allow you to stop/start, reverse and change the speed of the
@@ -90,11 +95,12 @@
            help and other capabilites.  Just click on the three-buttons to show or clear the menu.  You can set
            the time of the current animation by entering a date as year number (possibly including a fraction), a Julian
            Day number, or an ISO formatted time (YYYY-MM-DD) to set the time of the simulation.</p>
-           <p> When entering text in boxes simply hit return to indicate that the text is complete.</p
+           <p> When entering text in boxes simply hit return to indicate that the text is complete.</p>
            <p>Within any animation you can normally click on any corner of the animation to go to its base animation which is usually the
                animation in which the current Animation is embedded.  E.g., if looking at the Titan animation, a double click in the
                corner will bring you to the Saturn animation.  Another double click in the corner brings you to the Solar System animation, and one
-               more gets to the Local Galactic Neighborhood.  However a double click there will bring you back to the Solar System.
+               more gets to the Local Galactic Neighborhood, thence to the Nearby Galaxies, and then to the largest scale animation, the
+               Abell Clusters.  Clicking the corners there drops you back into the Nearby Galaxies.
            <p>
                You can display lists of objects in the current simulation either by clicking or by doing a
                search using the name search in the three-dot menu.  Clicking shows under the mouse (or near it in the case
@@ -111,11 +117,17 @@
                To restore the center you can
                set the center to be the Sun (or the planet if you are in a planet system animation)</li>
                <li> O: Display the instantaneous orbit of the object.  This does not include subsequent
-                   precession for moons or satellites. The orbit will persist in the simulation.</li>
+                   precession for moons or satellites. The orbit will persist in the simulation. For comets
+                   asteroids and artificial satellites this will also display a larger dot to represent the object.</i>
                <li> D: show a form to display a line showiung the delta between two objects.  The line will
                    be drawn whenever the Connect button is pressed down.  You can press it
                    repeatedly as either the source or destination object moves (or both).  Only one
-                   delta is shown in the simulation at any given time.</li>
+                   delta is shown in the simulation at any given time.
+               <p>When searching by name you search the components of the current simulation.  If nothing
+                   is found a query is sent to SIMBAD to see if it knows both the position and distance to the object.
+                   Distances can be found as parallaxes for Galactic objects, and redshifts for extragalactic objects.
+               </p>
+               </li>
            </ul>
            </p><p>
 	   <a href="./faq.html"> FAQ </a>
