@@ -5,26 +5,40 @@
         <title> Orrery Help</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="JavaScript">
+        function updateInfo() {
+            let param = new URLSearchParams(document.location.search);
+            let elem1 = document.getElementById("ack");
+            let elem2 = document.getElementById("ver");
+            let smb = param.get("smbEpoch");
+            let sat = param.get("satEpoch");
+            if (sat == null || sat.length == 0) {
+                sat = "[Satellite data not loaded. Epoch unknown]";
+                sat = encodeURIComponent(sat);
+            }
+            if (smb) {
+                elem1.href += "?smbEpoch="+smb+"&satEpoch="+sat;                
+                elem2.href += "?smbEpoch="+smb+"&satEpoch="+sat;                
+            }
+        }
+    </script>
     </head>
-    <body>
+    <body onload="updateInfo()">
         <h2> Orrery Help </h2>
              This web site provides a number of distinct, interacting capabilities enabling
-             users to visualize elements of the universe in 3D.  The current version is specified in <a href="./version.html">the version page</a> and changes are
+             users to visualize elements of the universe in 3D.  The current version is defined in <a id='ver' href="./version.html">the version page</a> and changes are
              noted in the <a href="./release.html">release notes</a>.
 	   <ul> 
                <li> The <strong>Solar System Orrery</strong> shows major and minor components of the solar system.  
                Positions of the the Sun, planets, asteroids and comets are displayed.
                Both the orbits and positions of the planets are shown.  Moons are displayed in subanimations
                of each planetary system (double click on the planet or its orbit).
-               The positions of 50,000 minor planets and comets are shown as dots.  
+               The positions of more than 50,000 minor planets and comets are shown as dots.  
                Data are taken from the Minor Planet Center of the Center for Astrophysics.  
                Positions for these minor bodies for times more than a few years from the present are
                less accurate since we are using a current epoch orbit.
                Future upgrades may use update orbits appropriately for the time shown in the orrery.
-               The MPC divides Solar System bodies into a variety of categories, the orrery view shows 
-               the first 5,000 of each of these (where there are more than 5,000 in the category). 
-               Thus rarer classes are preferentially shown, since all known objects in those
-               categories may be displayed. A few dozen spacecraft missions are also animated, but are generally
+               A few dozen spacecraft missions are also animated, but are generally
                only shown while the spacecraft are in interplanetary travel (e.g., between Earth and Mars but not
                during a Mars mission).
                <p>
@@ -32,7 +46,7 @@
                You can also highlight a particular orbit, show the orbit specified in the Orbit Calculator, 
                or interact with a trajectory set up in the Trajectory Controller (TBD).
            </li>
-           <li> <strong>The Earth and environs </strong> shows the Earth, Moon and ~22,000 objects orbiting
+           <li> <strong>The Earth and environs </strong> shows the Earth, Moon and more than 20,000 objects orbiting
                the Earth that are being tracked by NORAD.  The satellites are shown as dots
                and users can click to find particular objects as in the solar system.
                However since orbits of the satellites are strongly affected by the atmosphere,
@@ -49,8 +63,7 @@
            positions and parallaxes. A parsec is 3.2 light years pr 200,000 times the distance between the Earth and the Sun. It is comparable to the typical distance between stars and their nearest neighbors.
            Stars where the NASA Exoplanet Archive shows one or more
            planets are surrounded by colored rings.
-           You can also highlight the path between any two stars and get the distance between them.
-           If the vector origin is not updated, you will get the distance from the Sun.
+           You can also highlight the path between any two stars (or a star and the Sun) and get the distance between them.
            For this feature you can show a path to stars that are beyond the 100 pc so long as 
            SIMBAD has a measured parallax for the star.  
            An animation showing the space motions of the stars is also available.  You can 
@@ -77,9 +90,6 @@
                The Local Group and Virgo cluster are added for reference (with somewhat made up parameters).  Note that
                clusters with low Galactic latitudes are obscured by our Galaxy which excludes a wedge ring around the Local Group.
            </li>
-	   <li> 
-               The [TBD] <strong>Trajectory Controller</strong> allows a user to transform one orbit into another using
-	   a set of specified accelerations. This page is under development.
            </ul>
              <p>
                  Within each animation users can zoom and pan using gestures appropriate for the 
@@ -108,10 +118,10 @@
                search using the name search in the three-dot menu.  Clicking shows under the mouse (or near it in the case
                of Earth satellites, or comets and asteroids in the Solar System).  You can include * wildcards to find multiple
                objects in a name search, e.g., *Halley*, will return both the comet 1P/Halley and the asteroid Halley.
-               Objects are show directly below the three-dot menu.
+               Objects are shown directly below the three-dot menu.
                For each object in an object list you may have several options to click:
            <ul>
-               <li>i: information about that object is displayed</li>
+               <li>i: display information about the object</li>
                <li>A: start the animation associated with this object (planets and some moons)</li>
                <li>C: center the animation on this object.  It will be displayed in the center of the
                display and you can now pan around it.  Note however that this uses the current position of
@@ -120,7 +130,7 @@
                set the center to be the Sun (or the planet if you are in a planet system animation)</li>
                <li> O: Display the instantaneous orbit of the object.  This does not include subsequent
                    precession for moons or satellites. The orbit will persist in the simulation. For comets
-                   asteroids and artificial satellites this will also display a larger dot to represent the object.</i>
+                   asteroids and artificial satellites this will also display a larger dot to represent the object.</li>
                <li> D: show a form to display a line showiung the delta between two objects.  The line will
                    be drawn whenever the Connect button is pressed down.  You can press it
                    repeatedly as either the source or destination object moves (or both).  Only one
@@ -131,10 +141,10 @@
                </p>
                </li>
            </ul>
-           </p><p>
+           <p>
 	   <a href="./faq.html"> FAQ </a>
            <br/>
-           <a href="./ack.html"> Sources and Acknowledgements </a><br/>
+           <a id="ack" href="./ack.html"> Sources and Acknowledgements </a><br/>
            <a href='./Orbits.pdf'>Detailed background on mathematics of orbits</a>
 	   </p>
 

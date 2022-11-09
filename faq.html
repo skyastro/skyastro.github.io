@@ -13,16 +13,18 @@
         If you double-click very close to the corners of the
         image, you can get to the base animation for the current animation, usually the animation in which the
         current animation is embedded, so you can go from a Ganymede->Jupiter->Solar System->Local Galactic Neighborhood->Nearby Galaxies->Clusters.
-        Since the clusters animation is cannot be embedded in anything larger, its base animation is the nearby galaxies.  
+        Since the clusters animation cannot be embedded in anything larger, its base animation is the nearby galaxies.  
         </p>
         <p>
         If you search for objects, those which
-        have their own animation often have an icon to click to go to the animation.  Double-clicking on the Milky Way in the Nearby Galaxies,
+        have their own animation will have an A icon to click to go to the animation. 
+        </p><p>
+        Double-clicking on the Milky Way in the Nearby Galaxies,
         will take you to the Local Galactic Neighborhood, and double-clicking on the Sun in the Local Galactic Neighborhood will
         take you to the Solar System.
         </p>
         <p>
-        Direct links to the Earth, Solar System, Local Galactic Neighborhood and Nearby Galaxies animations are 
+        Direct links to the Earth, Solar System, Local Galactic Neighborhood, Nearby Galaxies and Cluster animations are 
         available in one of the options in the three-dots menu.
         </p>
     </li>
@@ -30,13 +32,36 @@
                 the rather boring optical image.  Similarly the image for Titan is taken in a band
                 which shows many more features than our eye might pick out.
     </li>
+    <li><strong>[All animations] What is the number next to the three dot menu?</strong>
+        This number gives a rough sense of the scale for the image.  It's the logarithm (base 10) of 
+        the number of meters between
+        the current viewpoint and the center of rotation of the animation.  Normally
+        that's the center of the Sun for the Solar System or nearby stars animations,
+        the center of the primary, for planetary systems, or our Galaxy the large
+        animations.  However you can can change this center by dragging the image.  
+        This gives a sense of 
+
+
+        large the field of view is, though of course you can look past the center too.
+        For example a value 12, would indicate that the scale of the animation is about 
+        10<sup>12</sup> meters, or about one billion kilometers, typical in the
+        solar system.  A value of 6.5 would be about 3 thousand kilometers, perhaps while
+        we are viewing Mercury or our Moon.  The clusters of galaxies animation
+        might show 24.5. There the field of view is  three million, million times larger
+        than a solar system view with a value of 12.  This value will change as you use
+        the zoom capabilities within an animation or move from one animation to another.
+        <p>So the radius of the Earth corresponds to about 6.8, the radius of its orbit (1 AU) corresponds to about 11.2</p>
+    </li>
     <li><strong>[Solar System] Why doesn't Pluto's orbit look like it comes inside Neptune's?</strong>
 This is a perspective issue.  The Solar System orrery shows what you might see if you were looking from a very specific position in the solar
 system (initially 6 AU directly above the Sun perpendicular to the ecliptic plane).  The portion of Pluto's
-orbit where it is nearer to the Sun than Neptune is also well above the ecliptic plane, so  in perspective it can show as outside Neptune's orbit from some perspectives.
+orbit where it is nearer to the Sun than Neptune is also well above the ecliptic plane, so  in perspective it can show as outside Neptune's orbit.
 You can rotate the view around and get other perspectives where you can see the orbits crossing.
     <li><strong>[General] What do the colors mean?</strong>
-The colors of the planets and Sun were set to help identify them, e.g., Mars and its orbit are red.  The Sun is yellow.
+Different color schemes are used in the different animations.
+<p>In the solar system,
+the colors of the planets and Sun were set to help identify them, e.g., Mars and its orbit are red.  The Sun is yellow. The Earth is a blue dot.
+</p>
 <p>
 Asteroids and comets are classified by the Minor Planet Center into a variety of categories.  The single
 character fields are for comets and prefix the name (e.g, 1P/Halley) and the longer named categories are used in their asteroid list.
@@ -44,7 +69,7 @@ The Jupiter Trojans and Hilda asteroids can be seen near Jupiter's orbit. (The H
 locations or opposite Jupiter).  The MBA (main belt asteroids) are the overwhelming majority of detected objects
 but only about 30,000 are shown here of the more than 1 million known.  The other categories generally reflect the
 orbit of the object. We chose to emphasize rarer categories, so the density of discovered objects in the main belt
-is dramatically understated.    
+is dramatically understated in the main belt.
 
 These categories were given essentially arbitrary but distinguishable colors as noted.  The brightness is adjusted based
 upon the absolute brightness of the object according the MPC ephemerides.
@@ -71,7 +96,7 @@ Asteroids:
 </pre>
 <p>
     In the Local Galactic Neighborhood the color of the stars mostly reflects the spectral type:
-<pre>
+</p><pre>
     Red:          M
     Orange:       K
     Yellow:       G
@@ -83,14 +108,14 @@ Asteroids:
 </pre>
 Some stars have colored rings.  A violet ring indicates a single planet, a blue ring 2 planets and
 a green ring, 3 or more planets.
-</p>
 
+<p>
 In the Earth animation, the color of the satellites is coded such that debris is shown
 as red, Starlink satellites are green and others are currently left white.
-<p>
+</p><p>
     In the Nearby Galaxies animation, the color of each galaxy is related to its
     morphological class going from redder to bluer as we go from Elliptical to 
-    Spiral to Irregular (not that the underlying catalog uses the numerical
+    Spiral to Irregular (note that the underlying catalog uses the numerical
     De Vaucouleurs galaxy classification not these names).
 </p>
 <p>In the Abell clusters simulation, the Local Group is the only yellow object.  All
@@ -106,7 +131,7 @@ bluer colors are used for later types.</p>
         cone which is typically about 1 million kilometers on a side and hundreds of
         millions of kilometers long -- a total volume of perhaps a sextillion cubic kilometers.
         That's many times the total volume of the Sun itself.
-        Since the typical asteroid is likely just a few cubic kilometers that leaves a lot of
+        Since the typical asteroid is likely just a few cubic kilometers or less that leaves a lot of
         empty space!
 </li>
 <li> <strong>[Solar System/Planetary systems] Why is there a small gap in each orbit line?</strong>  This shows the position of perihelion in the orbit.  The gap is the last degree just before the perihelion passage.
@@ -114,6 +139,8 @@ bluer colors are used for later types.</p>
 <li> <strong>[Solar System] Why does Halley's comet seem to have an orbit in the main asteroid belt?</strong>
 "Halley" is also the name of an asteroid named after the eminent astronomer,  The famous comet is officially named "1P/Halley".
 In general comet names are prefixed by a string giving the number and type of the comet.  I.e., 1P/Halley was the first discovered [P]eriodic comet.
+When searching for objects you can include '*' as a wildcard, so *Halley* finds both the comet
+and asteroid.
 </li>
 <li><Strong>[Local Galactic Neighborhood] Where is Alpha Centauri B?</strong> 
     Alpha Centauri is a visual binary and the two components (along with their more distant companion
@@ -123,9 +150,9 @@ In general comet names are prefixed by a string giving the number and type of th
     the same spot.  We render G stars, like Alpha Centauri A, as slightly larger spheres than K stars, like Alpha Centauri B.
     So B is entirely closed in A.  When we click or mouse over, the library that finds objects under the mouse, looks only
     for the first object, and that's always A.  But see the next question...    
-<li><strong>[Local Galactic Neightborhood] Why do the components of Alpha Centauri come apart as we animate the Local Galactic Neighborhood?</strong>
+<li><strong>[Local Galactic Neightborhood] Why do the components of Alpha Centauri come apart when we animate the Local Galactic Neighborhood?</strong>
     While Hipparcos (and SIMBAD) gives the same position for Alpha Centauri A and B, it gives them different velocities, the difference 
-    presumably reflecting the orbital velocities of the two stars around one another.  There are no dynamics
+    reflecting the orbital velocities of the two stars around one another.  There are no dynamics
     in the animation, so the gravitational forces that would keep the stars together in reality are not simulated.
 </li>
 <li><strong>[Local Galactic Neighborhood] Why is the Local Galactic Neighborhood simulation not working?</strong> The
@@ -140,26 +167,39 @@ In general comet names are prefixed by a string giving the number and type of th
 <li><strong>[General] I'm using the star connecter feature to show the line between two stars in the Galactic Neighborhood, but the line
         disappears as soon as I release the mouse button.  How can I make the line persistent?</strong>
     The line is created when we detect a mouse-down event on the <tt>Show</tt> button and goes away
-when a mouse-up event is seen.  So just move the mouse out of the button while it is depressed.
+when a mouse-up event is seen there.  So just move the mouse out of the button while it is depressed.
 
 <li> <strong>[General] How accurate is are the orbits/sizes/etc...?</strong>
     <p>
 Generally these animations try to comprehensively model the qualitative features of the
-orbits and bodies, but should definitely not be considered authoritative.
-Often they used data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
+orbits and bodies, but should definitely not be considered authoritative and the sizes of objects
+(though not there positions) are often increased to make them visible.
+It is easy to use these data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
 satellite orbits are taken from mean JPL ephemerides which model the evolution of these orbits
 but have nothing like the accuracy needed for actual navigation.  
 The star data is taken primarily from the Gaia DR3 catalog which
 is the best data we currently have, but the precision is not high for distances near 100 pc nor for
 the proper motions of many stars.  Orbits for artificial bodies 
 orbiting the Earth are taken from NORAD supplied orbits.  However while we model the orbital
-precession of satellites (natural and artificial), atmospheric drag and active orbit control of
+precession of satellites (both the Moon and artificial objects), atmospheric drag and active orbit control of
 artificial satellites is not addressed.  The rotation periods of and axes of planets are derived
 from public sources (notably Wikipedia) but we have not been able to determine the rotation phase for
-most bodies where it is clearly defined (e.g., the inner planets or the Galilean satellites of Jupiter).
+many bodies where it is clearly defined (e.g., the inner planets or the Galilean satellites of Jupiter).
+    </p>
+In the solar system animation, the radii of planets and the Sun are greatly exaggerated. The algorithm 
+shows the planetary radii in the correct order, i.e., Jupiter is biggest and Pluto smallest, 
+but the differences between planet sizes are much less
+than in realty.   The relative radii of the orbits of planets and moons are correct.
+    <p>
+The radii of the moons have generally been exaggerated to make them visible.  Nearby moons are generally
+shown with a radius ~10-20% of the planetary radius but there will be some attempt to show larger moons
+as larger. If the orbit radius of the moon is more than 10 times the planetary
+radius, then the size of the moon is gradually increased until it equals the size of the planet for
+moons more than 100 radii away from the planet.   Otherwise it's hard to see these very distant
+moons.
     </p><p>
 The texture maps used for the planets and some satellites are derived from a variety of sources.
-When rendering texture maps the solar lighting places the Sun appropriately
+When rendering texture maps the lighting models the Sun appropriately
 but lighting by the primary is not included.  Shadows are not currently modelled.
     </p>
     <p>
@@ -181,6 +221,12 @@ but lighting by the primary is not included.  Shadows are not currently modelled
     that 'should' be plotted and by drawing the instantaneous elliptical orbit, we allow users to
     see how the orbit is affected by precession. 
 </li>
+<li><strong>[Earth] Why does the Earth show with a rotation period of just 0.997 days?
+    </strong>
+    Rotations are generally specified in terms of the universe as a whole, so that's the 
+    sidereal day of the Earth which is about 4 minutes shorter than the solar day we're using
+    as our time unit.  (~1436 minutes per sideral day)/(1440 minutes per solar day) = ~0.997.
+</li>
 <li><strong>[Earth] How do I find a satellite given the complex names that the program uses for them </strong>
     You can use wildcards in the satellite name to look for specific satellites.  E.g., to look for HST you can enter *HST*. 
     You may still need to guess a bit.  E.g., *Chandra* won't work, but *CXO* (for Chandra X-ray Observatory) will.
@@ -194,14 +240,15 @@ but lighting by the primary is not included.  Shadows are not currently modelled
     orbits for the mission until either the mission is supposed to reach its destination (e.g.,
     Mercury for BepiColombo) or no further manuevers are expected. 
 </li>
-<li><strong>[Clusters/Nearby Galaxies] Why do the time controls disappear in some animation?</strong>Since we do not know the proper
+<li><strong>[Clusters/Nearby Galaxies] Why do the time controls disappear in some animations?</strong>Since we do not know the proper
     motions of galaxies (with a few exceptions) or clusters, it's not possible to model their space motions. So the time display and
     controls are hidden in these animations.
 </li>
 <li>
     <strong>[Clusters] Why does there seem to be an empty wedge in the clusters animation?</strong>  Clusters at low
     Galactic latitude are difficult to see through the bright Galaxy foreground and so the Abell cluster
-    catalog on which this animation is based did not look for clusters there.
+    catalog on which this animation is based did not look for clusters there.  Somday we
+    may be able to identify clusters based upon radio properties which could fill in this obscured area.
 </li>
 </ol>
 <a href="help_top.html">Top</a>

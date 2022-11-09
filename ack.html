@@ -3,8 +3,16 @@
         <title>Orrery Acknowledgements</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/DisplayParam.js"></script>
+        <script>
+            function updateInfo() {
+                DisplayParam("smbEpoch", "smbEpoch", "Unknown");
+                DisplayParam("satEpoch", "satEpoch", "NORAD info not yet loaded");
+                
+            }
+        </script>
     </head>
-    <body>
+    <body onload="updateInfo()">
         <h2> Sources and Acknowledgements </h2>
         This site uses many scientific data sets and software tools that have been made available
         to the public at no cost.  These contributions are greatly appreciated.  They include:
@@ -12,11 +20,10 @@
             <li>
                 The asteroid and cometary orbits used are derived from the data published
                 by the <a href="https://minorplanetcenter.net">IAU Minor Planet Center</a> at the Center for Astrophysics.
-                The site uses the data in the 
+                The site uses the data in the files 
                 <a href="https://minorplanetcenter.net/Extended_Files/mpcorb_extended.json.gz">mpcorb_extended.json.gz</a>
                 and 
-                <a  href="https://www.minorplanetcenter.net/Extended_Files/cometels.json.gz">cometels.json.gz</a> files
-                that were current as of December 15, 2021.
+                <a  href="https://www.minorplanetcenter.net/Extended_Files/cometels.json.gz">cometels.json.gz</a>. 
                 Over 1 million asteroids are available in the original dataset, but we extract about 57,000 entries 
                 from these data.
                 The first 3,000 objects in each of the classes defined by the MPC are included.
@@ -26,7 +33,17 @@
                 in currently detected objects.  The nominal goal of the selection was to extract 50,000
                 objects from the sample. All named objects are included and this pushes the number
                 up a bit.  Updates to the small body data are made using the OrbSupport GetSMB program.
-                
+                The MPC updates these files on a daily basis.  The OrbSupport GetSmb class reads the input
+                files and generates a single input file for the program.  This file was current as of <span id="smbEpoch" ></span>.                
+            </li>
+            <li> Information on the satellites and debris orbiting the Earth are derived from NORAD using
+                the interface provided at <a href="https://www.space-track.org"> Space-track.org </a>. Note that
+                only the gross precession of orbits is handled so that except very near the time of the
+                ephemeris, the orbits should be treated as illustrative rather than definitive.  NORAD data is
+                updated using the OrbSupport GetNORAD class.  Each orbit is given an epoch which can 
+                sometimes be a few days in the future.  Even so we use the latest epoch as the nominal time
+                for the data.  The current
+                orbits have a nominal latest epoch of  <span id="satEpoch"></span>.
             </li>
             <li> Mission data for the interplanetary missions was retrieved from the
                 <a href=https://ssd.jpl.nasa.gov/horizons> JPL Horizons service</a> using its
@@ -39,7 +56,8 @@
                 are not followed after they reach their destination.  If the mission is in an
                 interplanetary orbit at the end of the JPL orbit coverage, the last valid orbit
                 is used subsequently.  Missions are included only when they actually launch, but
-                once launched the Horizons predicted trajectories are used.
+                once launched the Horizons predicted trajectories are used to give the orbit at future dates.
+                
             </li>
             <li>
                 The planetary ephemerides are derived from 
@@ -54,7 +72,7 @@
                 the rotation orientation of the satellites (which is used for satellite animations) was generally
                 extracted from Wikipedia articles on each satellite.   For the satellites where we have image
                 information, the orbital and rotation periods are generally the same.  The rotation phase is generally not
-                easily accessible so that the orientations of the satellite sphere's is essentially random.
+                easily accessible other than for the Earth's Moon.
             </li>
             <li>
                 Data for the stars within 100 pc are taken from the Gaia DR3 Nearby Stars catalog supplemented
@@ -63,7 +81,7 @@
                 when the galaxy=small flag is specified in the URL.
                 Here all data with a measured parallax of &gt; 25 milliarcseconds from Hipparcos are included in the sample.  This gives
                 just 3000 nearby stars rather than the 300,000 in the GAIA sample.  The larger sample taxes
-                typical graphics hardware.  Names for the objects were generated by matching with SIMBAD and 'expanded' 
+                typical graphics hardware.  Names for the objects were generated by matching with SIMBAD and 'expanding' 
                 from the form used in SIMBAD.  E.g.,  SIMBAD
                 uses the name "alf Cen A" rather than "Alpha Centauri A".
                 <p> The development of the Local Galactic Neighborhood is complex.  We
@@ -86,14 +104,6 @@
                 their <a href='https://exoplanetarchive.ipac.caltech.edu/cgi-bin/TblView/nph-tblView?app=ExoTbls&config=PS'> query interface</a>.
                 All exoplanets witin 150 pc were initially extracted, but planet data was
                 used only if a match to a GNS catalog or SIMBAD star within 100 pc was found.
-            <li>
-                 Data on artificial satellites orbiting the Earth was collected by NORAD and is retrieved using the facilities
-                 of <a href="https://space-track.org"> Space-Track.org</a>.  The current release uses the satellite
-                 data as December 16, 2021.  Note that while we include precession terms for the orbits
-                 no other changes are currently in place so that orbits more than a few weeks from the collection time
-                 are more illustrative than accurate.  Updates to the satellites file 
-                 are retrieved using the OrbSupport GetNORAD clas.
-            </li>
             <li> Data on nearby galaxies uses the Karachensev, et al., Catalog of Nearby Galaxies,
                 extracted using the HEASARC's <a href='https://heasarc.gsfc.nasa.gov/xamin'>Xamin service</a>.
                 There this catalog is designated neargalcat.  The orientation of the galaxies in
