@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Trajectory programs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2> Trajectory programs </h2>
+        <p>A trajectory for a vehicle can be described using a <i>Trajectory program</i>
+        that can be created dynamically while running EaIB, or can be uploaded.
+        </p>
+        <h3> Starting a trajectory </h3>
+        <p>
+        Trajectory programs are uploaded and downloaded using the cut/paste
+        mechanism.  To upload a program, stripe a copy into the paste buffer, click on the
+        three dots icon, then Orbits and Trajectories/Add Trajectory/Copy Trajectory.  If the
+        program parses, the time will reset to just before the earliest time in the trajectory and
+        the commands in the trajectory will be executed as the program reaches them.
+        </p><p>
+        To start a manual trajectory, instead of clicking the Copy Trajectory button, fill in the 
+        entry box after the Start button which and click the Start button.  A rocket will show up
+        with the same orbit as the body whose name you entered in the Start button.
+        </p>
+        <h3> Downloading a trajectory program </h3>
+        You can download a trajectory program (which can include manually entered and/or computed commands)
+        by clicking on the Save Trajectory button.  This puts the trajectory into you Paste buffer and
+        you can then copy this into a file or text editor using the features of the operating system.
+        Note that computed commands will be shown as comments that document the preceding command.  E.g.,
+        If you uploaded a  TRANSMID MARS command in the original to request a transfer with a mid course correction to Mars,
+        then if you download the program after this command has been executed, you will see three IMPULSE commands shown
+        as comments after the TRANSMID command.  
+        <h3>Overview </h3>
+        <p>
+        A trajectory program is a set of lines either comments, or sequential events within the
+        trajectory.  The events may be acceleration events, explicit impulses and thrusts
+        applied to the orbit, or calculable events, e.g., a transfer orbit between
+        planets.  Calculable events are translated into acceleration events automatically.
+        </p>
+        <dl><dt>Comments</dt><dd>Any line consisting only of blank characters or whose first
+            non-blank character is a '#' is treated as a comment line and is ignored
+            in terms of the trajectory.  Comments may also be placed after commands by inserting a #<br/>
+            <code>
+                # This is a comment line<br/>
+                2000-01-01T12:12:12 Orbit Earth #  Start the trajectory at the Earth
+            </code>
+            </dd>
+            <dt>Command lines</dt><dd> Command lines start with a date/time for the event they described, 
+                followed by a token that describes the kind of event which is in turn followed by the
+                arguments needed to specify the event.  The date may be specified in ISO format, fractional
+                years, Julian Day, or as an interval from the previous event.  ISO dates will have a non-leading
+                hyphen, while years and Julian days will be well formed numbers.  If the absolute magnitude
+                of the number is greater and 1000000, then a Julian day is assumed.  However if the number starts
+                with an explicit + sign, then it is assumed to be an interval from the previous event.  This cannot
+                be used for the first event in a trajectory. <br/>
+                <code>
+                    2000-01-01T12:12:12 State   Earth<br/>
+                    2001-01-01T12:13:00 Impulse 3000.2<br/>
+                    +86400              Impulse 200 80 240  # Second impulse 1 day later                    
+                </code>
+        </dl>
+        <p>
+            The date/times of events must be non-decreasing for each line in the 
+            trajectory.  The trajectory is a sequence of events in time order.
+        </p>
+        <p>
+            The arguments for each event are described below.  
+        </p>
+        <h3> Acceleration Events </h3>
+        <dl><dt>Orbit</dt> <dd>This event is normally used to start a trajectory.  The user
+            may give an explicit state vector or the name of an known object whose
+            state the vehicle will share.  The vehicle will share the orbit of the named
+            object until an impulse or thrust is applied.
+            
+            <code>
+            <i>date/time</i> <strong>Orbit</strong> <i>Object</i><br/>
+            <i>date/time</i> <strong>Orbit</strong> <i>six numbers giving state vector</i><br/>
+            <br/>
+            2022-12-14T15:16 Orbit Earth<br/>
+            24700000.2834    Orbit 1.23e9 2.27e9 0.2e9 2000 2000 20
+            </code></dd>
+<!--            <dt> Units</dt><dd>This is used to change the default units for subsequent
+                positions and velocities.  The defaults is m,m/s.  The argument comprises
+                two comma separated values giving the units for distance and velocity.
+                Allowed values for distance are 'm', 'km', 'Gm' and 'au'.  The allowed values
+                for velocities are 'm/s', 'km/s', and 'au/day'.
+                <br/>
+                <code>
+                    <i>time</i> <strong>Units</strong> <i>string</i><br/>
+                    +0  Units Gm,km/s<br/>
+                </code>
+                Since this is not a 'real' event it can be convenient to use +0 for the time.
+                Note also that Gm is the same as millions of kilometers, a unit often
+                used for interplanetary orbits.
+            </dd>
+            <dt> Coordinates </dt><dd>
+                This is used to change the default coordinate system used for giving directions.
+                The default, 'vehicle' uses a system of units based on the direction of motion
+                of the vehicle, with the north pole in the direction of motion.  The cross-product
+                of the north pole of the animation and the direction of motion gives a vector pointing
+                at the 0 of longitude. Other options are 'ecliptic' and 'equatorial' which specify directions
+                using these coordinate systems.  Again a +0 may be used for the time.
+                <code><br/>
+                    <i>time</i> <strong>Coordinates</strong> <i>string</i><br/>
+                    +0  Coordinates ecliptic<br/>
+                </code>
+
+            </dd>
+-->
+            <dt>Impulse</dt><dd>This event enacts as instantaneous change in velocity
+                of the object.  If only a single velocity is given, then the change
+                in velocity is parallel to the current velocity.  If three arguments
+                are given, they are the spherical coordinates for the change: X,Y,Z
+                <code><br/>
+                    <i>time</i> <strong>Impulse</strong> <i>X [Y Z]</i><br/>
+                    2013-10-10T14:15:16 Impulse 3000<br/>
+                    2013-10-10T14:15:16 Impulse 3000 -1000 1<br/>
+                </code>
+            </dd>
+            <dt>Thrust</dt><dd>This event initiates a continuous thrust for the vehicle.  The units
+                of thrust are always m/s<sup>2</sup>.  The direction of thrust is given relative
+                to the velocity of the object.  A scalar thrust is in the direction of the velocity.
+                The thrust will continue until the next event.  A "Thrust 0" event will
+                normally be used to terminate the thrust.
+                <code><br/>
+                    <i>time</i> <strong>Thrust</strong> <i>mag [lon lat]</i><br/>
+                    2013-10-10T14:15:16 Thrust 0.01<br/>
+                    2013-10-10T14:15:16 Thrust 0.01 240 70<br/>
+                </code>
+            </dd>
+            <dt>Transfer</dt> <dd>This event does a timed transfer between the current positions
+                and the position of the specified body.   The transfer starts immediately
+                and terminates in the given interval.  This command will compute two impulses.
+            <code><br/>
+                <i>time</i> <strong>Transfer</strong> <i>dest delta</i><br/>
+                    2013-10-10T14:15:16 Transfer mars   0.3y<br/>
+                    2013-10-10T14:15:16 Transfer Earth 20000000<br/>
+            </code></dd>
+            <dt>Transcalc<dt> <dd>This event calculates an 'optimal' transfer between the current orbit
+                and a destination orbit using two impulses.  The transfer is expected to finish within the given
+                interval.  If the escape velocities of the bodies are included, then the
+                optimum is computed as the minimal additional velocities for the transfer considering
+                the Oberth effect.  I.e., the deltaV cost of escaping the source and getting into a low
+                orbit around the destination is not included, but the actual cost of the interplanetary
+                manuevers is discounted by the assumption that they are performed deep
+                within planetary gravitational fields. 
+                If the escape velocities are not included, then the Oberth effect is not considered.
+                This command will compute two impulses.
+                <code><br/>
+                    <i>time</i> <strong>Transcalc</strong> <i>dest within [ve<sub>Source</sub> ve<sub>dest</sub>]</i><br/>
+                    2013-10-10T14:15:16 Transfer mars 2y 11000 5000<br/>
+                    2013-10-10T14:15:16 Transfer Earth 2y 5000 11000<br/>
+                </code></dd>
+            <dt>Transcalc<dt> <dd>This event calculates an 'optimal' transfer between the current orbit
+                and a destination orbit using two impulses.  The transfer is expected to finish within the given
+                interval (but not really checked).  If the escape velocities of the bodies are included, then the
+                optimum is computed as the minimal additional velocities for the transfer considering
+                the Oberth effect.  I.e., the deltaV cost of escaping the source and getting into a low
+                orbit around the destination is not included, but the actual cost of the interplanetary
+                manuevers is discounted by the assumption that they are performed deep
+                within planetary gravitational fields. 
+                If the escape velocities are not included, then the Oberth effect is not considered.
+                This command will compute two impulses.
+                <code><br/>
+                <i>time</i> <strong>Transcalc</strong> <i>dest within [ve<sub>Source</sub> ve<sub>dest</sub>]</i><br/>
+                    2013-10-10T14:15:16 Transfer mars 2y 11000 5000<br/>
+                    2013-10-10T14:15:16 Transfer Earth 2y 5000 11000<br/>
+                    </code></dd>
+            <dt>Transmid<dt> <dd>This event calculates an 'optimal' transfer between the current orbit
+                and a destination orbit using three impulses, i.e., including a mid course correction.
+                The transfer is expected to start within the given
+                interval.  If the escape velocities of the bodies are included, then the
+                optimum is computed as the minimal additional velocities for the transfer considering
+                the Oberth effect.  I.e., the deltaV cost of escaping the source and getting into a low
+                orbit around the destination is not included, but the actual cost of the interplanetary
+                manuevers is discounted by the assumption that they are performed deep
+                within planetary gravitational fields. The full cost of the midcourse correction is used.
+                If the escape velocities are not included, then the Oberth effect is not considered.
+                This command will compute three impulses.
+            <code><br/>
+                <i>time</i> <strong>Transmid</strong> <i>dest within [ve<sub>Source</sub> ve<sub>dest</sub>]<br/>
+                    2013-10-10T14:15:16 Transmid mars 2y 11000 5000<br/>
+                    2013-10-10T14:15:16 Transmid Earth 2y 5000 11000<br/>
+            </code></dd>
+                
+        </dl>
+    </body>
+</html>
