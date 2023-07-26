@@ -32,25 +32,18 @@
                 the rather boring optical image.  Similarly the image for Titan is taken in a band
                 which shows many more features than our eye might pick out.
     </li>
-    <li><strong>[All animations] What is the number next to the three dot menu?</strong>
-        This number gives a rough sense of the scale for the image.  It's the logarithm (base 10) of 
-        the number of meters between
+    <li><strong>[All animations] What is the number/size next to the three dot menu?</strong>
+        This number gives a rough sense of the scale for the image.  It gives the  
+        the distance between
         the current viewpoint and the center of rotation of the animation.  Normally
         that's the center of the Sun for the Solar System or nearby stars animations,
         the center of the primary, for planetary systems, or our Galaxy the large
         animations.  However you can can change this center by dragging the image.  
-        This gives a sense of 
-
-
+        This gives a sense of how
         large the field of view is, though of course you can look past the center too.
-        For example a value 12, would indicate that the scale of the animation is about 
-        10<sup>12</sup> meters, or about one billion kilometers, typical in the
-        solar system.  A value of 6.5 would be about 3 thousand kilometers, perhaps while
-        we are viewing Mercury or our Moon.  The clusters of galaxies animation
-        might show 24.5. There the field of view is  three million, million times larger
-        than a solar system view with a value of 12.  This value will change as you use
-        the zoom capabilities within an animation or move from one animation to another.
-        <p>So the radius of the Earth corresponds to about 6.8, the radius of its orbit (1 AU) corresponds to about 11.2</p>
+        If the size in the selected units is in the range from 0.1 to 99 it is shown as a decimal
+        number, otherwise it is shown as 10<sup>x</sup>, where x can have a fractional part.
+        You can toggle the unit used by clicking on this.
     </li>
     <li><strong>[Solar System] Why doesn't Pluto's orbit look like it comes inside Neptune's?</strong>
 This is a perspective issue.  The Solar System orrery shows what you might see if you were looking from a very specific position in the solar
@@ -111,7 +104,7 @@ a green ring, 3 or more planets.
 
 <p>
 In the Earth animation, the color of the satellites is coded such that debris is shown
-as red, Starlink satellites are green and others are currently left white.
+as red, Starlink satellites are green, objects not yet classified are yellow and others are currently left white.
 </p><p>
     In the Nearby Galaxies animation, the color of each galaxy is related to its
     morphological class going from redder to bluer as we go from Elliptical to 
@@ -134,6 +127,11 @@ bluer colors are used for later types.</p>
         Since the typical asteroid is likely just a few cubic kilometers or less that leaves a lot of
         empty space!
 </li>
+<li><strong>[Earth] What are the strings of green dots orbiting the Earth?</strong>  These are recently launched
+    Starlink satellites.  Note that the simulations uses a single recent ephemeris for the satellite orbits.  After
+    a set of Starlink orbits is launched they are actively guided into their operational orbits over a period
+    of several months.  Since we do not include this satellite guidance in our simulation, the chains of Starlink satellites
+    persist forever rather than disappearing a few months after launch.
 <li> <strong>[Solar System/Planetary systems] Why is there a small gap in each orbit line?</strong>  This shows the position of perihelion in the orbit.  The gap is the last degree just before the perihelion passage.
 </li>
 <li> <strong>[Solar System] Why does Halley's comet seem to have an orbit in the main asteroid belt?</strong>
@@ -173,23 +171,33 @@ when a mouse-up event is seen there.  So just move the mouse out of the button w
     <p>
 Generally these animations try to comprehensively model the qualitative features of the
 orbits and bodies, but should definitely not be considered authoritative and the sizes of objects
-(though not there positions) are often increased to make them visible.
+are often increased to make them visible.
 It is easy to use these data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
 satellite orbits are taken from mean JPL ephemerides which model the evolution of these orbits
 but have nothing like the accuracy needed for actual navigation.  
 The star data is taken primarily from the Gaia DR3 catalog which
 is the best data we currently have, but the precision is not high for distances near 100 pc nor for
-the proper motions of many stars.  Orbits for artificial bodies 
+the proper motions of many stars. 
+</p><p>Orbits for artificial bodies 
 orbiting the Earth are taken from NORAD supplied orbits.  However while we model the orbital
-precession of satellites (both the Moon and artificial objects), atmospheric drag and active orbit control of
-artificial satellites is not addressed.  The rotation periods of and axes of planets are derived
+precession of satellites (for both the Moon and artificial objects), atmospheric drag and active orbit control of
+artificial satellites is not addressed.  The satellites shown are from recent emphemerides published by NORAD which include
+all bodies currently being tracked.  For almost all satellites we have the year in which the mission with which the object is
+associated was launched, and if we are in a prior year, the satellite will not be shown (so a bunch of satellites can show up
+at the beginning of January).  This means that all of the fragments associated with a collision are shown back to the time the
+original mission launched, even though the collision may be much later.  
+Also, satellites which have reentered the atmosphere before our ephemeris are never shown.  So we show Vanguard back
+till its launch year, but Sputnik is never shown since our ephemeris dates from long after its orbital decay.
+    </p>
+    <p>
+The rotation periods of and axes of planets are derived
 from public sources (notably Wikipedia) but we have not been able to determine the rotation phase for
 many bodies where it is clearly defined (e.g., the inner planets or the Galilean satellites of Jupiter).
     </p>
 In the solar system animation, the radii of planets and the Sun are greatly exaggerated. The algorithm 
 shows the planetary radii in the correct order, i.e., Jupiter is biggest and Pluto smallest, 
 but the differences between planet sizes are much less
-than in realty.   The relative radii of the orbits of planets and moons are correct.
+than in realty.   The relative radii of the orbits of planets in the solar system simularion and moons in planetary simulations are correct.
     <p>
 The radii of the moons have generally been exaggerated to make them visible.  Nearby moons are generally
 shown with a radius ~10-20% of the planetary radius but there will be some attempt to show larger moons
@@ -225,29 +233,26 @@ but lighting by the primary is not included.  Shadows are not currently modelled
     </strong>
     Rotations are generally specified in terms of the universe as a whole, so that's the 
     sidereal day of the Earth which is about 4 minutes shorter than the solar day we're using
-    as our time unit.  (~1436 minutes per sideral day)/(1440 minutes per solar day) = ~0.997.
+    as our time unit.  (~1436 minutes per sidereal day)/(1440 minutes per solar day) = ~0.997.
 </li>
 <li><strong>[Earth] How do I find a satellite given the complex names that the program uses for them </strong>
     You can use wildcards in the satellite name to look for specific satellites.  E.g., to look for HST you can enter *HST*. 
     You may still need to guess a bit.  E.g., *Chandra* won't work, but *CXO* (for Chandra X-ray Observatory) will.
 </li>
-<li> <strong>[Solar System] Why do some missions disappear?</strong>Generally we don't follow missions after they reach a stable orbit
+<li> <strong>[Solar System] Why do some interplanetary missions disappear?</strong>Generally we don't follow missions after they reach a stable orbit
     around, or land on, some other Solar System body (usually but not always a planet).  However if a mission 
     is in a solar orbit when it ends we use
     the last available orbit for the mission indefinitely even decades after the final manuevers.
 </li>
 <li><strong>[Solar System] How do you know the orbit of missions in the future?</strong>  We use the Horizons predicted
     orbits for the mission until either the mission is supposed to reach its destination (e.g.,
-    Mercury for BepiColombo) or no further manuevers are expected. 
+    Mercury for BepiColombo) or no further maneuvers are expected. 
 </li>
-<li><strong>[Clusters/Nearby Galaxies] Why do the time controls disappear in some animations?</strong>Since we do not know the proper
-    motions of galaxies (with a few exceptions) or clusters, it's not possible to model their space motions. So the time display and
-    controls are hidden in these animations.
-</li>
+
 <li>
     <strong>[Clusters] Why does there seem to be an empty wedge in the clusters animation?</strong>  Clusters at low
     Galactic latitude are difficult to see through the bright Galaxy foreground and so the Abell cluster
-    catalog on which this animation is based did not look for clusters there.  Somday we
+    catalog on which this animation is based did not look for clusters there.  Someday we
     may be able to identify clusters based upon radio properties which could fill in this obscured area.
 </li>
 </ol>

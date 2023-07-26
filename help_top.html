@@ -26,7 +26,8 @@
     <body onload="updateInfo()">
         <h2> Orrery Help </h2>
              This web site provides a number of distinct, interacting capabilities enabling
-             users to visualize elements of the universe in 3D.  The current version is defined in <a id='ver' href="./version.html">the version page</a> and changes are
+             users to visualize elements of the universe in four dimensions: fully rendering in space and time.
+             The current version is defined in <a id='ver' href="./version.html">the version page</a> and changes are
              noted in the <a href="./release.html">release notes</a>.
 	   <ul> 
                <li> The <strong>Solar System Orrery</strong> shows major and minor components of the solar system.  
@@ -37,23 +38,25 @@
                Data are taken from the Minor Planet Center of the Center for Astrophysics.  
                Positions for these minor bodies for times more than a few years from the present are
                less accurate since we are using a current epoch orbit.
-               Future upgrades may use update orbits appropriately for the time shown in the orrery.
+               Future upgrades may use update orbits appropriate for the time shown in the orrery.
                A few dozen spacecraft missions are also animated, but are generally
                only shown while the spacecraft are in interplanetary travel (e.g., between Earth and Mars but not
                during a Mars mission).
                <p>
                You can start and stop the orbits, set the time, speed up or slow the passage of time.
                You can also highlight a particular orbit, show the orbit specified in the Orbit Calculator, 
-               or interact with a trajectory set up in the Trajectory Controller (TBD).
+               or load or create rocket <a href=traj.html>trajectories</a>.
            </li>
            <li> <strong>The Earth and environs </strong> shows the Earth, Moon and more than 20,000 objects orbiting
                the Earth that are being tracked by NORAD.  The satellites are shown as dots
                and users can click to find particular objects as in the solar system.
                However since orbits of the satellites are strongly affected by the atmosphere,
                orbit manuevers and non-two body gravitational interactions, these orbits should
-               not be extrapolated very far, and the simulation will normally start at the time of
-               the downloaded satellite ephemerides.  However, while the detailed orbits may not be
-               precise, then general characteristics of satellite orbits remain accurate.  
+               not be extrapolated very far.  However, while the detailed orbits of specific satellites may not be
+               precise, the general characteristics of the distributions of satellite orbits remain accurate.   Note that some attempt
+               is made to shown only satellites that were launched before the 'current' time of the simulation, but
+               this is done only with yearly granularity, and does not include objects which have reentered the atmosphere before
+               the ephemeris time.  So, e.g., neither Sputnik nor Spacelab are ever shown.
                The lighting of the Earth and Moon by the Sun
                is modeled and spheres show the features of both of these bodies.  Double-clicking on the moon
                will change to a Lunar animation.
@@ -73,7 +76,7 @@
            can be substituted by appending <code>?galaxy=small</code> to the URL when starting this web site.
 	   <li> 
               
-           The <strong>Orbit Calculator</strong> enables a user who can give some elements of an orbit to calculate others. 
+               The <strong><a href="./calc.html"> Orbit Calculator</a></strong> enables a user who can give some elements of an orbit to calculate others. 
            Fill in whatever information you have on the orbit and see if the full orbit can be determined.
            Note the distinction between elements that are constant along the orbit,
 	   and those that vary with time.  If an orbit is fully defined in the orbit calculator
@@ -81,8 +84,9 @@
            central body matches that of the Earth or Sun.
            </li>
            <li> The <strong>Nearby Galaxies </strong> animation shows the positions of galaxies within
-               a few megaparsecs of the Milky Way. This color codes the types of galaxies.  Where known disks show the orientations
-               of disk galaxies.  No time-dependent view is available -- while we have radial velocities for many of these galaxies
+               a few megaparsecs of the Milky Way. This color codes the types of galaxies.  Where the disk orientation was available, the disks are [suppose to be]
+               oriented appropriately.
+               No time-dependent view is available -- while we have radial velocities for many of these galaxies
                we have only very rough ideas of the motion perpendicular to the line of sight.  Users can still zoom and pan and
                use the same buttons as in the other animation
            </li>
@@ -95,7 +99,9 @@
                  Within each animation users can zoom and pan using gestures appropriate for the 
                  platform.  E.g., a mouse drag does a rotation on a PC and the mouse wheel may
                  be used to zoom.  A shift/drag does a translation.  On a touch screen device, 
-                 single and two finger drags, and finger expands may be used.
+                 single and two finger drags, and finger expands may be used.  By default a control-click is
+                 needed to request information on the object under the mouse, but this can be
+                 toggled to all clicks.
              </p>
            To switch among animations use the three-dot menu, or double click on an object which has a sub-animation
            (e.g., planets with the Solar System, and some moons within their planetary system).  You can also use
@@ -125,15 +131,15 @@
                <li>A: start the animation associated with this object (planets and some moons)</li>
                <li>C: center the animation on this object.  It will be displayed in the center of the
                display and you can now pan around it.  Note however that this uses the current position of
-               the object: it does not follow an object on an orbit, but repeatedly click on the button to do so.
+               the object: it does not follow an object on an orbit, but you can  repeatedly click on the button to do so.
                To restore the center you can
                set the center to be the Sun (or the planet if you are in a planet system animation)</li>
                <li> O: Display the instantaneous orbit of the object.  This does not include subsequent
                    precession for moons or satellites. The orbit will persist in the simulation. For comets
                    asteroids and artificial satellites this will also display a larger dot to represent the object.</li>
-               <li> D: show a form to display a line showiung the delta between two objects.  The line will
+               <li> D: show a form to display a line showing the delta between two objects.  The line will
                    be drawn whenever the Connect button is pressed down.  You can press it
-                   repeatedly as either the source or destination object moves (or both).  Only one
+                   repeatedly as the source and/or destination object moves.  Only one
                    delta is shown in the simulation at any given time.
                <p>When searching by name you search the components of the current simulation.  If nothing
                    is found a query is sent to SIMBAD to see if it knows both the position and distance to the object.

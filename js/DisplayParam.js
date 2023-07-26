@@ -1,6 +1,7 @@
 // Normally ID will identify a span or div element
 // whose content is to specified by passing a key/value pair to the page.
 // Intended for HTML pages with minimal JavaScript
+// Numbers are assumed to be dates in seconds from 2000.
 function DisplayParam(id, key, dft) {
     let elem = document.getElementById(id);
     if (elem == null) {

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Orbit Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Calculating orbit parameters </h2>
+        <p> The Orbit Calculator calculates various parameters of an orbit given 
+            other information that the user supplies.  Users can supply positions and
+            velocities and get the orbit parameters, or enter orbit parameters and get
+            the state of the orbit at a given time.
+        </p>
+        <p> The calculator is a simple speadsheet with a row for each of the parameters supported.
+            Each row gives a fiducial name for the element (used throughout the program), an entry field,
+            a unit field which gives the allowed unit suffixes, and a short description.
+            Initially the user can enter data in any row in the data entry field.  
+            Each row in the form is in one of four states: 
+        </p>
+        <ul>
+            <li>Blank: with nothing showing
+            in the text entry field either because nothing has
+            ever been entered, or the entry has been cleared by user edits
+            or actions of the program.
+            </li>
+            <li>Non-blank but non-validated:  Some text has
+            been entered in the row, but the row has not yet been successfully validated.
+            </li>
+            <li>Manually entered and validated: the user entered data in the row and
+            the program has confirmed that the entry is consistent with the row, e.g., there are
+            not extraneous non-numeric characters and that the appropriate number of fields were
+            found if the row describes a vector.  In a vector field commas or spaces may
+            separate the components and square brackets may be entered to make
+            the vector nature clear. A unit field may be given at the end of the
+            entry which should match one of the supported units for the row. It must
+            be preceded by a space.
+            </li>
+            <li>Computed: the program has computed the value of the row based upon
+            other values the user has entered (or in a few cases based upon default values).  A
+            computed row is always validated but cannot be editted by the user.  The row is
+            shaded yellow to indicated the computed status.
+            </li>
+        </ul>
+        <p>
+            If the user types Return/Enter after entering
+            data, the program attempts to validate the row -- the program checks to see if the value is numeric
+            and has the correct dimensionality.  Whenever validation fails a message is shown in the
+            <code>Status:</code> field at the top of the form giving the
+            reason for the failure.
+        </p>
+        <p>
+            If a row has been validated and the program supports multiple units for the row, a button will appear
+            before the unit designations.  The user can click on this button to switch among the various units
+            supported for the field.  While the unit will be shown exactly as entered by the user for the input units,
+            the value will be shown to
+            the current precision scale when any other units are chosen. Changing
+            the units does not change the underlying value of the row, just
+            the display.
+        <p>
+            If a row is validated, any editing of that row will undo the validation.  A user can just
+            key in a Enter/Return to revalidate.  Edits will also clear any computed row
+            which used (directly or indirectly) the now-updated row in its computation.
+        </p>
+        <p>
+            You can try to compute values for rows that have not been manually entered either by typing
+            Enter/Return in an empty data input field to update a single row, or by clicking on the Compute button at the bottom
+            of the form to compute all currently blank rows.  
+        </p>
+        <p>
+            If you type Enter/Return in an empty field, the program first validates any
+            non-blank, non-validated row.  If no validations fail, the program will then attempt to compute
+            the row selected, using just the values currently showing.  E.g.,
+            if the acceleration, G and central mass have been specified, then the energy can be determined.
+            Just enter a return in the entry field of the energy (E) row and the energy of the orbit will be shown.  However if, e.g.,
+            G is currently blank, the energy cannot be calculated and nothing will happen.
+        </p>
+        <p>
+            The <code>Compute</code> button is more aggressive.  Again it first looks at all
+            rows in the form which are non-blank and validates any that
+            have not yet been validated.  If no validations fail, it attempts to calculate all of the unknown
+            parameters in an iterative way.  When an iteration finishes, if it was successful in computing any parameter
+            it tries again for all remaining unknowns, stopping only when no new parameters can be determined from the currently known parameters -- which 
+            can include there being no unknowns left.
+        </p>
+        <p>
+            E.g., suppose we want to compute the specific energy of Earth's orbit.
+            We type the characters "1 au" (no quotes) in the top row data entry box.  If we then click
+            on <code>Compute</code> (without ever typing Enter/Return), the the program will first validate our
+            input on the semimajor axis -- successfully we hope!
+            Then on a first computation pass the program
+            is able to find the default values for the few rows that have defaults since they
+            are normally not inferred from other parameters: the central mass (Ms), the mass of the orbiting body (0) and the 
+            gravitational constant.  On a second iteration the program then determines the energy and period.
+            A third pass nets the number of orbits per day.  As it happens the program
+            looks for the N0 before Per: if the order were different it might have found
+            all three on the second pass.  Since nothing new is found on the fourth pass
+            the computation ceases and the display updates,
+            with the semimajor axis field validated and six fields (G, M, m1, E, N0, and Per) shown as computed.
+        </p>
+        <p>
+            To compute an unknown parameter, the program has a set of one or more
+            generators for each parameter.  Each generator has a set of prerequisite
+            parameters.
+            To see if a row is computable, the program loops over the associated set of generators.
+            For each generator, the list of prerequisites is compared to the list of known parameters.  When
+            a generator where all
+            prerequisites are know is found, that generator is used to compute the new parameter.
+            There are a few corner cases where a generator fails even with all the
+            prerequisites in place. In these cases there are normally other generators
+            which can serve as a backup.  Generators with no prerequisites are used to
+            set default values for a few parameters: G, M and m1.
+        </p>
+        <p>
+            Computed parameters are shown shaded as yellow.  A computed row is always validated, so 
+            if there are units available, the user can toggle amongst them.  However it is not allowed
+            to edit a computed row, since that would generally
+            lead to an inconsistent state for the orbit.  Computed rows must be cleared before their values can be entered
+            manually.            
+        </p>
+        <p>
+            There are two explicit clear buttons at the bottom of the form.  The <code>Clear all</code> button returns the form to its
+            empty state so you can enter a completely new orbit.  The <code>Clear variables only</code> button clears the
+            fields in the orbit that change with time that are shown towards the bottom of the spreadsheet. 
+            So a user can enter (or determine), the constants of
+            the orbit, then enter a a series of times to get the position of the body a different times along
+            the orbit.  Just click <code>Clear variables only</code> before entering each new time.
+        </p>
+        <p>
+            The <code>High precision?</code> toggle affects the number of digits displayed.  Normally
+            7 digits precision are shown for scalars and 5 for vector components.  If the toggle is
+            set, then 14 digits are shown for scalars and 12 for vector components.  However recall that for 
+            manually entered rows when
+            the units are the same as when the user entered the data, the row  is shown exactly as the user
+            entered it regardless of the requested precision since the users input is deemed
+            exact: all unshown digits are 0.  This toggle can be changed at any time.            
+        </p>
+        <p>
+            The <code>Render orbit</code> button is an interface to the animations in E&iB.  A generated 
+            orbit can be displayed in the Solar System or Earth animations (depending
+            upon the mass of the central body).
+            This is the only place where the value of the <code>Name for orbit</code> text box at the top of the form is currently used.
+            It labels the orbit in the animation.
+            Note that this orbit name is not effective until the user hits an Enter/Return in its entry
+            field.            
+        </p>
+        <p>
+            While the program does a little to try to keep the orbit parameters consistent, it is still
+            easy to enter inconsistent parameters.  E.g., a user could enter a mean anomaly of 30 degrees and
+            a true anomaly of 210 degrees as the first two fields.  It is recommended that users be parsimonious
+            in the manual entry of parameters since that minimizes the chances of entering inconsistent data.
+        </p>
+       
+        <table border><tbody>
+                <tr><th colspan="2" align="center">Orbit parameters </th></tr>
+                <tr><th>Name</th><th>Description</th></tr>
+                <tr><td colspan="2" align="center"><i>These parameters are constants which do not change with time. </i></td></tr> 
+                <tr><td align="center">a</td><td>The semimajor axis of the orbit. Negative for hyperbolic orbits.</td></tr>
+                <tr><td align="center">b</td><td>The semiminor axis of the orbit.  Note that for a
+                    hyperbolic orbit, the semiminor axis may be larger or smaller than the semimajor axis.</td></tr>
+                <tr><td align="center">C</td><td>The vector position of the center of the orbit with the primary (or center of mass) and origin at one
+                    of the foci.</td></tr>
+                <tr><td align="center">E</td><td>The specific energy of the orbit: in MKS units unless G is modified. </td></tr>
+                <tr><td align="center">Ecc</td><td>The eccentricity vector of the orbit.  This vector points from the primary to
+                    periapsis and has a magnitude equal to the eccentricity scalar.</td></tr>
+                <tr><td align="center">Eccen</td><td>The scalar eccentricity of the orbit which can range from 0 to infinity. </td></tr>
+                <tr><td align="center">eF2</td><td>The position of the non-primary focus, 
+                    scaled by the energy of the orbit. (May be used in some
+                    internal trajectory calculations.)</td></tr>
+                <tr><td align="center">i</td><td>The inclination of the orbit, i.e., the angle between the coordinate system
+                    pole (the z unit vector) and and pole of the orbit which is parallel to L.</td></tr>
+                <tr><td align="center">L</td><td>The specific angular momentum of the orbit in MKS units.</td></tr>
+                <tr><td align="center">LonP</td><td>The longitude of perihelion = nu+Omega.  For orbits nearly in the
+                        plane this can be more stable than its components.</td></tr>
+                <tr><td align="center">M</td><td>The mass of the primary body.</td></tr>
+                <tr><td align="center">m1</td><td>The mass of the orbiting body. [Will be used to 
+                    handle orbits of bodies with non-negligible mass, but not currently used.]</td></tr>
+                <tr><td align="center">N0</td><td>Number of orbits/day.  Often used for Earth orbiting elements. </td></tr>
+                <tr><td align="center">nu</td><td>The argument of periapsis: the angle between Pnode and Ecc, i.e., the angle along the orbit between
+                        crossing the x-y plane and the periapsis. </td></tr>
+                <tr><td align="center">Omega</td><td>The longitude of the ascending node.  The longitude
+                    where the orbit crosses the coordinate plane.  The angle between the x unit vector and Pnode.</td></tr>
+                <tr><td align="center">PNode</td><td>The vector pointing to the ascending node of the orbit, where it crosses the
+                        x-y plane to positive z values.
+                <tr><td align="center">Rot</td><td>A six element blob used to store the rotation information 
+                    conveniently for future orbit calculations. Elements are functions of i, nu and Omega.</td></tr>
+                <tr><td align="center">t0</td><td>A (or for hyperbolic orbits: The) time at which the orbit
+                    is at periapsis.</td></tr>
+                
+                <tr><td colspan="2" bgcolor="red"> </td></tr> 
+                <tr><td colspan="2" align="center"><i>These are the parameters which vary with time along the orbit. </i></td></tr> 
+                <tr><td align="center">EA</td><td>The current eccentric (or hyperbolic for unbound orbits) anomaly for the
+                    object.  This angle is constructed as a bridge between the mean anomaly (which is directly derivable from the time) 
+                    and the true anomaly which gives the position. </td></tr>
+                <tr><td align="center">MA</td><td>The current mean anomaly.  
+                        Linearly related to the passage of time and by conservation of angular momentum
+                        to the fractional area of the orbit that has been swept out since periapsis.</td></tr>
+                <tr><td align="center">MLon</td><td>The mean longitude which is the sum of of the 
+                    Omega, nu and MA.  For nearly circular or low inclination orbits the mean longitude can
+                    be more stable that its components.<td></tr>
+                <tr><td align="center">r</td><td>The current position vector of the object </td></tr>
+                <tr><td align="center">t</td><td>The current time. </td></tr>
+                <tr><td align="center">TA</td><td>The angle between periapsis and the current position, i.e.,
+                    between Ecc and r.</td></tr>
+                <tr><td align="center">v</td><td>The current velocity of the object.</td></tr>
+           </tbody></table>
+    </body>
+</html>
