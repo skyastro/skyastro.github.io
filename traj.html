@@ -8,181 +8,427 @@
     <body>
         <h2> Trajectory programs </h2>
         <p>A trajectory for a vehicle can be described using a <i>Trajectory program</i>
-        that can be created dynamically while running EaIB, or can be uploaded.
+            that can be created dynamically while running EaIB, or can be uploaded.
         </p>
         <h3> Starting a trajectory </h3>
         <p>
-        Trajectory programs are uploaded and downloaded using the cut/paste
-        mechanism.  To upload a program, stripe a copy into the paste buffer, click on the
-        three dots icon, then Orbits and Trajectories/Add Trajectory/Copy Trajectory.  If the
-        program parses, the time will reset to just before the earliest time in the trajectory and
-        the commands in the trajectory will be executed as the program reaches them.
+            Since our program is running in JavaScript on your machine, trajectory programs 
+            are uploaded and downloaded using the cut/paste
+            mechanism.  To upload a program, stripe a copy into the paste buffer, click on the
+            three dots icon, then Orbits and Trajectories/Add Trajectory/Copy Trajectory.  If the
+            program parses, the time will reset to just before the earliest time in the trajectory and
+            the commands in the trajectory will be executed as the program reaches them.   When uploading
+            a program into the program, a user may need to give permission for the program
+            to read the cut/paste buffer.
         </p><p>
-        To start a manual trajectory, instead of clicking the Copy Trajectory button, fill in the 
-        entry box after the Start button which and click the Start button.  A rocket will show up
-        with the same orbit as the body whose name you entered in the Start button.
+            To start a manual trajectory, instead of clicking the Copy Trajectory button, fill in the
+            entry box after the Start button which and click the Start button.  A rocket will show up
+            with the same orbit as the body whose name entered in the Start button.  Then use
+            the orientation icon and thrust buttons to enter periods of thrust.
+        <p>
+            The button pushes will be rendered as a set of THRUST and ORBIT commands.  Save this trajectory
+            using the save button as discussed below.
+        </p>
+        <p>
+            Manual thrusts can also be entered after completion of an uploaded program.  The Thrust button is
+            deactivated in the middle of the existing program or when running backwards in time.
+            Note that the THRUST command uses the current velocity vector in determining the direction of the 
+            thrust [By default the thrust is in the same direction as the velocity, but the user can
+            specify an angle relative to that, notably including a thrust in the opposite direction.]  The thrust button
+            will not execute a command when the velocity is below a minimum (typically 1 m/s) since the direction
+            of the thrust may be ill-defined.
         </p>
         <h3> Downloading a trajectory program </h3>
         You can download a trajectory program (which can include manually entered and/or computed commands)
         by clicking on the Save Trajectory button.  This puts the trajectory into you Paste buffer and
         you can then copy this into a file or text editor using the features of the operating system.
-        Note that computed commands will be shown as comments that document the preceding command.  E.g.,
-        If you uploaded a  TRANSMID MARS command in the original to request a transfer with a mid course correction to Mars,
-        then if you download the program after this command has been executed, you will see three IMPULSE commands shown
-        as comments after the TRANSMID command.  
+   
         <h3>Overview </h3>
         <p>
-        A trajectory program is a set of lines either comments, or sequential events within the
-        trajectory.  The events may be acceleration events, explicit impulses and thrusts
-        applied to the orbit, or calculable events, e.g., a transfer orbit between
-        planets.  Calculable events are translated into acceleration events automatically.
-        </p>
-        <dl><dt>Comments</dt><dd>Any line consisting only of blank characters or whose first
-            non-blank character is a '#' is treated as a comment line and is ignored
-            in terms of the trajectory.  Comments may also be placed after commands by inserting a #<br/>
-            <code>
-                # This is a comment line<br/>
-                2000-01-01T12:12:12 Orbit Earth #  Start the trajectory at the Earth
-            </code>
-            </dd>
-            <dt>Command lines</dt><dd> Command lines start with a date/time for the event they described, 
-                followed by a token that describes the kind of event which is in turn followed by the
-                arguments needed to specify the event.  The date may be specified in ISO format, fractional
-                years, Julian Day, or as an interval from the previous event.  ISO dates will have a non-leading
-                hyphen, while years and Julian days will be well formed numbers.  If the absolute magnitude
-                of the number is greater and 1000000, then a Julian day is assumed.  However if the number starts
-                with an explicit + sign, then it is assumed to be an interval from the previous event.  This cannot
-                be used for the first event in a trajectory. <br/>
-                <code>
-                    2000-01-01T12:12:12 State   Earth<br/>
-                    2001-01-01T12:13:00 Impulse 3000.2<br/>
-                    +86400              Impulse 200 80 240  # Second impulse 1 day later                    
-                </code>
-        </dl>
+            A trajectory program is a set of lines that are either comments, or sequential events within the
+            program.   There are four kinds of events:  basic trajectory events,
+            complex trajectory events, camera events, and miscellaneous events.  Changes to the
+            trajectory of the rocket are affected by the basic trajectory events.  Complex trajectory
+            events compute how a transfer can occur and insert a set of basic trajectory
+            events to effect the transfer, camera events move the position of the camera
+            or the point at which the camera is pointing.  Miscellaneous events change
+            other aspects of the animation, e.g., displaying comments or affecting the
+            speed of the animation.
         <p>
-            The date/times of events must be non-decreasing for each line in the 
-            trajectory.  The trajectory is a sequence of events in time order.
+            Comments can be included anywhere in the program by have the first non-blank character
+            being '#'.  Lines with only white space are also treated as comments.
         </p>
         <p>
-            The arguments for each event are described below.  
+            With a few exceptions (e.g., when the user parameters are to be echoed to the animation)
+            use of any strings in the program (command, parameter and object names) are case insensitive.
         </p>
-        <h3> Acceleration Events </h3>
-        <dl><dt>Orbit</dt> <dd>This event is normally used to start a trajectory.  The user
-            may give an explicit state vector or the name of an known object whose
-            state the vehicle will share.  The vehicle will share the orbit of the named
-            object until an impulse or thrust is applied.
-            
-            <code>
-            <i>date/time</i> <strong>Orbit</strong> <i>Object</i><br/>
-            <i>date/time</i> <strong>Orbit</strong> <i>six numbers giving state vector</i><br/>
-            <br/>
-            2022-12-14T15:16 Orbit Earth<br/>
-            24700000.2834    Orbit 1.23e9 2.27e9 0.2e9 2000 2000 20
-            </code></dd>
-<!--            <dt> Units</dt><dd>This is used to change the default units for subsequent
-                positions and velocities.  The defaults is m,m/s.  The argument comprises
-                two comma separated values giving the units for distance and velocity.
-                Allowed values for distance are 'm', 'km', 'Gm' and 'au'.  The allowed values
-                for velocities are 'm/s', 'km/s', and 'au/day'.
-                <br/>
-                <code>
-                    <i>time</i> <strong>Units</strong> <i>string</i><br/>
-                    +0  Units Gm,km/s<br/>
-                </code>
-                Since this is not a 'real' event it can be convenient to use +0 for the time.
-                Note also that Gm is the same as millions of kilometers, a unit often
-                used for interplanetary orbits.
-            </dd>
-            <dt> Coordinates </dt><dd>
-                This is used to change the default coordinate system used for giving directions.
-                The default, 'vehicle' uses a system of units based on the direction of motion
-                of the vehicle, with the north pole in the direction of motion.  The cross-product
-                of the north pole of the animation and the direction of motion gives a vector pointing
-                at the 0 of longitude. Other options are 'ecliptic' and 'equatorial' which specify directions
-                using these coordinate systems.  Again a +0 may be used for the time.
-                <code><br/>
-                    <i>time</i> <strong>Coordinates</strong> <i>string</i><br/>
-                    +0  Coordinates ecliptic<br/>
-                </code>
+        <p>
+            A trajectory program can be created which does not actually have
+            a trajectory included, i.e., no trajectory events are included.
+            E.g., one could write a program to highlight
+            the Voyager missions, giving comments about milestones and moving
+            the camera to highlight the events as the missions moved further
+            into the outer solar system.
+        </p>
+        <p>
+            During the program execution, some events may cause additional
+            events to be generated.   A request to generate a trajectory to Mars
+            might generate a set of impulses to be used to effect the transfer.  In
+            some cases, a generated event is used to ensure that the animation can
+            be successfully run backwards as well as forward.  When a
+            program with generated events is saved, the generated events are shown
+            as comments with a '#' preceding the event. 
+        </p>
+        <p>
+            Each event/command in the program is given on its own line.  An initial token
+            gives the time for the event, which can be relative to the previous event or absolute.
+            The second token gives the actual command.  Further tokens may give parameters to the
+            command.
+        </p>
+        <h3> General event syntax </h3>
+        <p>
+            Each event line comprises three fields: the time of the event, the event type, and the parameters
+            for the event (which may be optional).
+        <p>
+            The time of the event may be specified as a Javascript parseable date,
+            a Julian Day (followed by JD),
+            a modified Julian Day (followed by MJD),
+            or days or seconds since the start of 2000 (followed by D or S).
+            If the value is a simple number (as opposed to a date with embedded colons or dashes), then
+            if it has a magnitude less than 100,000 it is treated as the year (negative years may be
+            off by one)
+            Otherwise it is treated as a Julian day.
+        </p>
+        <p>
+            All of the following are representations of the same instant:
+            <pre>
+                2000-01-01T00:00:00
+                2000.0
+                0s
+                0d
+                2451544.5jd
+                51544.0mjd
+                2451544.5
+            </pre>
+       
+        <p>
+            Dates may also be specified relative to the immediately previous date by prepending with a plus to a number
+            and optionally appending a unit.  So if the previous event had one of the dates above, then the
+            following are equivalent
+            <pre>
+                2001-01-01
+                +366d
+                +1.00207396455y
+                +31622400s
+                +31622400
+            </pre>
+            Recall that the year 2000 was a leap year.  The length of a year used for intervals
+            is the average length of the year in the Gregorian calendar,
+            i.e., 365*400 regular days + 97 leap days equals 400 years.   When a
+            trajectory program is parsed, relative dates will be converted to
+            absolute dates in seconds since 2000.0.  Since intervals that use units of years use the average length
+            of a year, users should be cautious when interpreting a year based interval following a decimal year.
+            E.g., as we see above if we have one event at time 2000.0 and the next event marked 
+            at the interval +1y, the resulting time
+            is actually about 2000-12-31T05:49:12, i.e., it's most of a day before the date we could write as 
+            2001.0.  However, when decimal years are used as absolute dates
+            the conversion of the fraction of the date takes into account the length of the year specified, i.e.,
+            2000.1 is 36.6 days into 2000, but 2001.1 is just 36.5 days after that start of the year.
+            All decimal year dates assume a Gregorian calendar.  This also applies to dates computed when
+            a duration is part of a command.
+        
+        <p>
+            The date/times of events should be non-decreasing for each line in the
+            trajectory.  If not the commands will be reorderd by the parser. 
+            The trajectory program is a sequence of events/commands in time order.
+        </p>
+        <p>
+            The command name is given as a single string token separated by white space from the
+            preceding time of the event and the optional following parameters.  The value is not case
+            sensitive.
+        </p>
+        <p>
+            The parameters for commands are illustrated below.  Both keyword and
+            positional parameters are used.  Positional parameters should precede keyword
+            parameters.
+        </p>
+        
+        <h4> Example </h4>
+        This is a legal but not especially useful example to illustrates command syntax.
+        The commands are aligned only to aid comprehension.  This is not required.
+        <pre>
 
-            </dd>
--->
-            <dt>Impulse</dt><dd>This event enacts as instantaneous change in velocity
-                of the object.  If only a single velocity is given, then the change
-                in velocity is parallel to the current velocity.  If three arguments
-                are given, they are the spherical coordinates for the change: X,Y,Z
-                <code><br/>
-                    <i>time</i> <strong>Impulse</strong> <i>X [Y Z]</i><br/>
-                    2013-10-10T14:15:16 Impulse 3000<br/>
-                    2013-10-10T14:15:16 Impulse 3000 -1000 1<br/>
-                </code>
-            </dd>
-            <dt>Thrust</dt><dd>This event initiates a continuous thrust for the vehicle.  The units
-                of thrust are always m/s<sup>2</sup>.  The direction of thrust is given relative
-                to the velocity of the object.  A scalar thrust is in the direction of the velocity.
-                The thrust will continue until the next event.  A "Thrust 0" event will
-                normally be used to terminate the thrust.
-                <code><br/>
-                    <i>time</i> <strong>Thrust</strong> <i>mag [lon lat]</i><br/>
-                    2013-10-10T14:15:16 Thrust 0.01<br/>
-                    2013-10-10T14:15:16 Thrust 0.01 240 70<br/>
-                </code>
-            </dd>
-            <dt>Transfer</dt> <dd>This event does a timed transfer between the current positions
-                and the position of the specified body.   The transfer starts immediately
-                and terminates in the given interval.  This command will compute two impulses.
-            <code><br/>
-                <i>time</i> <strong>Transfer</strong> <i>dest delta</i><br/>
-                    2013-10-10T14:15:16 Transfer mars   0.3y<br/>
-                    2013-10-10T14:15:16 Transfer Earth 20000000<br/>
-            </code></dd>
-            <dt>Transcalc<dt> <dd>This event calculates an 'optimal' transfer between the current orbit
-                and a destination orbit using two impulses.  The transfer is expected to finish within the given
-                interval.  If the escape velocities of the bodies are included, then the
-                optimum is computed as the minimal additional velocities for the transfer considering
-                the Oberth effect.  I.e., the deltaV cost of escaping the source and getting into a low
-                orbit around the destination is not included, but the actual cost of the interplanetary
-                manuevers is discounted by the assumption that they are performed deep
-                within planetary gravitational fields. 
-                If the escape velocities are not included, then the Oberth effect is not considered.
-                This command will compute two impulses.
-                <code><br/>
-                    <i>time</i> <strong>Transcalc</strong> <i>dest within [ve<sub>Source</sub> ve<sub>dest</sub>]</i><br/>
-                    2013-10-10T14:15:16 Transfer mars 2y 11000 5000<br/>
-                    2013-10-10T14:15:16 Transfer Earth 2y 5000 11000<br/>
-                </code></dd>
-            <dt>Transcalc<dt> <dd>This event calculates an 'optimal' transfer between the current orbit
-                and a destination orbit using two impulses.  The transfer is expected to finish within the given
-                interval (but not really checked).  If the escape velocities of the bodies are included, then the
-                optimum is computed as the minimal additional velocities for the transfer considering
-                the Oberth effect.  I.e., the deltaV cost of escaping the source and getting into a low
-                orbit around the destination is not included, but the actual cost of the interplanetary
-                manuevers is discounted by the assumption that they are performed deep
-                within planetary gravitational fields. 
-                If the escape velocities are not included, then the Oberth effect is not considered.
-                This command will compute two impulses.
-                <code><br/>
-                <i>time</i> <strong>Transcalc</strong> <i>dest within [ve<sub>Source</sub> ve<sub>dest</sub>]</i><br/>
-                    2013-10-10T14:15:16 Transfer mars 2y 11000 5000<br/>
-                    2013-10-10T14:15:16 Transfer Earth 2y 5000 11000<br/>
-                    </code></dd>
-            <dt>Transmid<dt> <dd>This event calculates an 'optimal' transfer between the current orbit
-                and a destination orbit using three impulses, i.e., including a mid course correction.
-                The transfer is expected to start within the given
-                interval.  If the escape velocities of the bodies are included, then the
-                optimum is computed as the minimal additional velocities for the transfer considering
-                the Oberth effect.  I.e., the deltaV cost of escaping the source and getting into a low
-                orbit around the destination is not included, but the actual cost of the interplanetary
-                manuevers is discounted by the assumption that they are performed deep
-                within planetary gravitational fields. The full cost of the midcourse correction is used.
-                If the escape velocities are not included, then the Oberth effect is not considered.
-                This command will compute three impulses.
-            <code><br/>
-                <i>time</i> <strong>Transmid</strong> <i>dest within [ve<sub>Source</sub> ve<sub>dest</sub>]<br/>
-                    2013-10-10T14:15:16 Transmid mars 2y 11000 5000<br/>
-                    2013-10-10T14:15:16 Transmid Earth 2y 5000 11000<br/>
-            </code></dd>
-                
+    # Start in Earth orbit, thrust for 200 s and then compute an immediate (well 1 second later)
+    # transfer to Mars.  Center the field of view on the rocket.  At the end of the year we
+    # pan back to the Sun at the center of the field of view.
+
+    2000-01-01 Echo     This is an example program
+    +2d Orbit  Earth
+    2000-01-04 pan      30d Earth 
+    2000-02-04 follow   MyRocket 
+    +20d       thrust   0.001
+    +200s      orbit
+    +1s        transfer Mars 200d
+    2000.75    echo     We should probably have gotten to Mars by now
+    
+    # Stop following the rocket.
+    2000-11-04 follow
+    2001       pan      30d Sun
+        </pre>
+        <h3> Basic trajectory events </h3>
+        <p>
+            There are six basic trajectory events: ORBIT, COAST, THRUST, ACCEL, IMPULSE and JUMP.
+            All of these events can be used in any animation, but ORBIT and THRUST are intended
+            for use in scales at the Solar System and below.  For the larger scale animations there
+            is no central point body.  Conversely, using COAST and ACCEL within the Solar System is
+            unphysical but again perfectly permissible.
+       </p>
+        <p>
+            An actual trajectory starts with an ORBIT or COAST command with parameters.  A user specifies the
+            start position and velocity or specifies an object whose position and velocity at the time
+            of the event will be used.  In an ORBIT the trajectory then follows the calculated orbit,
+            while in a COAST the velocity of the trajectory remains constant.  ORBITs and COASTs without any parameters can be included
+            at any time in the trajectory (after the first ORBIT/COAST that had parameters).  These use the current
+            position/velocity of the trajectory as the initialization.
+        </p>
+        <p>
+            THRUST and ACCEL are paired similarly to ORBIT and COAST.  Thrust applies an
+            acceleration to the trajectory which is simultaneously subject to
+            the gravity of the central body.  During an ACCEL no gravity is applied.
+        <p>
+            During a thrust event, the direction of the acceleration is usually given with reference
+            to the direction of the heliocentric velocity of the rocket.  If the speed drops below a limit
+            value the direction of the velocity and thus the thrust becomes undefined.
+            The thrust will be terminated and the rocket placed in an orbit.  
+            A generated ORBIT command will be inserted
+            at the point the speed dropped below the threshold (typically 1 m/s).
+        <p>
+            There is no corresponding issue with an ACCEL, since there the direction
+            of the acceleration, even though it was likely determined relative the
+            the initial velocity, remains constant.
+        </p>
+       
+        <p>
+            IMPULSE applies an instantaneous change to the velocity of the trajectory.
+            Since most rocket maneuvers occur in very small times compared to the orbital
+            times, this is often an adequate approximation for physical maneuvers.
+        </p>
+        <p>
+            JUMP applies an instantaneous change in the position of the trajectory.
+            While this is unphysical (at least under current physics), it allows the
+            trajectory to emulate 'jump drive' scenarios seen in many stories.
+        </p>
+
+        <h4> Syntax </h4>
+        <pre>
+            ORBIT body
+            ORBIT x y z vx vy vz
+            ORBIT
+
+            COAST body
+            COAST body  vx vy vz
+            COAST x y z vx vy vz
+            COAST
+
+            THRUST a
+            THRUST a theta phi
+
+            ACCEL  a
+            ACCEL  a theta phi
+
+            IMPULSE dv
+            IMPULSE dvx dvy dvz
+
+            JUMP  body[/factor]
+            JUMP  dx dy dz
+        </pre>
+        <dl>
+            <dt><code> body </code></dt><dd> is some body in the current animation </dd>
+            <dt><code> x y z </code></dt> <dd>is a position relative to the center of the current animation. </dd>
+            <dt><code> vx vy vz </code></dt><dd> is a velocity in the frame of the current animation. </dd>
+            <dt><code> a </code></dt><dd> is the magnitude of the desired acceleration.  When no additional
+    parameters are given it is in the direction parallel to the velocity.</dd>
+            <dt><code> theta phi </code></dt><dd> the angles relative to the velocity vector in which
+    the acceleration is to take place.</dd>
+            <dt><code> dv </code></dt><dd> The change in velocity (in the direction of the velocity vector) </dd>
+    <dt><code> dvx dvy dvz </code> </dt><dd>The change in the velocity vector in the current animation frame. </dd>
+    <dt><code> factor </code></dt><dd> A jump can be made to a body or some fraction of the distance to a body by
+    appending a '/' followed fraction.  E.g., JUMP Mars/2 jumps half way to Mars.</dd>
         </dl>
-    </body>
-</html>
+    <h3> Complex trajectory events </h3>
+    <p>
+        When a complex trajectory event is executed the program looks at the
+        requested destination and parameters for the request and determines a
+        set of basic trajectory command to effect the transfer which are then inserted
+        in the program.
+    </p>
+    <p>
+        Historically there have been several commands used, but we recommend
+        use of only two commands.
+    </p>
+    <p>
+        The TRANSFER command calculates the transfer from
+        the current location to the requested destination in the requested time.
+        The requested destination is normally given as a body, and since the
+        time at which the transfer is to be completed is known, the position of
+        the body at that time can be easily calculated.
+        For any two points there is always one prograde and one retrograde orbit
+        that connect the two points in a given interval (not considering
+        orbits that move more than one full revolution which may be possible if
+        the requested interval is sufficiently large).
+        The TRANSFER command
+        calculates two impulses.  The first kicks the trajectory from the current orbit
+        to the prograde
+        solution orbit, and the second takes the trajectory off that orbit and
+        matches the orbit of the destination.
+    </p>
+    <p>
+        The TRAJECTORY command has many options and in general attempts to
+        minimize the cost (i.e., the total delta V) of the trajectory by adjusting
+        the times and directions of the computed impulses.  A destination is required
+        and the end time (either explicitly or through the duration) must be given, but
+        all other arguments are optional.
+    </p>
+    <h4> Syntax </h4>
+
+    <pre>
+        TRANSFER body duration
+
+        TRAJECTORY DEST=body TSTART=t0 TEND =t1 NMID=n STARTFIXED=xxx
+               ENDFIXED=xxx DURATION=dt DURATIONFIXED=xxx SRCVE=vs DSTVE=ve
+    </pre>
+    <dl>
+        <dt><code> body </code></dt> <dd> The destination body </dd>
+    <dt><code> duration </code></dt>  <dd>The duration of the transfer (note that
+    units may be appended to the number y: years, d: days). Note that
+    the start time and duration may be specified as an alternative to the
+    start and stop times.</dd>
+    <dt><code> t0, t1 </code></dt><dd> The start and stop times within which the transfer
+    should occur. The start time may be inferred from the time of the command
+    if not explicitly given.  Unless STARTFIXED and/or ENDFIXED are specified, these
+    give limits to the time interval within which the transfer is to occur,
+    but the actual start and stop times may be within this limit.
+    </dd>
+    <dt><code> n </code></dt> <dd>The number of impulses in the trajectory excluding
+    the impulses at the actual start and stop. </dd>
+    <dt><code> xxx </code></dt> <dd>The STARTFIXED, STOPFIXED and DURATIONFIXED keywords
+    indicate that the indicated value is not allowed to vary.  The transfer
+    must use the indicated value.  The value of these keywords is not used.</dd>
+    <dt><code> vs, ve </code></dt> <dd>These give the escape velocities associated with
+    the source and destination.  The initial and final impulses do not include
+    the effort to escape the source body and get into orbit at the destination.
+    The actual delta-V for the initial and final impulses is substantially
+    reduced due to the Oberth effect so that most of the impulse will normally
+    be done in start/finish impulses. </dd>
+    </dl>
+    <h3> Camera Events </h3>
+    <p>
+        Camera events do not affect the motions of any particles, but change
+        the perspective of the animation.  We view the animation from a virtual
+        camera placed at some location and viewing in some direction.  The camera commands
+        can change either of these points.
+    </p>
+    <p>
+        There are three camera commands:  CENTER changes the target or location of the camera
+        instantly, while PAN changes the target or location over a specified period of time.
+        FOLLOW changes the target or center depending up an object which is being followed.
+    </p>
+    <h4> Syntax </h4>
+    <pre>
+        CENTER body  [MOVANT=camera/target] [ZOFFSET=d]
+        CENTER x y z [MOVANT=camera/target] [ZOFFSET=d]
+
+        PAN    body duration [MOVANT=camera/target] [ZOFFSET=d]
+        PAN    x y z duration [MOVANT=camera/target] [ZOFFSET=d]
+
+        FOLLOW body [MOVANT=camera/target] [ZOFFSET=d]
+    </pre>
+    <dl>
+    <dt><code> body </code></dt> <dd>A body giving the location to be used or followed.
+    The value "MyRocket" may be used to follow the trajectory itself.  Note that you cannot
+    normally PAN to the MyRocket, though you can CENTER on and FOLLOW it.</dd>
+    <dt><code> x y z </code></dt><dd> A location in the current animation coordinate system.</dd>
+    <dt><code> duration </code></dt> <dd>The time period over which a pan should be completed.</dd>
+    <dt><code> camera/target </code></dt><dd> Should the camera location or the target the camera is
+    pointing to be modified? This defaults to the target. </dd>
+    <dt><code> d </code></dt> <dd>When specifying a target we often wish to specify a location
+    'over' the target so that, e.g., we want to camera to be hover over the rockt.
+    This argument allows us to specify in the animation units, the distance we hover over by.
+    </dl>
+
+    <h3> Miscellaneous commands </h3>
+
+    <p>
+        Several miscellaneous commands are available.  The ECHO command echoes its
+        text argument to the animation.  The text will be displayed until another
+        ECHO is seen, or until some other action clears the display.
+        The SPEED command changes the current rate of
+        the animation.
+    </p><p>
+        The ANIMATION command allows us to switch animations.  The HIDE and SHOW
+        commands hide or show elements of an animation.  The ANIMATION, HIDE and SHOW commands
+        must use the names of the animations, snf the names given to particular elements.  The
+        names of the animations are case-insensitive, but the names of the elements are currently
+        case-sensitive.
+    </p>
+    <p> Animation names include <tt>Solar System</tt>,<tt>Clusters</tt>, <tt>Local Galaxy</tt>, 
+    <tt>Nearby Galaxies</tt>, the names of the nine planets, and the names of the large
+    moons which are shown are images in the planetary animations (our Moon, the Galilean moons, 
+    Titan and Charon).
+    </p>
+    <p> The HIDE and SHOW commands are most useful in the Solar System animation where you can use
+        <i>planet</i><tt>Orb</tt> or <i>planet</i><tt>Orbit</tt> to control the display of the planet itself, or its orbit,
+        the names of interplanetary missions, the <tt>Sun</tt>, and <tt>SmallBodies</tt> to add or remove
+    the display or asteroids and comets.  In the Earth animation, <tt>satellites</tt> controls
+    the display of the satellites.  You can control individual moons in each of the planetary animations.
+    using the name of the moon.
+</p>
+<p>  The names given in the HIDE and SHOW commands can include an asterisk, e.g., <tt>*Orbit</tt>  or <tt>Mars*</tt>.  In this case
+    the names of elements in current animation which be matched against the string with the asterisk
+    matching any characters.  This is also convenient from matching against names
+    that comprise more than one token, e.g., Voyager*1*
+</p>
+<p>
+    The NOROCKET command indicates that no rocket is to be used.  It suppresses
+    the features that would normally allow one to start a trajectory.
+</p>
+<p>
+    The SKIP and LOOP commands affect the time sequencing of the animation.
+    SKIP jumps ahead a specified amount of time.  There should be commands which
+    execute in that interval.  The LOOP command must be the last command of
+    the trajectory.  It jumps backwards in time to sometime before the first event
+    of the trajectory.  The allows us to automatically rewind and restart the
+    animation.
+</p>
+        
+    <h4>Syntax</h4>
+    <pre>
+        ECHO  text to be displayed
+        ECHO
+
+        SPEED n
+        SPEED -n
+
+        ANIMATION name
+
+        HIDE name [ name2 [ name3 ...]]]
+        SHOW name [ name2 ...]]
+
+        NOROCKET
+
+        SKIP interval
+        LOOP interval
+    </pre>
+
+    <dl>
+    <dt><code> text to be displayed </code></dt> <dd>Arbitrary text to be displayed.</dd>
+    <dt><code> n </code></dt> <dd>The number of steps to speed or slow (if preceded by a -)
+    the animation.  Each step changes the speed by a factor of sqrt(2).</dd>
+    <dt><code> name </code></dt>  <dd>The name of the animation to switch to.  Normally this
+        should be a parent animation (i.e., one level further up in scale), or direct
+        child animation.</dd>
+    <dt><code>interval</code><dd>The interval before the first event to LOOP to, or
+    the amount of time to be SKIPped.</dd>
+    </dl>
+ </body>
+ </html>

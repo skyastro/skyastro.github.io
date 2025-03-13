@@ -1,0 +1,240 @@
+This software provides animations of the universe on scales ranging froma few thousand kilometers
+billions of parsecs.
+
+Animations use Three.js and a variety of standard Three.js classes.
+
+The software is a JavaScript application and uses no external files described below.
+Note that only some of the more important files/classes are explicitly described.
+
+Organization.
+
+.
+    index.js
+      Automatically called by React.  It renders an App.
+ 
+    App.js
+      This is the top level code in the program.  It allows the invoker to
+      specify parameter app to select from among alternatives applications to
+      be run.  E.g., this allows the OrbitCalculator to be invoked as a separate
+      page.  Each alternative requires a special renderXXX and componentDidMountXXX
+      method in App.js.  A common hash windows.GLOBALS is created to allow
+      interaction among collaborating pages.
+
+./animations
+
+    AnimationFactory.js
+       Creates a singleton which creates and caches animations as they are created.
+
+    various animations.js
+       A set of files which extends elems/Animation.js an sets up the various animations.
+       Each animation corresponds to a Three.js scene in which appropriate elements
+       are added.
+
+./benfred
+    Hosts the imported NelderMead code
+
+./calc
+    Code used specifically by the OrbitCalculator (e.g., the form where users
+    enter elements of an orbit to derive others)
+
+./components
+    Components are low-level object tightly coupled to the three.js animation.  This
+    includes items which control the three.js camera and Rocket.js and CoordinateSystem.js
+    which are simple compound objects with no animation logic associated with them.
+
+./contrib
+    BPBOQA code included the javascript adaped from the Java implementation.
+
+
+./data
+    Underlying data for the Solar System and Nearby Galaxies animations.  The Solar System 
+    animation uses a complex structure something like
+        {star:
+            stellarInfo
+            smallbodiesurl
+            planets: {
+                planet:
+                    planetaryInfo
+                    moons: {
+                        moon:
+                            moonInfo
+                        }
+                    }
+            missions: {
+                mission: {
+                    missionInfo
+                    [orbit info, ...]
+                }
+            }
+        }
+    The galaxies information is a simpler array of structures.
+
+./earth
+    This provides special code for the Earth animation, notably handling the NORAD
+    TLE's.
+
+./elems
+    The files here specify the interacting elements of the interface.  Key entries are:
+        Frame.js
+            The frame is the constant element in which the various animations run.  It provides
+            the overall management of the system, including managing the time, switch
+            between animations, and establishing the framework in which the animations run.
+
+        Animation.js
+            The base class for all animations which provides functionality like how to add
+            and delete components and such.
+
+        UserControls.js
+            Defines a React component which is superposed over the frame and which
+            provides various choices beyond those accommodated by the Three.js framework
+
+        TrajControl.js
+            The top level of the trajectory control.  This component in a variety of different
+            ways depending upon where we are relative to a user defined trajectory.
+        
+        RocketControl.js
+            When a trajectory is active, this allows the user to view and (sometimes) control
+            the trajectory.  
+    
+        TrajSequencer.js
+            This file contains the code that actually processes the commands that defines
+            the trajectory.  
+
+        There are many other classes here which mostly instantiate React components used in the
+        user interface that are rendered somewhere in the UserControls in specific
+        circumstances.
+
+./math
+    This directory has files that implement the actual mathmatical compuation of a trajectory.
+        Integrator.js
+            Sixth order Runga-Kutta integrator with error control.
+        Gravity.js
+            Gravitational force by central body
+        CompoundForce
+            Allow multiple forces to be acting on the body, presumably one or more
+            gravitational forces and a thrust.
+
+
+    
+./mypso
+    This directory contains files that implement a particle swarm optimization package
+ 
+./orbits
+    This directory contains a number of classes used in both the animation and the orbit calculator associated
+    with the calculation of orbits.
+    
+    Orbit.js
+        This class allows the user to either determine one characteristic of an orbit
+        given the known characteristics of the orbit or to note that the
+        desired information is not sufficient to determine the requested parameter.
+        E.g., we might have all of the six classical orbital elements and wish 
+        to determine the position,
+        but first we must also supply the time for which we want the position. 
+        About 20 different characteristics of the orbit can be either supplied or
+        queried.
+ 
+    QOrb.js
+        The quick orbit assumes that the orbit is fully determined, and provides
+        a quicker determination of the position and or velocity at some specified
+        time.  This is the orbit class that is normally used in the animation. We 
+        can get a QOrb from an Orbit if we have enough information.
+
+    Origins.js
+        This file specifies a myriad of ways that we can determine one orbital parameter
+        from one or more other parameters (and in a few cases from default values).
+
+    Kepler.js
+        This class solves Keplers equation relating the Eccentric and Mean anomalies.
+
+./parsers
+     ParseMPC.js allows us to parse the version of the MPC files that we have extracted
+     from the Minor Planets Center to give us the asteroids and comets shown in the
+     SolarSystem animation.
+
+./pso
+     Particle Swarm Optimization code taken from an extranl source.
+
+./solarsystem
+     Code for rendering the bodies in the solar system animation.
+
+./stars
+    Code for reading the star data used in the local galactic neighborhood animation.
+    GenFinder.js
+         A tool for finding objects in the animation or if necessary and desired by
+         searching Simbad.
+
+./std
+    A set of basic files used externsively.
+    Constants.js
+          Constant values (e.g., the length of a year, the 0 point of time, ...)
+     
+    Util.js
+           Commonly used functions.
+
+    Settings.js
+        Allow the user to control the initialization of the program
+        using CGI parameters.
+
+    Coords.js
+        Transformations among coordinate systems
+
+    SysInfo.js
+        Basic info on the current system (currently only are we running on a mobile device)
+
+./three
+    A set of updated three.js classes which override for some reason the 
+    underlying three.js functionality.  The code generally explains what
+    and why things were changed.
+
+./traj
+    A set of classes that support trajectory calculations.
+    
+    GenTraj.js
+       Generic trajectory calculation with lots of options.
+       Subsumes TransCalc, TransMid, Tranfer)
+
+    Hohmann.js
+        Hohmann transfer assuming circular coplanar orbits.
+
+    Traj.js
+        Calculate the prograde transfer between two points in space given
+        the duration of the transfer.  Note that there is always at least
+        one solution.  Transfers that take more than a full orbit are not
+        considered.
+
+
+./trajanim
+    Code implementing trajectory command programs
+
+    Command.js
+        The underlying structure of a command.
+
+    CommandParser
+        Parse the input program into a sequence of commands.
+
+    Sequence.js
+        The sequence of commands.  Notably this gives the actions
+        that are to be taken in a given interval.
+
+ ./trajanim/actions
+    The detailed actions that are executed when a specific
+    command is enacted.
+
+    Action.js
+        The root parent of all actions.
+
+    Acts.js
+        A hash of the action classes.
+
+    CameraAction
+        A child of Action but parent of the camera actions
+
+    MotionAction
+        A parent of many of the motion commands
+
+            
+./trajcalc
+    Files for displaying the trajectory calculator page.
+
+
+

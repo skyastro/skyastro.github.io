@@ -1,0 +1,9 @@
+2000-01-01 orbit Earth
+2000-02-01 thrust .0003
+2000-03-01 orbit
+2000-04-01 coast
+2000-05-01 orbit
+2000-06-01 impulse 400
+2000-07-01 jump Mars
+2000-08-01 jump Earth
+2001-01-01 loop 60d

@@ -1,0 +1,86 @@
+1977-07-01 norocket
+1977-07-01 echo Voyager 2 was launched August 20, 1977
+1977-08-01 center Earth
+1977-08-01 center Earth movant=camera zoffset=5
+1977-08-01 echo Voyager 1 was launched September 5, 1977
+1977-09-01 echo It would take a faster path and would reach Jupiter first.
+1977-10-01 echo Initially Voyager 2 led the race to Jupiter
+1977-10-01 pan 30d 0 0 5 movant=camera
+1977-11-17 echo As they crossed Mars orbit Voyager 1 is catching up
+1977-12-01 pan 30d voyager* 
+1978-01-11 echo Voyager 1 takes the lead as the spacecraft pass through the asteroid belt.
+1978-02-01 speed 2
+1978-03-01 pan 60d Jupiter
+1978-03-01 pan 60d Jupiter movant=camera zoffset=5
+1978-05-01 echo Pinning the animation on Jupiter
+1978-05-01 follow Jupiter
+1978-05-01 follow Jupiter movant=camera zoffset=5
+1979-03-14 echo Voyager 1 passes by Jupiter
+1979-07-18 echo Voyager 2 passes by Jupiter
+1979-09-01 echo Speeding up.  We'll be varying the clock rate to highlight the interesting stretches.
+# Stop following Jupiter and pan to Saturn
+1979-09-01 follow
+1979-09-01 follow movant=camera
+1979-09-01 speed 2
+1979-10-01 pan 60d Saturn
+1979-10-01 pan 60d Saturn movant=camera zoffset=5
+1979-12-01 follow Saturn
+1979-12-01 follow Saturn movant=camera zoffset=5
+1979-11-01 echo The Pioneer 11 mission had just finished its flyby of Saturn.
+1980-02-15 echo It launched four years before the Voyagers in 1973.
+1980-04-15 echo But took a slower path.
+1980-10-01 echo Voyager 1 flies by Saturn in a path that takes it close to Titan.
+1980-12-24 echo This kicks the satellite out of the ecliptic plane.
+1981-02-20 echo No more planets in its future.
+1981-07-15 echo Voyager 2 flies by Saturn.
+1981-09-15 echo It get a kick from Saturn that shoots is along Saturn's orbit with a velocity boost.
+1981-11-15 echo With the planets properly aligned, it will next encounter Uranus!
+# Finished with Saturn.  Now it's Uranus' turn.
+1982-01-01 follow
+1982-01-01 follow movant=camera
+1982-01-15 pan 1y Uranus
+1982-01-15 pan 1y Uranus movant=camera zoffset=6
+1982-03-01 speed 4
+1982-03-01 echo Speeding up to pass the 4 years between encounters.
+# Note that an interval of 1y is greater than 365 days, do add a day.
+1983-01-16 follow Uranus
+1983-01-16 follow Uranus movant=camera zoffset=6
+1985-11-01 echo Slow down for a bit to see the encounter!
+1985-11-01 speed -4
+1986-01-27 follow
+1986-01-27 follow movant=camera
+1986-01-28 echo Voyager 2 flies by Uranus -- the only mission that has visited it.
+1986-01-28 pan 120d Voyager*2*
+1986-01-28 pan 120d Voyager*2* movant=camera zoffset=9
+1986-04-01 speed 4
+1986-05-28 follow Voyager*2*
+1986-05-28 follow Voyager*2* movant=camera zoffset=9
+1989-05-01 speed -4
+1989-08-01 echo Voyager 2's final encounter: with Neptune, again the only mission ever sent to it.
+1990-06-01 echo Moving past Pluto's orbit!
+1990-09-01 speed 5
+1992-06-01 echo We move into the Kuiper belt
+1994-06-01 echo There are many objects yet to be discovered.
+1996-06-01 echo But they are very faint.
+1998-06-01 echo Their brightness at the Earth goes as the 4th power of the distance from the Sun.
+2000-01-01 echo Most are the typical size of comets, but a few may be comparable to Pluto.
+2009-01-01 follow 
+2009-01-01 follow movant=camera
+2009-01-01 echo Let's pan back to the Sun to get a sens of where we are.
+2014-01-01 pan 1y 0 0 0
+2009-01-01 pan 1y 0 0 0 movant=camera zoffset=50 
+2009-01-01 echo Now we'll pan back to Voyager 1's current position.
+2010-01-01 pan 1y Voyager*1*
+2010-01-01 pan 1y Voyager*1* zoffset=5 movant=camera
+2012-01-01 echo In June 2012 Voyager 1 enters interstellar space!
+2013-01-01 echo The solar wind no longer dominates the medium surrounding the spacecraft.
+2014-01-01 echo Shifting back to view the entire solar system
+2016-01-01 echo Now shifting back to Voyager 2
+2016-01-01 pan 1y 0 0 0
+2016-01-01 pan 1y 0 0 0 movant=camera zoffset=100 
+2017-01-01 pan 1y Voyager*2*
+2017-01-01 pan 1y Voyager*2* zoffset=9
+2018-01-01 echo In November 2018 Voyager 2 enters interstellar space.
+2018-06-01 echo Both satellites are still communicating with the Earth!
+2020-08-01 pan 2y 0 0 0
+2020-08-01 pan 2y 0 0 0 movant=camera zoffset=150 

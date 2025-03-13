@@ -12,13 +12,18 @@
             let elem2 = document.getElementById("ver");
             let smb = param.get("smbEpoch");
             let sat = param.get("satEpoch");
+            let star = param.get("starEpoch");
             if (sat == null || sat.length == 0) {
                 sat = "[Satellite data not loaded. Epoch unknown]";
                 sat = encodeURIComponent(sat);
             }
+            if (star == null || star.length == 0) {
+                star = "[Star data not loaded. Epoch of SIMBAD and NEXScI info unknown.]";
+                star = encodeURIComponent(star);
+            }
             if (smb) {
-                elem1.href += "?smbEpoch="+smb+"&satEpoch="+sat;                
-                elem2.href += "?smbEpoch="+smb+"&satEpoch="+sat;                
+                elem1.href += "?smbEpoch="+smb+"&satEpoch="+sat+"&starEpoch="+star;                
+                elem2.href += "?smbEpoch="+smb+"&satEpoch="+sat+"&starEpoch="+star;                
             }
         }
     </script>

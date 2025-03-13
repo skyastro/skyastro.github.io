@@ -61,7 +61,7 @@ character fields are for comets and prefix the name (e.g, 1P/Halley) and the lon
 The Jupiter Trojans and Hilda asteroids can be seen near Jupiter's orbit. (The Hilda's just inside the Trojan
 locations or opposite Jupiter).  The MBA (main belt asteroids) are the overwhelming majority of detected objects
 but only about 30,000 are shown here of the more than 1 million known.  The other categories generally reflect the
-orbit of the object. We chose to emphasize rarer categories, so the density of discovered objects in the main belt
+orbit of the object. We chose to emphasize rarer categories, so the density of discovered objects 
 is dramatically understated in the main belt.
 
 These categories were given essentially arbitrary but distinguishable colors as noted.  The brightness is adjusted based
@@ -71,12 +71,13 @@ upon the absolute brightness of the object according the MPC ephemerides.
 Comets:
 "A":              0xbfef45,  Used for a few (~10) objects in comet-like orbits which do not show cometary activity.
 "C":              0xf032e6,  Long term comets
+"D":              0xf032e6,  Lost comets are given a D prefix. A few redisovered comets retain that.
 "I":              0x9a6324,  Interstellar object (significantly hyperbolic orbit) (just two examples so far)
 "P":              0xe6194b,  Periodic comets
 
 Asteroids:
 "Amor":           0x1f8231,  NEO's non-Earth-orbit crossing, period > 1 year, perihelion < 1.3 au 
-"Apollo":         0xfabed4,  NEO's, with perhelion < 1.017 AU and, a>1 AU.
+"Apollo":         0xfabed4,  NEO's, with perihelion < 1.017 AU and, a>1 AU.
 "Aten":           0xdcbeff,  NEO's, Earth-orbit-corssing, a<1 AU, perihelion >0.983 AU
 "Atira":          0x469990,  Orbit always interior to Earth
 "Distant Object": 0x3cb44b,  As name implies (i.e., non comet with orbit beyond Jupiter)
@@ -124,7 +125,7 @@ bluer colors are used for later types.</p>
         cone which is typically about 1 million kilometers on a side and hundreds of
         millions of kilometers long -- a total volume of perhaps a sextillion cubic kilometers.
         That's many times the total volume of the Sun itself.
-        Since the typical asteroid is likely just a few cubic kilometers or less that leaves a lot of
+        Since even a large asteroid is likely just a few cubic kilometers or less that leaves a lot of
         empty space!
 </li>
 <li><strong>[Earth] What are the strings of green dots orbiting the Earth?</strong>  These are recently launched
@@ -135,8 +136,9 @@ bluer colors are used for later types.</p>
 <li> <strong>[Solar System/Planetary systems] Why is there a small gap in each orbit line?</strong>  This shows the position of perihelion in the orbit.  The gap is the last degree just before the perihelion passage.
 </li>
 <li> <strong>[Solar System] Why does Halley's comet seem to have an orbit in the main asteroid belt?</strong>
-"Halley" is also the name of an asteroid named after the eminent astronomer,  The famous comet is officially named "1P/Halley".
-In general comet names are prefixed by a string giving the number and type of the comet.  I.e., 1P/Halley was the first discovered [P]eriodic comet.
+"Halley" is also the name of an asteroid named after the eminent astronomer,  The comet's designation is "1P/Halley".
+In general comet names are prefixed by a string giving the number (order of discovery) and type of the comet.  I.e., 1P/Halley was the first recognized
+as an orbiting body, and it is [P]eriodic comet.
 When searching for objects you can include '*' as a wildcard, so *Halley* finds both the comet
 and asteroid.
 </li>
@@ -171,8 +173,9 @@ when a mouse-up event is seen there.  So just move the mouse out of the button w
     <p>
 Generally these animations try to comprehensively model the qualitative features of the
 orbits and bodies, but should definitely not be considered authoritative and the sizes of objects
-are often increased to make them visible.
-It is easy to use these data  well beyond the range in which an ephemeris is accurate.  Planetary and natural
+are usually increased to make them visible.
+It is easy to use these data  well beyond the range in which an ephemeris is accurate.
+Planetary and natural
 satellite orbits are taken from mean JPL ephemerides which model the evolution of these orbits
 but have nothing like the accuracy needed for actual navigation.  
 The star data is taken primarily from the Gaia DR3 catalog which
@@ -197,7 +200,7 @@ many bodies where it is clearly defined (e.g., the inner planets or the Galilean
 In the solar system animation, the radii of planets and the Sun are greatly exaggerated. The algorithm 
 shows the planetary radii in the correct order, i.e., Jupiter is biggest and Pluto smallest, 
 but the differences between planet sizes are much less
-than in realty.   The relative radii of the orbits of planets in the solar system simularion and moons in planetary simulations are correct.
+than in realty.   The relative radii of the orbits of planets in the solar system simulation and moons in planetary simulations are correct.
     <p>
 The radii of the moons have generally been exaggerated to make them visible.  Nearby moons are generally
 shown with a radius ~10-20% of the planetary radius but there will be some attempt to show larger moons
@@ -221,7 +224,7 @@ but lighting by the primary is not included.  Shadows are not currently modelled
     </p>
 <li><strong>[Earth/Planetary Systems]Why don't satellite's actual movements match the orbits drawn for them?</strong>
     Satellite orbits (both artificial and natural moons) cannot normally be modelled for any significant
-    length of time as a two-body orbit since they are subject to the influences of the non-spehrical
+    length of time as a two-body orbit since they are subject to the influences of the non-spherical
     central bodies and the gravity of the Sun.  To first order this causes the orbits to change/precess 
     in certain well-defined ways which the program does model.  However when we draw
     the orbit for a satellite, we draw the instantaneously correct elliptical orbit not including

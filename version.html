@@ -7,6 +7,7 @@
         <script src="js/DisplayParam.js"></script>
         <script>
             function updateInfo() {
+                DisplayParam("starEpoch", "starEpoch", "Star data not yet loaded");
                 DisplayParam("smbEpoch", "smbEpoch", "Unknown");
                 DisplayParam("satEpoch", "satEpoch", "NORAD info not yet loaded");
                 
@@ -15,16 +16,17 @@
     </head>
     <body onload="updateInfo()">
         <h3> Everything and In-Between: </h3>
-        Software Version 2.0.0 July 27, 2023<br/>
-        Small body data (MPC): <span id='smbEpoch'></span> <br/>
-        Satellite data (NORAD/Space-track): <span id='satEpoch'></span> <br/>
-        Planets and moons data: Mean orbits at start time of simulation using JPL fit<br/>
-        Star data: GAIA DR3 Nearby Star Catalog supplemented by SIMBAD query (January 2022) 
-        for stars within 100 pc to ensure inclusion of bright stars. When galaxy=small Extended Hipparcos Catalog 
-        queried at Vizier.<br/>
-        Extrasolar Planets: NEXScI data queried July 2023.<br/>
-        Nearby Galaxies: Karchentsev, et al. Nearby Galaxies Catalog and RC3, de Vaucouleurs (queried at HEASARC/Xamin)<br/>
-        Abell Clusters: Abell ZCAT catalog (queried at HEASARC/Xamin) <br/>        
+        <dl>
+            <dt>Software Version:</dt><dd> 3.0.0 March 10, 2025</dd>
+            <dt>Small body data (MPC):</dt><dd><span id='smbEpoch'></span> </dd>
+            <dt>Satellite data (NORAD/Space-track):</dt><dd> <span id='satEpoch'></span> </dd>
+            <dt>Planets and moons data: </dt><dd>Mean orbits at start time of simulation using JPL fit</dd>
+            <dt>Star data:</dt> <dd>GAIA DR3 Nearby Star Catalog 
+                                    supplemented by SIMBAD and NEXScI queries on <span id="starEpoch"></span> 
+                                    for stars within 100 pc to ensure inclusion of bright stars and planetary data. <br/>When galaxy=small using Hipparcos data.</dd>
+            <dt>Nearby Galaxies:</dt><dd> Karchentsev, et al. Nearby Galaxies Catalog and RC3, de Vaucouleurs (queried at HEASARC/Xamin)</dd>
+            <dt>Abell Clusters:</dt><dd> Abell ZCAT catalog (queried at HEASARC/Xamin) </dd>
+        </dl>
         <div></div>
     </body>
 </html>

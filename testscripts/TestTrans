@@ -1,0 +1,15 @@
+# Start in Earth orbit, thrust for 200 s and then compute an immediate (well 1 second later)
+# transfer to Mars.  Follow the trajectory with the camera.  At the end of the year we
+# pan back to the sun being at the center of the field of view.
+2000-01-01 Echo  This is an example program
++2d Orbit  Earth
+2000-01-04 pan 30d Earth 
+2000-02-04 follow MyRocket 
++20d       thrust 0.001
++200s      orbit
++1s        transfer Mars 200d
+2000.75    echo We should probably have gotten to Mars by now
+# Stop following the rocket.
+2000-11-04 follow
+2001       pan 30d Sun
+
