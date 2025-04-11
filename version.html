@@ -17,13 +17,16 @@
     <body onload="updateInfo()">
         <h3> Everything and In-Between: </h3>
         <dl>
-            <dt>Software Version:</dt><dd> 3.0.0 March 10, 2025</dd>
+            <dt>Software Version:</dt><dd> 3.0.1 April 11, 2025</dd>
             <dt>Small body data (MPC):</dt><dd><span id='smbEpoch'></span> </dd>
             <dt>Satellite data (NORAD/Space-track):</dt><dd> <span id='satEpoch'></span> </dd>
             <dt>Planets and moons data: </dt><dd>Mean orbits at start time of simulation using JPL fit</dd>
-            <dt>Star data:</dt> <dd>GAIA DR3 Nearby Star Catalog 
+            <dt>Star data (non-mobile or ?galaxy=large):</dt> <dd>GAIA DR3 Nearby Star Catalog 
                                     supplemented by SIMBAD and NEXScI queries on <span id="starEpoch"></span> 
-                                    for stars within 100 pc to ensure inclusion of bright stars and planetary data. <br/>When galaxy=small using Hipparcos data.</dd>
+                                    for stars within 100 pc to ensure inclusion of bright stars and planetary data. <br/>
+            <dt>Star data (mobile or ?galaxy=small):</dt> <dd>Hipparcos Star Catalog 
+                                    supplemented by SIMBAD and NEXScI queries in 2022 
+                                    for stars within 35 pc</dd>
             <dt>Nearby Galaxies:</dt><dd> Karchentsev, et al. Nearby Galaxies Catalog and RC3, de Vaucouleurs (queried at HEASARC/Xamin)</dd>
             <dt>Abell Clusters:</dt><dd> Abell ZCAT catalog (queried at HEASARC/Xamin) </dd>
         </dl>

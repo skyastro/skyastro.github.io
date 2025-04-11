@@ -222,6 +222,14 @@ but lighting by the primary is not included.  Shadows are not currently modelled
         (predominance of a central galaxy) with the richer clusters shown somewhat larger.  The complexity
         of cluster shapes is not addressed at all.
     </p>
+    <p> The orbits of the Trojan and Hilda asteroids are correct as of the epoch
+        of the ephemeris used, but within a few orbits, use of the osculating elements, which 
+        ignores the effects of Jupiter, will lead to these orbits being scattered randomly over
+        over longitudes rather than concentrated in the clumps.  A simple sinusoidal
+        adjustment to the angular velocities can be added to these (and is by default) which
+        keeps each asteroid in the proper clump, but otherwise is not physical.
+        Add notrojanfix=t to the URL to disable this correction.
+    </p>
 <li><strong>[Earth/Planetary Systems]Why don't satellite's actual movements match the orbits drawn for them?</strong>
     Satellite orbits (both artificial and natural moons) cannot normally be modelled for any significant
     length of time as a two-body orbit since they are subject to the influences of the non-spherical
