@@ -20,14 +20,22 @@
             the commands in the trajectory will be executed as the program reaches them.   When uploading
             a program into the program, a user may need to give permission for the program
             to read the cut/paste buffer.
+        </p><p>Alternatively a trajectory program can be loaded from a URL using the <code>script</code> keyword
+            in the startup URL.  If the script is not stored at the same site as the program, then there may be
+            cross-site scripting concerns.
+        </p><p>
+            The experimental Trajectory Calculator (available through the three-dot menu) is intended to
+            ultimately allow calculation of efficient trajectories using the complex trajectory events 
+            discussed below but is currently not operational.
         </p><p>
             To start a manual trajectory, instead of clicking the Copy Trajectory button, fill in the
             entry box after the Start button which and click the Start button.  A rocket will show up
             with the same orbit as the body whose name entered in the Start button.  Then use
             the orientation icon and thrust buttons to enter periods of thrust.
         <p>
-            The button pushes will be rendered as a set of THRUST and ORBIT commands.  Save this trajectory
-            using the save button as discussed below.
+            Each button push will be rendered as THRUST command, and an ORBIT command will be issued
+            when you release the button to end the thrust   You can save this trajectory
+            as discussed below.
         </p>
         <p>
             Manual thrusts can also be entered after completion of an uploaded program.  The Thrust button is
@@ -36,19 +44,19 @@
             thrust [By default the thrust is in the same direction as the velocity, but the user can
             specify an angle relative to that, notably including a thrust in the opposite direction.]  The thrust button
             will not execute a command when the velocity is below a minimum (typically 1 m/s) since the direction
-            of the thrust may be ill-defined.
+            of the velocity and thus the thrust may be ill-defined.
         </p>
         <h3> Downloading a trajectory program </h3>
         You can download a trajectory program (which can include manually entered and/or computed commands)
         by clicking on the Save Trajectory button.  This puts the trajectory into you Paste buffer and
-        you can then copy this into a file or text editor using the features of the operating system.
+        you can then copy this into a file or text editor using whatever program you are comfortable with.
    
         <h3>Overview </h3>
         <p>
             A trajectory program is a set of lines that are either comments, or sequential events within the
             program.   There are four kinds of events:  basic trajectory events,
             complex trajectory events, camera events, and miscellaneous events.  Changes to the
-            trajectory of the rocket are affected by the basic trajectory events.  Complex trajectory
+            trajectory of the rocket are effected by the basic trajectory events.  Complex trajectory
             events compute how a transfer can occur and insert a set of basic trajectory
             events to effect the transfer, camera events move the position of the camera
             or the point at which the camera is pointing.  Miscellaneous events change
@@ -78,12 +86,6 @@
             be successfully run backwards as well as forward.  When a
             program with generated events is saved, the generated events are shown
             as comments with a '#' preceding the event. 
-        </p>
-        <p>
-            Each event/command in the program is given on its own line.  An initial token
-            gives the time for the event, which can be relative to the previous event or absolute.
-            The second token gives the actual command.  Further tokens may give parameters to the
-            command.
         </p>
         <h3> General event syntax </h3>
         <p>
@@ -177,19 +179,42 @@
         </pre>
         <h3> Basic trajectory events </h3>
         <p>
-            There are six basic trajectory events: ORBIT, COAST, THRUST, ACCEL, IMPULSE and JUMP.
+            There are seven  basic trajectory events: REST, ORBIT, COAST, THRUST, ACCEL, IMPULSE and JUMP.
             All of these events can be used in any animation, but ORBIT and THRUST are intended
             for use in scales at the Solar System and below.  For the larger scale animations there
             is no central point body.  Conversely, using COAST and ACCEL within the Solar System is
             unphysical but again perfectly permissible.
        </p>
         <p>
-            An actual trajectory starts with an ORBIT or COAST command with parameters.  A user specifies the
-            start position and velocity or specifies an object whose position and velocity at the time
-            of the event will be used.  In an ORBIT the trajectory then follows the calculated orbit,
-            while in a COAST the velocity of the trajectory remains constant.  ORBITs and COASTs without any parameters can be included
+            An actual trajectory starts with a REST, ORBIT or COAST command with parameters.  A user specifies the
+            object (or DEFINEd orbit) whose position and velocity at the time
+            of the event will be used.  A REST command specifies that the rocket is resting at some
+            specified (by the keyword SITE) location on the surface of a body.  
+            
+       </p<p> After starting, in an ORBIT the trajectory then follows the calculated orbit,
+            while in a COAST the velocity of the trajectory remains constant.  If at REST,
+            the trajectory of the body is
+            a rotational epicycle around the orbit of the body.  
+            ORBITs and COASTs without any parameters can be included
             at any time in the trajectory (after the first ORBIT/COAST that had parameters).  These use the current
-            position/velocity of the trajectory as the initialization.
+            position/velocity of the trajectory as the initialization.  REST events may be inserted by the
+            program after complex trajectory events are completed, but normally would not
+            inserted by hand.  These indicate that the rocket has landed on some body.
+            If the trajectory does not currently seem to be close to the surface
+            of the body and warning may be given.
+        </p>
+        <p>
+            A special form of the orbit command <code> ORBIT N prime [prime2] ...</code> 
+            transforms the primary of a existing
+            orbit.  N gives the number of epicycles added.  If N is positive,  
+            then we are recharacterizing an orbit around a more distant body as an
+            orbit around a local body (e.g., an orbit around the sun becomes and orbit
+            around Mars as an interplanetary trajectory enters Mars orbit).  Negative
+            values indicate that we are leaving the influence of the body we
+            are currently orbiting.  E.g., <code>ORBIT -2 Jupiter Ganymede</code>
+            indicates that we are leaving Ganymede for a interplanetary trajectory.The
+            primaries are given in order of increasing locality.  Time reversal simply
+            inverts the effective value for N.
         </p>
         <p>
             THRUST and ACCEL are paired similarly to ORBIT and COAST.  Thrust applies an
@@ -197,7 +222,7 @@
             the gravity of the central body.  During an ACCEL no gravity is applied.
         <p>
             During a thrust event, the direction of the acceleration is usually given with reference
-            to the direction of the heliocentric velocity of the rocket.  If the speed drops below a limit
+            to the direction of the velocity of the rocket.  If the speed drops below a limit
             value the direction of the velocity and thus the thrust becomes undefined.
             The thrust will be terminated and the rocket placed in an orbit.  
             A generated ORBIT command will be inserted
@@ -221,9 +246,11 @@
 
         <h4> Syntax </h4>
         <pre>
-            ORBIT body
-            ORBIT x y z vx vy vz
+            REST  body [site=(lon,lat|name)]
+
+            ORBIT body          
             ORBIT
+            ORBIT N primary1 [primary2 ...]
 
             COAST body
             COAST body  vx vy vz
@@ -243,7 +270,8 @@
             JUMP  dx dy dz
         </pre>
         <dl>
-            <dt><code> body </code></dt><dd> is some body in the current animation </dd>
+            <dt><code> body </code></dt><dd> is some body in the current animation or the id of some orbit
+            given in a previous DEFINE command</dd>
             <dt><code> x y z </code></dt> <dd>is a position relative to the center of the current animation. </dd>
             <dt><code> vx vy vz </code></dt><dd> is a velocity in the frame of the current animation. </dd>
             <dt><code> a </code></dt><dd> is the magnitude of the desired acceleration.  When no additional
@@ -259,13 +287,10 @@
     <p>
         When a complex trajectory event is executed the program looks at the
         requested destination and parameters for the request and determines a
-        set of basic trajectory command to effect the transfer which are then inserted
+        set of impulses to effect the transfer which are then inserted
         in the program.
     </p>
-    <p>
-        Historically there have been several commands used, but we recommend
-        use of only two commands.
-    </p>
+
     <p>
         The TRANSFER command calculates the transfer from
         the current location to the requested destination in the requested time.
@@ -273,7 +298,7 @@
         time at which the transfer is to be completed is known, the position of
         the body at that time can be easily calculated.
         For any two points there is always one prograde and one retrograde orbit
-        that connect the two points in a given interval (not considering
+        connecting the two points in the given interval (not considering
         orbits that move more than one full revolution which may be possible if
         the requested interval is sufficiently large).
         The TRANSFER command
@@ -289,13 +314,40 @@
         and the end time (either explicitly or through the duration) must be given, but
         all other arguments are optional.
     </p>
+    <p>
+        The DEFINE command is used to define an orbit or rest that will be referenced in
+        a subsequent command (usually TRAJECTORY or TRANSFER). In the first form, which defines
+        a destination orbit, either the semimajor axis or the 
+        altitude may be given, but one is required.  The primary defaults to
+    "Earth" if not specified.  The other parameters, except for t0, default to 0.  If t0 is not specified,
+    then when optimizing a launch, the time of perihelion passage may be allowed to vary.
+    To create a trajectory to something other than a solar orbit, use a DEFINE command to specify
+    the desired orbit, then use the ID of the DEFINE command as the DEST argument of a 
+    TRAJECTORY command.</p>
+    <p>
+        The second form of the define specifies a REST to be used as a destination 
+        in some later command.  I.e., the trajectory ends with the rocket landing on some surface.
+        
+        
+        
+        
+        
+        
+    </p>    
+        
+        
     <h4> Syntax </h4>
 
     <pre>
         TRANSFER body duration
 
-        TRAJECTORY DEST=body TSTART=t0 TEND =t1 NMID=n STARTFIXED=xxx
+        TRAJECTORY DEST=body/orbit TSTART=t0 TEND =t1 NMID=n STARTFIXED=xxx
                ENDFIXED=xxx DURATION=dt DURATIONFIXED=xxx SRCVE=vs DSTVE=ve
+
+
+        DEFINE ID=name primary=prim a=semimajoraxis altitude=height 
+                  i=angle nu=angle omega=angle e=number id=name t0=time
+        DEFINE  ID=name primary=prim site=(lon,lat|name)
     </pre>
     <dl>
         <dt><code> body </code></dt> <dd> The destination body </dd>
@@ -307,7 +359,7 @@
     should occur. The start time may be inferred from the time of the command
     if not explicitly given.  Unless STARTFIXED and/or ENDFIXED are specified, these
     give limits to the time interval within which the transfer is to occur,
-    but the actual start and stop times may be within this limit.
+    but the actual start and stop times may be anytime within the limits.
     </dd>
     <dt><code> n </code></dt> <dd>The number of impulses in the trajectory excluding
     the impulses at the actual start and stop. </dd>
@@ -320,6 +372,19 @@
     The actual delta-V for the initial and final impulses is substantially
     reduced due to the Oberth effect so that most of the impulse will normally
     be done in start/finish impulses. </dd>
+    <dt><code>id</code></dt><dd>An id used to identify the defined orbit.  While
+        the defined orbit may be referenced multiple times in trajectory, the id
+        cannot be redefined in a later command.</dd>
+    <dt><code>prim</code><dd> The name of the primary in the orbit, Sun, Sol, the name of a planet or a moon.
+    </dd>
+    <dt><code>semimajoraxis</code></dt><dd>The semimajor axis of the orbit.  Defaults to meters, but units may be specified.</dd>
+    <dt><code>altitude</code></dt><dd>The height of the orbit above the surface of the primary.  Defaults to meters.</dd>
+    <dt><code>angle</code></dt><dd>One of the angles defining the orbit, in degrees.</dd>
+    <dt><code>t0</code></dt><dd>A time of periastron passage.</dd>
+    <dt><code>number</code></dt><dd>A non-negative number, usually less than 1.</dd>
+    <dt><code>name</code></dt><dd>An identifier for the orbit to be used in other commands.</dd>
+    <dt><code>lon,lat</code></dt><dd>The coordinates at which a REST is to occur</dd>
+    <dt><code>name</code></dt><dd>The name of a predefined set of coordinates, e.g., KSC</dd>
     </dl>
     <h3> Camera Events </h3>
     <p>
@@ -346,13 +411,16 @@
     <dl>
     <dt><code> body </code></dt> <dd>A body giving the location to be used or followed.
     The value "MyRocket" may be used to follow the trajectory itself.  Note that you cannot
-    normally PAN to the MyRocket, though you can CENTER on and FOLLOW it.</dd>
+    normally PAN to the MyRocket, though you can CENTER on and FOLLOW it.  We can easily calculate
+    where an planet or other orbiting body is going to be at some future time, but the only way
+    to get the motion of the rocket is to do the full integration to that time which is why
+    the pan is not currently supported.</dd>
     <dt><code> x y z </code></dt><dd> A location in the current animation coordinate system.</dd>
     <dt><code> duration </code></dt> <dd>The time period over which a pan should be completed.</dd>
     <dt><code> camera/target </code></dt><dd> Should the camera location or the target the camera is
     pointing to be modified? This defaults to the target. </dd>
     <dt><code> d </code></dt> <dd>When specifying a target we often wish to specify a location
-    'over' the target so that, e.g., we want to camera to be hover over the rockt.
+    'over' the target so that, e.g., we want to camera to be hover over the rocket.
     This argument allows us to specify in the animation units, the distance we hover over by.
     </dl>
 
@@ -360,27 +428,28 @@
 
     <p>
         Several miscellaneous commands are available.  The ECHO command echoes its
-        text argument to the animation.  The text will be displayed until another
-        ECHO is seen, or until some other action clears the display.
+        text argument to the animation in the region below the control elements.
+        The text will be displayed until another
+        ECHO is seen, or until some other action clears the display.  ECHO
+        without an argument can be used to clear the information displayed.
         The SPEED command changes the current rate of
         the animation.
     </p><p>
         The ANIMATION command allows us to switch animations.  The HIDE and SHOW
         commands hide or show elements of an animation.  The ANIMATION, HIDE and SHOW commands
-        must use the names of the animations, snf the names given to particular elements.  The
+        must use the names of the animations, and the names given to particular elements.  The
         names of the animations are case-insensitive, but the names of the elements are currently
         case-sensitive.
     </p>
-    <p> Animation names include <tt>Solar System</tt>,<tt>Clusters</tt>, <tt>Local Galaxy</tt>, 
-    <tt>Nearby Galaxies</tt>, the names of the nine planets, and the names of the large
-    moons which are shown are images in the planetary animations (our Moon, the Galilean moons, 
-    Titan and Charon).
+    <p> Animation names include <tt>Solar System</tt>, <tt>The Interstellar Void</tt>, <tt>Local Galaxy</tt>, <tt>The Milky Way</tt>, 
+    <tt>Nearby Galaxies</tt>, <tt>Clusters</tt>, the names of the nine planets, and the names of a numnber of large
+    (our Moon, the Galilean moons, Titan and Charon).
     </p>
-    <p> The HIDE and SHOW commands are most useful in the Solar System animation where you can use
-        <i>planet</i><tt>Orb</tt> or <i>planet</i><tt>Orbit</tt> to control the display of the planet itself, or its orbit,
+    <p> The HIDE and SHOW commands are most useful in the Solar System animation where you can 
+        use <i>planet</i><tt>Orb</tt> or <i>planet</i><tt>Orbit</tt> to control the display of the planet itself, or its orbit,
         the names of interplanetary missions, the <tt>Sun</tt>, and <tt>SmallBodies</tt> to add or remove
     the display or asteroids and comets.  In the Earth animation, <tt>satellites</tt> controls
-    the display of the satellites.  You can control individual moons in each of the planetary animations.
+    the display of the satellites.  You can control the display of individual moons in each of the planetary animations.
     using the name of the moon.
 </p>
 <p>  The names given in the HIDE and SHOW commands can include an asterisk, e.g., <tt>*Orbit</tt>  or <tt>Mars*</tt>.  In this case
@@ -390,15 +459,16 @@
 </p>
 <p>
     The NOROCKET command indicates that no rocket is to be used.  It suppresses
-    the features that would normally allow one to start a trajectory.
+    the manual trajectory interface.
 </p>
 <p>
     The SKIP and LOOP commands affect the time sequencing of the animation.
-    SKIP jumps ahead a specified amount of time.  There should be commands which
-    execute in that interval.  The LOOP command must be the last command of
-    the trajectory.  It jumps backwards in time to sometime before the first event
+    SKIP jumps ahead a specified amount of time, presumably skipping an uninteresting
+    interval.  There should be no commands
+    in this interval.  The LOOP command must be the last command of
+    the trajectory.  It jumps backwards in time to a time before the first event
     of the trajectory.  The allows us to automatically rewind and restart the
-    animation.
+    animation at the beginning of the trajectory program.  This is the only backward skip allowed.
 </p>
         
     <h4>Syntax</h4>
