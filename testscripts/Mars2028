@@ -1,0 +1,7 @@
+2030.0     definition  primary=Earth id=lowEarth omega=0 nu=0 i=0 altitude=4000000 t0=0 e=0
+2030.25    rest Earth site=ksc
+2030.5     trajectory dest=lowEarth within=.5d
+2030.5     definition primary=Mars id=lowMars omega=0 nu=0 i=0 altitude=400000 t0=0 e=0
+2030.6     trajectory dest=lowMars within=2y
+2030.7     definition id=marsSurface primary=Mars site=0,0
+2032.6     trajectory dest=marsSurface within=10d

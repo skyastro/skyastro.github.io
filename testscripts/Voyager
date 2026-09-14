@@ -67,11 +67,10 @@
 2009-01-01 follow 
 2009-01-01 follow movant=camera
 2009-01-01 echo Let's pan back to the Sun to get a sens of where we are.
-2014-01-01 pan 1y 0 0 0
 2009-01-01 pan 1y 0 0 0 movant=camera zoffset=50 
 2009-01-01 echo Now we'll pan back to Voyager 1's current position.
-2010-01-01 pan 1y Voyager*1*
-2010-01-01 pan 1y Voyager*1* zoffset=5 movant=camera
+2010-01-02 pan 1y Voyager*1*
+2010-01-02 pan 1y Voyager*1* zoffset=5 movant=camera
 2012-01-01 echo In June 2012 Voyager 1 enters interstellar space!
 2013-01-01 echo The solar wind no longer dominates the medium surrounding the spacecraft.
 2014-01-01 echo Shifting back to view the entire solar system
@@ -79,7 +78,7 @@
 2016-01-01 pan 1y 0 0 0
 2016-01-01 pan 1y 0 0 0 movant=camera zoffset=100 
 2017-01-01 pan 1y Voyager*2*
-2017-01-01 pan 1y Voyager*2* zoffset=9
+2017-01-01 pan 1y Voyager*2* zoffset=9 movant=camera
 2018-01-01 echo In November 2018 Voyager 2 enters interstellar space.
 2018-06-01 echo Both satellites are still communicating with the Earth!
 2020-08-01 pan 2y 0 0 0

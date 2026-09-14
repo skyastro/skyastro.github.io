@@ -1,0 +1,5 @@
+2030.5     orbit Earth site=ksc
+# Calculate an orbit from Earth to Mars
+2030.6  trajectory dest=Mars srcve=11200 destve=5000 within=1.6y
+
+

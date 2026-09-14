@@ -1,0 +1,3 @@
+2002-01-01 orbit earth
+2002-02-01 accelto dest=mars thrust=.001 withgrav=true
+#2002-02-01 accelto dest=mars dt=30000000 withgrav=true
